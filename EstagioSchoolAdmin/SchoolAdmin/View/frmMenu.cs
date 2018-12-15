@@ -35,5 +35,10 @@ namespace SchoolAdmin.View
                 e.Cancel = true;
             }
         }
+
+        private void btnFuncionarios_Click(object sender, EventArgs e)
+        {
+            new frmFuncionariosCadastrar().ShowDialog();
+        }
     }
 }

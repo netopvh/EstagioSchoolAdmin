@@ -63,6 +63,7 @@
             this.btnFuncionarios.Text = "Funcionários";
             this.btnFuncionarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFuncionarios.UseVisualStyleBackColor = false;
+            this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
             // 
             // pnlTop
             // 
