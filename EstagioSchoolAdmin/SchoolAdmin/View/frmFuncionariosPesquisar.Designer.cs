@@ -78,6 +78,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblNomeFuncionario);
             this.Name = "frmFuncionariosPesquisar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "School Admin - Pesquisar Funcionários";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).EndInit();
             this.ResumeLayout(false);
