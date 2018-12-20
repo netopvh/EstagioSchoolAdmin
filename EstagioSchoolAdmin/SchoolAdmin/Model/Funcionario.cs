@@ -6,48 +6,8 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.Model
 {
-    class Funcionario
+    class Funcionario : Pessoa
     {
-        private int id;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value > 0 ? value : 0; }
-        }
-
-        private string nome;
-
-        public string Nome
-        {
-            get { return nome; }
-            set { nome = value; }
-        }
-
-        private DateTime nascimento;
-
-        public DateTime Nascimento
-        {
-            get { return nascimento; }
-            set { nascimento = value; }
-        }
-
-        private char sexo;
-
-        public char Sexo
-        {
-            get { return sexo; }
-            set { sexo = value; }
-        }
-
-        private string rg;
-
-        public string RG
-        {
-            get { return rg; }
-            set { rg = value; }
-        }
-
         private string cpf;
 
         public string CPF
