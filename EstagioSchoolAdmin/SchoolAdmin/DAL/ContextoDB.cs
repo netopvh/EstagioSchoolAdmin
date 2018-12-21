@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolAdmin.DAL.Mapping;
+using SchoolAdmin.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -24,8 +26,15 @@ namespace SchoolAdmin.DAL
 
         }
 
+        public DbSet<CargoFuncionario> CargosMap { get; set; }
+        public DbSet<Pessoa> PessoaMap { get; set; }
+        public DbSet<Funcionario> FuncionariosMap { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new CargoFuncionarioMap());
+            modelBuilder.Configurations.Add(new PessoaMap());
+            modelBuilder.Configurations.Add(new FuncionarioMap());
         }
 
     }

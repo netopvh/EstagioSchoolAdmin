@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.Model
 {
-    class Funcionario : Pessoa
+    public class Funcionario : Pessoa
     {
         private string cpf;
 
@@ -64,13 +64,25 @@ namespace SchoolAdmin.Model
             set { demissao = value; }
         }
 
-        public Funcionario(int id, string nome, DateTime nascimento, char sexo, string rG, string cPF, string telefone, string telefone2, string email, decimal salario, DateTime admissao, DateTime demissao)
+        private int cargo_id;
+        public virtual CargoFuncionario Cargo { get; set; }
+
+        public int CargoId
         {
-            Id = id;
-            Nome = nome;
-            Nascimento = nascimento;
-            Sexo = sexo;
-            RG = rG;
+            get { return cargo_id; }
+            set { cargo_id = value > 0 ? value : 0; }
+        }
+
+        private string observacoes;
+
+        public string Observacoes
+        {
+            get { return observacoes; }
+            set { observacoes = value; }
+        }
+
+        public Funcionario(string cPF, string telefone, string telefone2, string email, decimal salario, DateTime admissao, DateTime demissao, CargoFuncionario cargo, int cargoId, string observacoes)
+        {
             CPF = cPF;
             Telefone = telefone;
             Telefone2 = telefone2;
@@ -78,6 +90,9 @@ namespace SchoolAdmin.Model
             Salario = salario;
             Admissao = admissao;
             Demissao = demissao;
+            Cargo = cargo;
+            CargoId = cargoId;
+            Observacoes = observacoes;
         }
 
         public Funcionario()

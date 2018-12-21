@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.Model
 {
-    internal class Pessoa
+    public class Pessoa
     {
         private int id;
 

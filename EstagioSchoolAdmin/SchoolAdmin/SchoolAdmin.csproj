@@ -72,6 +72,9 @@
   <ItemGroup>
     <Compile Include="Control\FuncionarioCtr.cs" />
     <Compile Include="DAL\ContextoDB.cs" />
+    <Compile Include="DAL\Mapping\CargoFuncionarioMap.cs" />
+    <Compile Include="DAL\Mapping\FuncionarioMap.cs" />
+    <Compile Include="DAL\Mapping\PessoaMap.cs" />
     <Compile Include="Model\CargoFuncionario.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\Pessoa.cs" />

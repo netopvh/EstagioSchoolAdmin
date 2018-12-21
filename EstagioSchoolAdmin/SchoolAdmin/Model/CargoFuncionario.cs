@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.Model
 {
-    class CargoFuncionario
+    public class CargoFuncionario
     {
         private int id;
 
@@ -22,6 +22,13 @@ namespace SchoolAdmin.Model
         {
             get { return cargo; }
             set { cargo = value; }
+        }
+
+        public virtual ICollection<Funcionario> Funcionarios { get; set; }
+
+        public CargoFuncionario()
+        {
+            Funcionarios = new HashSet<Funcionario>();
         }
 
     }
