@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\FuncionarioCtr.cs" />
+    <Compile Include="DAL\ContextoDB.cs" />
     <Compile Include="Model\CargoFuncionario.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\Pessoa.cs" />
@@ -130,5 +131,6 @@
   <ItemGroup>
     <None Include="Resources\funcionarios-icon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
