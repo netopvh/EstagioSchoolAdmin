@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\FuncionarioCtr.cs" />
     <Compile Include="Model\CargoFuncionario.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\Pessoa.cs" />
