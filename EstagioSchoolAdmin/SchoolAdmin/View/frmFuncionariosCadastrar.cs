@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SchoolAdmin.Control;
+using SchoolAdmin.Model;
+using SchoolAdmin.Util.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +15,15 @@ namespace SchoolAdmin.View
 {
     public partial class frmFuncionariosCadastrar : Form
     {
+        FuncionarioCtr controller;
+        Funcionario instancia; 
         string salario;
 
-        public frmFuncionariosCadastrar()
+        public frmFuncionariosCadastrar(FuncionarioCtr ctr)
         {
             InitializeComponent();
 
+            controller = ctr;
             CarregarComboboxs();
             InicializarControles();
         }
@@ -66,28 +72,118 @@ namespace SchoolAdmin.View
 
             btnNovo.Focus();
             btnExcluir.Enabled = false;
-            
+
+            instancia = controller.getInstance();
         }
 
         private void ValidarDados()
         {
-            string nome, rg, cpf, telefone, telefone2, email, salario, observacoes;
-            DateTime dataNascimento, dataAdmissao, dataDemissao;
-            char sexo, cargo;
+            bool erro = false;
+            string msgErro = "";
+            string titErro = "";
 
-            nome = txtNome.Text;
-            dataNascimento = dtpDataNascimento.Value;
-            sexo = (char)cbbSexo.SelectedValue;
-            rg = txtRG.Text;
-            cpf = txtCPF.Text;
-            telefone = txtTelefone1.Text;
-            telefone2 = txtTelefone2.Text;
-            email = txtEmail.Text;
-            cargo = (char)cbbCargo.SelectedValue;
-            salario = txtSalario.Text;
-            dataAdmissao = dtpAdmissao.Value;
-            dataDemissao = dtpDemissao.Value;
-            observacoes = txtObservacoes.Text;
+            //if (!StringValidator.Validar(txtNome.Text.Trim()))
+            //{
+            //    erro = true;
+            //    titErro = "Erro, nome do funcionário não informado!";
+            //    msgErro = "Informe o nome do funcionário para prosseguir com o cadastro.";
+            //    txtNome.Focus();
+            //}
+            //else if (dtpDataNascimento.Value.Date >= DateTime.Today)
+            //{
+            //    erro = true;
+            //    titErro = "Erro, data de nascimento inválida!";
+            //    msgErro = "Informe uma data de nascimento válida para prosseguir com o cadastro.";
+            //    dtpDataNascimento.Focus();
+            //}
+            //else if (cbbSexo.SelectedIndex == -1)
+            //{
+            //    erro = true;
+            //    titErro = "Erro, sexo não informado!";
+            //    msgErro = "Selecione o sexo do funcionário para prosseguir com o cadastro.";
+            //    cbbSexo.Focus();
+            //}
+            if (!RGValidator.Validar(txtRG.Text.Trim()))
+            {
+                erro = true;
+                titErro = "Erro, RG válido não informado!";
+                msgErro = "Informe um RG válido para prosseguir com o cadastro.";
+                txtRG.Focus();
+            }
+
+            if (erro)
+            {
+                MessageBox.Show(msgErro,
+                                titErro,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+
+            //string nome, rg, cpf, telefone, telefone2, email, salario, observacoes;
+            //DateTime dataNascimento, dataAdmissao, dataDemissao;
+            //char sexo, cargo;
+
+            //nome = txtNome.Text;
+
+            //dataNascimento = dtpDataNascimento.Value;
+            //rg = txtRG.Text;
+            //cpf = txtCPF.Text;
+            //telefone = txtTelefone1.Text;
+            //telefone2 = txtTelefone2.Text;
+            //email = txtEmail.Text;
+            //salario = txtSalario.Text;
+            //dataAdmissao = dtpAdmissao.Value;
+            //dataDemissao = dtpDemissao.Value;
+            //observacoes = txtObservacoes.Text;
+
+            //if (cbbSexo.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Selecione o sexo do funcionário para prosseguir com o cadastro.",
+            //                    "Erro, sexo não informado!",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Error);
+            //    cbbSexo.Focus();
+            //}
+            //else
+            //{
+            //    sexo = (char)cbbSexo.SelectedValue;
+            //}
+
+            //if (cbbCargo.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("Selecione o cargo exercido pelo funcionário para prosseguir com o cadastro.",
+            //                    "Erro, cargo não informado!",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Error);
+            //    cbbCargo.Focus();
+            //}
+            //else
+            //{
+            //    cargo = (char)cbbCargo.SelectedValue;
+            //}
+
+        }
+
+        public static bool Validar(string rg)
+        {
+            rg = rg.Replace(".", "").Replace("-", "").Replace(",", "").Replace(" ", "").Trim();
+            if (rg.Length != 9)
+                return false;
+
+            var digitos = rg.ToList().Select(c => Convert.ToInt32(char.GetNumericValue(c))).ToList();
+
+            // multiplicar os 8 primeiros dígitos por posição mais 2
+            int somatorio = 0;
+            for (int i = 0, mult = 2; i < 8; i++, mult++)
+            {
+                somatorio += digitos[i] * mult;
+            }
+
+            string digitoVerificador = Convert.ToString(somatorio % 11);
+
+            MessageBox.Show(""+digitoVerificador);
+
+            return false;
 
         }
 

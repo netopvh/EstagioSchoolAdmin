@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.Control
 {
-    class FuncionarioCtr
+    public class FuncionarioCtr
     {
+        public Funcionario getInstance()
+        {
+            return new Funcionario();
+        }
+
         public void Gravar(Funcionario fun)
         {
 

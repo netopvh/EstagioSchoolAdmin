@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolAdmin.Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +39,7 @@ namespace SchoolAdmin.View
 
         private void btnFuncionarios_Click(object sender, EventArgs e)
         {
-            new frmFuncionariosCadastrar().ShowDialog();
+            new frmFuncionariosCadastrar(new FuncionarioCtr()).ShowDialog();
         }
     }
 }
