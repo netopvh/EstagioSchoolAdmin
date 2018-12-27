@@ -8,14 +8,20 @@ namespace SchoolAdmin.Util.Validators
 {
     public class StringValidator
     {
-        public static bool Validar(string str)
+
+        public bool Validar(string str)
         {
-            return !(String.IsNullOrEmpty(str) || String.IsNullOrWhiteSpace(str));
+            if (String.IsNullOrEmpty(str))
+                return false;
+            if (String.IsNullOrWhiteSpace(str))
+                return false;
+
+            return true;
         }
 
-        public static bool Validar(string str, int tamanhoMaximo)
+        public bool Validar(string str, int tamanhoMaximo)
         {
-            return str.Length <= tamanhoMaximo;
+            return Validar(str) && str.Length <= tamanhoMaximo;
         }
     }
 }
