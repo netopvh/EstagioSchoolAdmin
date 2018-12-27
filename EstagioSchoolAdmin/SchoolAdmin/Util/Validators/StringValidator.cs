@@ -11,12 +11,7 @@ namespace SchoolAdmin.Util.Validators
 
         public bool Validar(string str)
         {
-            if (String.IsNullOrEmpty(str))
-                return false;
-            if (String.IsNullOrWhiteSpace(str))
-                return false;
-
-            return true;
+            return !String.IsNullOrEmpty(str) && !String.IsNullOrWhiteSpace(str);
         }
 
         public bool Validar(string str, int tamanhoMaximo)

@@ -45,7 +45,6 @@ namespace SchoolAdmin.Tests.validators
             Assert.IsFalse(sut.Validar(str));
         }
 
-
         [Test]
         public void DeveValidarUmaStringComTamanhoMaximo()
         {
