@@ -83,6 +83,7 @@
     <Compile Include="Util\Validators\CPFValidator.cs" />
     <Compile Include="Util\Validators\RGValidator.cs" />
     <Compile Include="Util\Validators\StringValidator.cs" />
+    <Compile Include="Util\Validators\TelefoneValidator.cs" />
     <Compile Include="View\frmFuncionariosCadastrar.cs">
       <SubType>Form</SubType>
     </Compile>
