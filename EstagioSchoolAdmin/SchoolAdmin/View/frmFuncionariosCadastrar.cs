@@ -76,40 +76,53 @@ namespace SchoolAdmin.View
             instancia = controller.getInstance();
         }
 
+
         private void ValidarDados()
         {
             bool erro = false;
             string msgErro = "";
             string titErro = "";
 
-            //if (!StringValidator.Validar(txtNome.Text.Trim()))
-            //{
-            //    erro = true;
-            //    titErro = "Erro, nome do funcionário não informado!";
-            //    msgErro = "Informe o nome do funcionário para prosseguir com o cadastro.";
-            //    txtNome.Focus();
-            //}
-            //else if (dtpDataNascimento.Value.Date >= DateTime.Today)
-            //{
-            //    erro = true;
-            //    titErro = "Erro, data de nascimento inválida!";
-            //    msgErro = "Informe uma data de nascimento válida para prosseguir com o cadastro.";
-            //    dtpDataNascimento.Focus();
-            //}
-            //else if (cbbSexo.SelectedIndex == -1)
-            //{
-            //    erro = true;
-            //    titErro = "Erro, sexo não informado!";
-            //    msgErro = "Selecione o sexo do funcionário para prosseguir com o cadastro.";
-            //    cbbSexo.Focus();
-            //}
-            if (!RGValidator.Validar(txtRG.Text.Trim()))
+            StringValidator STRvalidator = new StringValidator();
+            RGValidator RGvalidator = new RGValidator();
+            CPFValidator CPFvalidator = new CPFValidator();
+
+            if (!STRvalidator.Validar(txtNome.Text, 64))
             {
                 erro = true;
-                titErro = "Erro, RG válido não informado!";
+                titErro = "Erro, nome do funcionário não informado corretamente!";
+                msgErro = "Informe o nome do funcionário para prosseguir com o cadastro.";
+                txtNome.Focus();
+            }
+            else if (dtpDataNascimento.Value.Date >= DateTime.Today)
+            {
+                erro = true;
+                titErro = "Erro, data de nascimento inválida!";
+                msgErro = "Informe uma data de nascimento válida para prosseguir com o cadastro.";
+                dtpDataNascimento.Focus();
+            }
+            else if (cbbSexo.SelectedIndex == -1)
+            {
+                erro = true;
+                titErro = "Erro, sexo não informado!";
+                msgErro = "Selecione o sexo do funcionário para prosseguir com o cadastro.";
+                cbbSexo.Focus();
+            }
+            else if (!RGValidator.Validar(txtRG.Text.Trim()))
+            {
+                erro = true;
+                titErro = "Erro, RG inválido!";
                 msgErro = "Informe um RG válido para prosseguir com o cadastro.";
                 txtRG.Focus();
             }
+            else if (!CPFvalidator.Validar(txtCPF.Text))
+            {
+                erro = true;
+                titErro = "Erro, CPF inválido!";
+                msgErro = "Informe um CPF válido para prosseguir com o cadastro.";
+                txtRG.Focus();
+            }
+
 
             if (erro)
             {
@@ -164,28 +177,7 @@ namespace SchoolAdmin.View
 
         }
 
-        public static bool Validar(string rg)
-        {
-            rg = rg.Replace(".", "").Replace("-", "").Replace(",", "").Replace(" ", "").Trim();
-            if (rg.Length != 9)
-                return false;
 
-            var digitos = rg.ToList().Select(c => Convert.ToInt32(char.GetNumericValue(c))).ToList();
-
-            // multiplicar os 8 primeiros dígitos por posição mais 2
-            int somatorio = 0;
-            for (int i = 0, mult = 2; i < 8; i++, mult++)
-            {
-                somatorio += digitos[i] * mult;
-            }
-
-            string digitoVerificador = Convert.ToString(somatorio % 11);
-
-            MessageBox.Show(""+digitoVerificador);
-
-            return false;
-
-        }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
@@ -212,6 +204,7 @@ namespace SchoolAdmin.View
             Close();
         }
 
+        #region Máscara de dinheiro para txtSalario
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
@@ -275,5 +268,6 @@ namespace SchoolAdmin.View
             txtSalario.Text = string.Format("{0:C}", Convert.ToDouble(salario));
             txtSalario.Select(txtSalario.Text.Length, 0);
         }
+        #endregion
     }
 }
