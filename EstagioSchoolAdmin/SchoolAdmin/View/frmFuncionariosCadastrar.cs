@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace SchoolAdmin.View
 {
@@ -86,6 +87,8 @@ namespace SchoolAdmin.View
             StringValidator STRvalidator = new StringValidator();
             RGValidator RGvalidator = new RGValidator();
             CPFValidator CPFvalidator = new CPFValidator();
+            TelefoneValidator Telvalidator = new TelefoneValidator();
+            DinheiroValidator Dinvalidator = new DinheiroValidator();
 
             if (!STRvalidator.Validar(txtNome.Text, 64))
             {
@@ -120,9 +123,52 @@ namespace SchoolAdmin.View
                 erro = true;
                 titErro = "Erro, CPF inválido!";
                 msgErro = "Informe um CPF válido para prosseguir com o cadastro.";
-                txtRG.Focus();
+                txtCPF.Focus();
             }
-
+            else if (!Telvalidator.Validar(txtTelefone1.Text))
+            {
+                erro = true;
+                titErro = "Erro, Telefone (1) inválido!";
+                msgErro = "Informe um Telefone válido para prosseguir com o cadastro.";
+                txtTelefone1.Focus();
+            }
+            else if (txtTelefone2.Text.Replace("-", "").Replace(" ", "").
+                        Replace("(", "").Replace(")", "").Trim().Length > 0 
+                        && !Telvalidator.Validar(txtTelefone2.Text))
+            {   // Telefone 2 opcional, validar caso seja informado.
+                erro = true;
+                titErro = "Erro, Telefone (2) inválido!";
+                msgErro = "Informe um Telefone válido para prosseguir com o cadastro.";
+                txtTelefone2.Focus();
+            }
+            else if(txtEmail.Text.Length > 0 && !(new EmailAddressAttribute().IsValid(txtEmail.Text.Trim())))
+            {
+                erro = true;
+                titErro = "Erro, E-mail informado é inválido!";
+                msgErro = "Informe um E-mail válido para prosseguir com o cadastro.";
+                txtEmail.Focus();
+            }
+            else if (cbbCargo.SelectedIndex == -1)
+            {
+                erro = true;
+                titErro = "Erro, cargo não informado!";
+                msgErro = "Selecione o cargo do funcionário para prosseguir com o cadastro.";
+                cbbCargo.Focus();
+            }
+            else if(!Dinvalidator.Validar(txtSalario.Text))
+            {
+                erro = true;
+                titErro = "Erro, salário inválido!";
+                msgErro = "Informe um valor de salário válido para prosseguir com o cadastro.";
+                txtSalario.Focus();
+            }
+            else if (dtpAdmissao.Value.Date > DateTime.Today)
+            {
+                erro = true;
+                titErro = "Erro, data de admissão inválida!";
+                msgErro = "Informe uma data de admissão válida para prosseguir com o cadastro.";
+                dtpAdmissao.Focus();
+            }
 
             if (erro)
             {
@@ -131,49 +177,6 @@ namespace SchoolAdmin.View
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
-
-            //string nome, rg, cpf, telefone, telefone2, email, salario, observacoes;
-            //DateTime dataNascimento, dataAdmissao, dataDemissao;
-            //char sexo, cargo;
-
-            //nome = txtNome.Text;
-
-            //dataNascimento = dtpDataNascimento.Value;
-            //rg = txtRG.Text;
-            //cpf = txtCPF.Text;
-            //telefone = txtTelefone1.Text;
-            //telefone2 = txtTelefone2.Text;
-            //email = txtEmail.Text;
-            //salario = txtSalario.Text;
-            //dataAdmissao = dtpAdmissao.Value;
-            //dataDemissao = dtpDemissao.Value;
-            //observacoes = txtObservacoes.Text;
-
-            //if (cbbSexo.SelectedIndex == -1)
-            //{
-            //    MessageBox.Show("Selecione o sexo do funcionário para prosseguir com o cadastro.",
-            //                    "Erro, sexo não informado!",
-            //                    MessageBoxButtons.OK,
-            //                    MessageBoxIcon.Error);
-            //    cbbSexo.Focus();
-            //}
-            //else
-            //{
-            //    sexo = (char)cbbSexo.SelectedValue;
-            //}
-
-            //if (cbbCargo.SelectedIndex == -1)
-            //{
-            //    MessageBox.Show("Selecione o cargo exercido pelo funcionário para prosseguir com o cadastro.",
-            //                    "Erro, cargo não informado!",
-            //                    MessageBoxButtons.OK,
-            //                    MessageBoxIcon.Error);
-            //    cbbCargo.Focus();
-            //}
-            //else
-            //{
-            //    cargo = (char)cbbCargo.SelectedValue;
-            //}
 
         }
 

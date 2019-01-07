@@ -26,6 +26,8 @@ namespace SchoolAdmin.Tests.validators
             Assert.IsFalse(sut.Validar(telefone));
         }
 
+
+        // referência: "https://www.4devs.com.br/gerador_de_pessoas"
         [TestCase("(44) 2630-6732")]
         [TestCase("(44) 99703-4774")]
         public void DeveValidarTelefoneValido(String telefone)
