@@ -11,7 +11,7 @@ namespace SchoolAdmin.DAL
 {
     class ContextoDB : DbContext
     {
-        public ContextoDB() : base("name=escola")
+        public ContextoDB() : base("name=PgEscola")
         {
             try
             {
@@ -23,7 +23,6 @@ namespace SchoolAdmin.DAL
             {
                 throw;
             }
-
         }
 
         public DbSet<CargoFuncionario> CargosMap { get; set; }
@@ -32,9 +31,10 @@ namespace SchoolAdmin.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new CargoFuncionarioMap());
             modelBuilder.Configurations.Add(new PessoaMap());
             modelBuilder.Configurations.Add(new FuncionarioMap());
+
+            modelBuilder.Configurations.Add(new CargoFuncionarioMap());
         }
 
     }

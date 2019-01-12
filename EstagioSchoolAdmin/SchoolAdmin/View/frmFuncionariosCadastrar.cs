@@ -78,7 +78,7 @@ namespace SchoolAdmin.View
         }
 
 
-        private void ValidarDados()
+        private bool ValidarDados()
         {
             bool erro = false;
             string msgErro = "";
@@ -178,6 +178,7 @@ namespace SchoolAdmin.View
                                 MessageBoxIcon.Error);
             }
 
+            return !erro;
         }
 
 
@@ -189,7 +190,23 @@ namespace SchoolAdmin.View
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            ValidarDados();
+            if (ValidarDados())
+            {
+                instancia.Nome = txtNome.Text;
+                instancia.Sexo = cbbSexo.SelectedValue.ToString();
+                instancia.DataNascimento = dtpDataNascimento.Value;
+                instancia.Rg = txtRG.Text;
+
+                instancia.Cpf = txtCPF.Text;
+                instancia.Email = txtEmail.Text;
+                instancia.Salario = GetTxtSalarioValue();
+                instancia.Admissao = dtpAdmissao.Value;
+
+                instancia.CargoId = 0;
+
+                controller.Gravar(instancia);
+            }
+
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -208,6 +225,12 @@ namespace SchoolAdmin.View
         }
 
         #region Máscara de dinheiro para txtSalario
+        private Decimal GetTxtSalarioValue()
+        {
+            string strSalario = txtSalario.Text.Replace("R$", "").Replace(".", "").Replace(",", ".").Trim(); ;
+            return Decimal.Parse(strSalario);
+        }
+
         private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))

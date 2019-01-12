@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.DAL.Mapping
 {
-    public class FuncionarioMap : EntityTypeConfiguration<Funcionario>
+    class FuncionarioMap : EntityTypeConfiguration<Funcionario>
     {
         public FuncionarioMap()
         {
             ToTable("funcionarios", "public");
 
-            Property(x => x.CPF)
+            Property(x => x.Cpf)
                 .HasColumnName("fun_cpf")
                 .HasMaxLength(16).IsRequired();
 
@@ -26,7 +26,7 @@ namespace SchoolAdmin.DAL.Mapping
                 .HasColumnName("fun_admisssao")
                 .IsRequired();
 
-            Property(x => x.Demissao)
+            Property(x => x.Desligamento)
                 .HasColumnName("fun_desligamento");
 
             Property(x => x.Observacoes)

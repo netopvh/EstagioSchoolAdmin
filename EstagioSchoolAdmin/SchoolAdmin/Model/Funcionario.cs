@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SchoolAdmin.DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,93 +12,94 @@ namespace SchoolAdmin.Model
     {
         private string cpf;
 
-        public string CPF
+        public string Cpf
         {
             get { return cpf; }
-            set { cpf = value; }
+            set
+            {
+                cpf = value.Replace(".", "").Replace("-", "").Replace(",", "").Replace(" ", "").Trim(); ;
+            }
         }
 
-        private string telefone;
+        public string Email { get; set; }
 
-        public string Telefone
-        {
-            get { return telefone; }
-            set { telefone = value; }
-        }
+        public Decimal Salario { get; set; }
 
-        private string  telefone2;
+        public DateTime Admissao { get; set; }
+        public DateTime Desligamento { get; set; }
+        public string Observacoes { get; set; }
 
-        public string  Telefone2
-        {
-            get { return telefone2; }
-            set { telefone2 = value; }
-        }
-
-        private string email;
-
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
-
-        private Decimal salario;
-
-        public Decimal Salario
-        {
-            get { return salario; }
-            set { salario = value > 0 ? value : 0; }
-        }
-
-        private DateTime admissao;
-
-        public DateTime Admissao
-        {
-            get { return admissao; }
-            set { admissao = value; }
-        }
-
-        private DateTime demissao;
-
-        public DateTime Demissao
-        {
-            get { return demissao; }
-            set { demissao = value; }
-        }
-
-        private int cargo_id;
+        public int CargoId { get; set; }
         public virtual CargoFuncionario Cargo { get; set; }
 
-        public int CargoId
+        public Funcionario() { }
+
+        public List<Funcionario> RecuperarLista(string nome)
         {
-            get { return cargo_id; }
-            set { cargo_id = value > 0 ? value : 0; }
+            var ret = new List<Funcionario>();
+
+            using (var db = new ContextoDB())
+            {
+                ret = db.FuncionariosMap
+                            .Where(o => o.Nome.ToLower().Contains(nome.ToLower())).Include(o => o.Cargo).OrderBy(o => o.Id).ToList();
+            }
+
+            return ret;
         }
 
-        private string observacoes;
-
-        public string Observacoes
+        public Funcionario ConsultarPeloId(int id)
         {
-            get { return observacoes; }
-            set { observacoes = value; }
+            Funcionario ret = null;
+            using (var db = new ContextoDB())
+            {
+                ret = db.PessoaMap.Find(id) as Funcionario;
+            }
+            return ret;
         }
 
-        public Funcionario(string cPF, string telefone, string telefone2, string email, decimal salario, DateTime admissao, DateTime demissao, CargoFuncionario cargo, int cargoId, string observacoes)
+        public bool Salvar()
         {
-            CPF = cPF;
-            Telefone = telefone;
-            Telefone2 = telefone2;
-            Email = email;
-            Salario = salario;
-            Admissao = admissao;
-            Demissao = demissao;
-            Cargo = cargo;
-            CargoId = cargoId;
-            Observacoes = observacoes;
+            var ret = 0;
+            var model = ConsultarPeloId(this.Id);
+
+            using (var db = new ContextoDB())
+            {
+                //if (this.CargoId != null)
+                //{
+                //    this.CargoId = this.Cargo.Id;
+                //    this.Cargo = null;
+                //}
+                if (model == null)
+                {
+                    db.PessoaMap.Add(this);
+                }
+                else
+                {
+                    db.PessoaMap.Attach(this);
+                    db.Entry(this).State = EntityState.Modified;
+                }
+                db.SaveChanges();
+                ret = this.Id;
+            }
+            return !(ret == 0);
         }
 
-        public Funcionario()
+        public bool Excluir(int id)
         {
+            var ret = false;
+            Funcionario obj = ConsultarPeloId(id);
+
+            if (obj != null)
+            {
+                using (var db = new ContextoDB())
+                {
+                    db.PessoaMap.Attach(obj);
+                    db.Entry(obj).State = EntityState.Deleted;
+                    db.SaveChanges();
+                    ret = true;
+                }
+            }
+            return ret;
         }
     }
 }

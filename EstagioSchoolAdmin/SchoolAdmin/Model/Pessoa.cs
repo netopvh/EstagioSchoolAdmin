@@ -8,52 +8,39 @@ namespace SchoolAdmin.Model
 {
     public class Pessoa
     {
-        private int id;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value > 0 ? value : 0; }
-        }
+        public int Id { get; set; }
 
         private string nome;
 
         public string Nome
         {
             get { return nome; }
-            set { nome = value; }
+            set { nome = value.Trim(); }
         }
 
-        private DateTime nascimento;
+        private string sexo;
 
-        public DateTime Nascimento
-        {
-            get { return nascimento; }
-            set { nascimento = value; }
-        }
-
-        private char sexo;
-
-        public char Sexo
+        public string Sexo
         {
             get { return sexo; }
-            set { sexo = value; }
+            set { sexo = value.ToLower(); }
         }
+
+        public DateTime DataNascimento { get; set; }
 
         private string rg;
 
-        public string RG
+        public string Rg
         {
             get { return rg; }
-            set { rg = value; }
+            set
+            {
+                rg = value.Replace(".", "").Replace("-", "").Replace(",", "").Replace(" ", "").Trim();
+            }
         }
 
-        private bool ativo;
+        public bool Ativo { get; set; }
 
-        public bool Ativo
-        {
-            get { return ativo; }
-            set { ativo = value; }
-        }
+        public Pessoa() { }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.DAL.Mapping
 {
-    public class CargoFuncionarioMap : EntityTypeConfiguration<CargoFuncionario>
+    class CargoFuncionarioMap : EntityTypeConfiguration<CargoFuncionario>
     {
         public CargoFuncionarioMap()
         {

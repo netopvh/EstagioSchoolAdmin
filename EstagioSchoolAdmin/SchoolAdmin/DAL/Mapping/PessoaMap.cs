@@ -27,14 +27,15 @@ namespace SchoolAdmin.DAL.Mapping
                 .IsRequired();
 
             Property(x => x.Sexo)
-              .HasColumnName("pes_sexo")
-              .IsRequired();
+               .HasColumnName("pes_sexo")
+               .HasMaxLength(1)
+               .IsRequired();
 
-            Property(x => x.Nascimento)
+            Property(x => x.DataNascimento)
                .HasColumnName("pes_datanascimento")
                .IsRequired();
 
-            Property(x => x.RG)
+            Property(x => x.Rg)
                .HasColumnName("pes_rg")
                .HasMaxLength(64)
                .IsRequired();

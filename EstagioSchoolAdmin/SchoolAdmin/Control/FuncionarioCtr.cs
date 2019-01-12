@@ -16,7 +16,7 @@ namespace SchoolAdmin.Control
 
         public void Gravar(Funcionario fun)
         {
-
+            fun.Salvar();
         }
 
         public void Pesquisar(string fun_nome)
