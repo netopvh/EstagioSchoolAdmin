@@ -208,7 +208,7 @@ namespace SchoolAdmin.View
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            new frmFuncionariosPesquisar().ShowDialog();
+            new frmFuncionariosPesquisar(controller).ShowDialog();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolAdmin.Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,33 @@ namespace SchoolAdmin.View
 {
     public partial class frmFuncionariosPesquisar : Form
     {
-        public frmFuncionariosPesquisar()
+        FuncionarioCtr controller;
+
+        public frmFuncionariosPesquisar(FuncionarioCtr ctr)
         {
             InitializeComponent();
+            controller = ctr;
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            DataTable dt = controller.Pesquisar(txtNome.Text.Trim());
+            if (dt.Rows.Count > 0)
+            {
+                atualizarGridView(dt);
+            }
+            else
+            {
+                MessageBox.Show("Não foi encontrado nenhum funcionário como resultado",
+                    "School - Nenhum Resultado Encontrado.",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void atualizarGridView(DataTable dt)
+        {
+            dgvFuncionarios.DataSource = dt;
+            dgvFuncionarios.Refresh();
         }
     }
 }
