@@ -64,11 +64,12 @@ namespace SchoolAdmin.Model
 
             using (var db = new ContextoDB())
             {
-                //if (this.CargoId != null)
-                //{
-                //    this.CargoId = this.Cargo.Id;
-                //    this.Cargo = null;
-                //}
+                if (this.Cargo != null)
+                {
+                    this.CargoId = this.Cargo.Id;
+                    this.Cargo = null;
+                }
+
                 if (model == null)
                 {
                     db.PessoaMap.Add(this);

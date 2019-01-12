@@ -199,7 +199,7 @@ namespace SchoolAdmin.View
                 instancia.Salario = GetTxtSalarioValue();
                 instancia.Admissao = dtpAdmissao.Value;
 
-                instancia.CargoId = 0;
+                instancia.Cargo = (CargoFuncionario)cbbCargo.SelectedItem;
 
                 controller.Gravar(instancia);
             }
