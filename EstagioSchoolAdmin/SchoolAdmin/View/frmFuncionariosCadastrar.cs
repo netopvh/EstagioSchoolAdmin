@@ -34,18 +34,15 @@ namespace SchoolAdmin.View
             Dictionary<string, char> dict = new Dictionary<string, char>();
             dict.Add("MASCULINO", 'M');
             dict.Add("FEMININO", 'F');
+
             cbbSexo.DisplayMember = "Key";
             cbbSexo.ValueMember = "Value";
-
             cbbSexo.DataSource = dict.ToList();
 
-            Dictionary<string, char> dict2 = new Dictionary<string, char>();
-            dict2.Add("PROFESSOR", 'P');
-            dict2.Add("AUXILIAR", 'A');
-            cbbCargo.DisplayMember = "Key";
-            cbbCargo.ValueMember = "Value";
-
-            cbbCargo.DataSource = dict2.ToList();
+            cbbCargo.ValueMember = "Id";
+            cbbCargo.DisplayMember = "Cargo";
+            cbbCargo.DataSource = controller.GetListaCargos();
+            cbbCargo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void InicializarControles()

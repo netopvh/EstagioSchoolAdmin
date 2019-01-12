@@ -29,5 +29,10 @@ namespace SchoolAdmin.Control
 
         }
 
+        public List<CargoFuncionario> GetListaCargos()
+        {
+            return new CargoFuncionario().RecuperarLista();
+        }
+
     }
 }
