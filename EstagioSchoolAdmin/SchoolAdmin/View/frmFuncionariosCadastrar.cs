@@ -198,6 +198,7 @@ namespace SchoolAdmin.View
                 instancia.Email = txtEmail.Text;
                 instancia.Salario = GetTxtSalarioValue();
                 instancia.Admissao = dtpAdmissao.Value;
+                instancia.Observacoes = txtObservacoes.Text.Trim();
 
                 instancia.Cargo = (CargoFuncionario)cbbCargo.SelectedItem;
 
