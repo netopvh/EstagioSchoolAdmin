@@ -10,7 +10,7 @@ namespace SchoolAdmin.Util.Validators
     {
         public bool Validar(string valor)
         {
-            valor = valor.Replace("R$", "").Replace(".", "").Replace(",",".").Trim();
+            valor = valor.Replace("R$", "").Trim();
 
             try
             {

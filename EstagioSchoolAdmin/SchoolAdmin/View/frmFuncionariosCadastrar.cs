@@ -203,7 +203,6 @@ namespace SchoolAdmin.View
 
                 controller.Gravar(instancia);
             }
-
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -224,7 +223,7 @@ namespace SchoolAdmin.View
         #region Máscara de dinheiro para txtSalario
         private Decimal GetTxtSalarioValue()
         {
-            string strSalario = txtSalario.Text.Replace("R$", "").Replace(".", "").Replace(",", ".").Trim(); ;
+            string strSalario = txtSalario.Text.Replace("R$", "").Trim();
             return Decimal.Parse(strSalario);
         }
 
