@@ -189,6 +189,8 @@ namespace SchoolAdmin.View
             txtSalario.Text = instancia.Salario.ToString();
             dtpAdmissao.Value = instancia.Admissao;
 
+            txtSalario.Focus();
+            txtNome.Focus();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
