@@ -40,6 +40,11 @@ namespace SchoolAdmin.Control
             return resultadoBusca;
         }
 
+        public Funcionario GetFuncionarioById(int id)
+        {
+            return new Funcionario().ConsultarPeloId(id);
+        }
+
         public void Excluir(int fun_id)
         {
 

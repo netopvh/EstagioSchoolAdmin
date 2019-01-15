@@ -213,7 +213,8 @@ namespace SchoolAdmin.View
                 formPesquisar.ShowDialog();
                 if(formPesquisar.confirmacao == DialogResult.OK)
                 {
-                    MessageBox.Show(""+formPesquisar.id_selecionado);
+                    instancia = controller.GetFuncionarioById(formPesquisar.id_selecionado);
+
                 }
                 else
                 {
