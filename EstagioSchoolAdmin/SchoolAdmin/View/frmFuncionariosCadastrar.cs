@@ -74,7 +74,6 @@ namespace SchoolAdmin.View
             instancia = controller.getInstance();
         }
 
-
         private bool ValidarDados()
         {
             bool erro = false;
@@ -178,7 +177,18 @@ namespace SchoolAdmin.View
             return !erro;
         }
 
+        private void CarregarDados()
+        {
+            txtNome.Text = instancia.Nome;
+            dtpDataNascimento.Value = instancia.DataNascimento;
+            cbbSexo.SelectedIndex = instancia.Sexo.Equals("m") ? 0 : 1;
+            txtRG.Text = instancia.Rg;
+            txtCPF.Text = instancia.Cpf;
+            txtEmail.Text = instancia.Email;
+            txtSalario.Text = instancia.Salario.ToString();
+            dtpAdmissao.Value = instancia.Admissao;
 
+        }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
@@ -214,11 +224,16 @@ namespace SchoolAdmin.View
                 if(formPesquisar.confirmacao == DialogResult.OK)
                 {
                     instancia = controller.GetFuncionarioById(formPesquisar.id_selecionado);
-
+                    CarregarDados();
                 }
                 else
                 {
-                    MessageBox.Show("Nenhum funcionário foi selecionado!");
+                    MessageBox.Show(
+                        "Atenção, nenhum funcionário foi selecionado para alteração de dados.",
+                        "Nenhum Funcionário Selecionado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
                 }
             }
         }
