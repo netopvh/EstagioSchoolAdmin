@@ -78,6 +78,7 @@
             this.dgvFuncionarios.ReadOnly = true;
             this.dgvFuncionarios.Size = new System.Drawing.Size(674, 289);
             this.dgvFuncionarios.TabIndex = 3;
+            this.dgvFuncionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionarios_CellDoubleClick);
             // 
             // Nome
             // 

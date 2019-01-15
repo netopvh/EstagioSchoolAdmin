@@ -41,5 +41,29 @@ namespace SchoolAdmin.View
             dgvFuncionarios.DataSource = dt;
             dgvFuncionarios.Refresh();
         }
+
+        private void dgvFuncionarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string funcionarioSelecionado = dgvFuncionarios.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+            String mensagem = String
+                                .Format("O funcionário {0} foi selecionado.Deseja confirmar a seleção? ", 
+                                funcionarioSelecionado);
+            string titulo = "Confirmar seleção";
+
+            var confirmacao = MessageBox.Show(
+                mensagem, 
+                titulo,
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question, 
+                MessageBoxDefaultButton.Button1
+             );
+
+            if (confirmacao == DialogResult.OK)
+            {
+                var idSelecionado = dgvFuncionarios.Rows[e.RowIndex].Cells[0].Value.ToString();
+                this.Close();
+            }
+        }
     }
 }
