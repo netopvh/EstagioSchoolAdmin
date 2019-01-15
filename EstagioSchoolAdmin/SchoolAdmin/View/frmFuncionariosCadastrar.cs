@@ -188,6 +188,7 @@ namespace SchoolAdmin.View
             cbbCargo.SelectedItem = instancia.Cargo;
             txtSalario.Text = instancia.Salario.ToString();
             dtpAdmissao.Value = instancia.Admissao;
+            txtObservacoes.Text = instancia.Observacoes;
 
             txtSalario.Focus();
             txtNome.Focus();
@@ -322,5 +323,17 @@ namespace SchoolAdmin.View
             txtSalario.Select(txtSalario.Text.Length, 0);
         }
         #endregion
+
+        private void chkDemissao_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkDemissao.Checked)
+            {
+                dtpDemissao.Enabled = true;
+            }
+            else
+            {
+                dtpDemissao.Enabled = false;
+            }
+        }
     }
 }

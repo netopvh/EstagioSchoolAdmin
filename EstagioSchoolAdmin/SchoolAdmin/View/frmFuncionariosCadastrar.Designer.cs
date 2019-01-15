@@ -36,6 +36,7 @@
             this.btnGravar = new System.Windows.Forms.Button();
             this.gpbFormulario = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkDemissao = new System.Windows.Forms.CheckBox();
             this.lblDemissao = new System.Windows.Forms.Label();
             this.lblAdmissao = new System.Windows.Forms.Label();
             this.dtpDemissao = new System.Windows.Forms.DateTimePicker();
@@ -151,6 +152,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkDemissao);
             this.groupBox1.Controls.Add(this.lblDemissao);
             this.groupBox1.Controls.Add(this.lblAdmissao);
             this.groupBox1.Controls.Add(this.dtpDemissao);
@@ -161,15 +163,26 @@
             this.groupBox1.Controls.Add(this.cbbCargo);
             this.groupBox1.Location = new System.Drawing.Point(8, 220);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(746, 67);
+            this.groupBox1.Size = new System.Drawing.Size(746, 77);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do Contrato";
             // 
+            // chkDemissao
+            // 
+            this.chkDemissao.AutoSize = true;
+            this.chkDemissao.Location = new System.Drawing.Point(500, 33);
+            this.chkDemissao.Name = "chkDemissao";
+            this.chkDemissao.Size = new System.Drawing.Size(117, 17);
+            this.chkDemissao.TabIndex = 2;
+            this.chkDemissao.Text = "Registrar Demissão";
+            this.chkDemissao.UseVisualStyleBackColor = true;
+            this.chkDemissao.CheckedChanged += new System.EventHandler(this.chkDemissao_CheckedChanged);
+            // 
             // lblDemissao
             // 
             this.lblDemissao.AutoSize = true;
-            this.lblDemissao.Location = new System.Drawing.Point(593, 17);
+            this.lblDemissao.Location = new System.Drawing.Point(621, 16);
             this.lblDemissao.Name = "lblDemissao";
             this.lblDemissao.Size = new System.Drawing.Size(59, 13);
             this.lblDemissao.TabIndex = 9;
@@ -178,7 +191,7 @@
             // lblAdmissao
             // 
             this.lblAdmissao.AutoSize = true;
-            this.lblAdmissao.Location = new System.Drawing.Point(405, 16);
+            this.lblAdmissao.Location = new System.Drawing.Point(362, 16);
             this.lblAdmissao.Name = "lblAdmissao";
             this.lblAdmissao.Size = new System.Drawing.Size(65, 13);
             this.lblAdmissao.TabIndex = 8;
@@ -187,7 +200,7 @@
             // dtpDemissao
             // 
             this.dtpDemissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDemissao.Location = new System.Drawing.Point(594, 33);
+            this.dtpDemissao.Location = new System.Drawing.Point(622, 32);
             this.dtpDemissao.Name = "dtpDemissao";
             this.dtpDemissao.Size = new System.Drawing.Size(100, 20);
             this.dtpDemissao.TabIndex = 12;
@@ -195,7 +208,7 @@
             // dtpAdmissao
             // 
             this.dtpAdmissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAdmissao.Location = new System.Drawing.Point(407, 32);
+            this.dtpAdmissao.Location = new System.Drawing.Point(364, 32);
             this.dtpAdmissao.Name = "dtpAdmissao";
             this.dtpAdmissao.Size = new System.Drawing.Size(100, 20);
             this.dtpAdmissao.TabIndex = 11;
@@ -265,7 +278,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(407, 35);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(300, 20);
+            this.txtEmail.Size = new System.Drawing.Size(315, 20);
             this.txtEmail.TabIndex = 8;
             // 
             // lblTelefone2
@@ -434,6 +447,7 @@
             // txtObservacoes
             // 
             this.txtObservacoes.Location = new System.Drawing.Point(16, 334);
+            this.txtObservacoes.MaxLength = 256;
             this.txtObservacoes.Multiline = true;
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.Size = new System.Drawing.Size(724, 126);
@@ -502,5 +516,6 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.CheckBox chkDemissao;
     }
 }
