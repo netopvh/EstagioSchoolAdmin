@@ -50,7 +50,7 @@ namespace SchoolAdmin.View
             string funcionarioSelecionado = dgvFuncionarios.Rows[e.RowIndex].Cells[1].Value.ToString();
 
             String mensagem = String
-                                .Format("O funcionário {0} foi selecionado.Deseja confirmar a seleção? ", 
+                                .Format("O funcionário '{0}' foi selecionado.Deseja confirmar a seleção? ", 
                                 funcionarioSelecionado);
             string titulo = "Confirmar seleção";
 

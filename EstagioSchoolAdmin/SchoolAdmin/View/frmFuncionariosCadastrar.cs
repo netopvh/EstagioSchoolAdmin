@@ -60,6 +60,7 @@ namespace SchoolAdmin.View
             txtSalario.Clear();
             dtpAdmissao.Value = DateTime.Now;
             dtpDemissao.Value = DateTime.Now;
+            chkDemissao.Enabled = false;
             dtpDemissao.Enabled = false;
             txtObservacoes.Clear();
 
@@ -165,6 +166,19 @@ namespace SchoolAdmin.View
                 msgErro = "Informe uma data de admissão válida para prosseguir com o cadastro.";
                 dtpAdmissao.Focus();
             }
+            
+            // Validação de dados para funcionários já cadastrados.
+            if (instancia.Id != 0)
+            {
+                if(chkDemissao.Checked && dtpDemissao.Value.Date > DateTime.Today)
+                {
+                    erro = true;
+                    titErro = "Erro, data de demissão inválida!";
+                    msgErro = "Informe uma data de demissão válida para prosseguir com o cadastro.";
+                    dtpDemissao.Focus();
+                }
+            }
+            
 
             if (erro)
             {
@@ -189,6 +203,15 @@ namespace SchoolAdmin.View
             txtSalario.Text = instancia.Salario.ToString();
             dtpAdmissao.Value = instancia.Admissao;
             txtObservacoes.Text = instancia.Observacoes;
+            chkDemissao.Enabled = true;
+
+            // Funcionário com demissão registrada.
+            if(!instancia.Desligamento.Equals(new DateTime()))
+            {
+                chkDemissao.Checked = true;
+                dtpDemissao.Value = instancia.Desligamento;
+                dtpDemissao.Enabled = true;
+            }
 
             txtSalario.Focus();
             txtNome.Focus();
@@ -215,6 +238,11 @@ namespace SchoolAdmin.View
                 instancia.Observacoes = txtObservacoes.Text.Trim();
 
                 instancia.Cargo = (CargoFuncionario)cbbCargo.SelectedItem;
+
+                if (instancia.Id != 0 && chkDemissao.Checked)
+                {
+                    instancia.Desligamento = dtpDemissao.Value;
+                }
 
                 controller.Gravar(instancia);
             }

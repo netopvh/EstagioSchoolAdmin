@@ -12,7 +12,10 @@ namespace SchoolAdmin.Control
     {
         public Funcionario getInstance()
         {
-            return new Funcionario();
+            var novo = new Funcionario();
+            novo.Id = 0;
+
+            return novo;
         }
 
         public void Gravar(Funcionario fun)
