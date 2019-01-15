@@ -185,6 +185,7 @@ namespace SchoolAdmin.View
             txtRG.Text = instancia.Rg;
             txtCPF.Text = instancia.Cpf;
             txtEmail.Text = instancia.Email;
+            cbbCargo.SelectedItem = instancia.Cargo;
             txtSalario.Text = instancia.Salario.ToString();
             dtpAdmissao.Value = instancia.Admissao;
 

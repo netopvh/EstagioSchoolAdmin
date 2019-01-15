@@ -19,8 +19,6 @@ namespace SchoolAdmin.Model
 
         public virtual ICollection<Funcionario> Funcionarios { get; set; }
 
-
-
         public List<CargoFuncionario> RecuperarLista()
         {
             var ret = new List<CargoFuncionario>();
@@ -32,5 +30,28 @@ namespace SchoolAdmin.Model
 
             return ret;
         }
+
+        public CargoFuncionario ConsultarPeloId(int id)
+        {
+            CargoFuncionario ret = null;
+            using (var db = new ContextoDB())
+            {
+                ret = db.CargosMap.Find(id);
+            }
+            return ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as CargoFuncionario;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            return this.Id == item.Id && this.Cargo.Equals(item.Cargo);
+        }
+
     }
 }

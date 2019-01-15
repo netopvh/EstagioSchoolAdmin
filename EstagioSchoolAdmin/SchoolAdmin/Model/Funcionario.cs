@@ -54,6 +54,12 @@ namespace SchoolAdmin.Model
             {
                 ret = db.PessoaMap.Find(id) as Funcionario;
             }
+
+            if (ret != null)
+            {
+                ret.Cargo = new CargoFuncionario().ConsultarPeloId(ret.CargoId);
+            }
+
             return ret;
         }
 
