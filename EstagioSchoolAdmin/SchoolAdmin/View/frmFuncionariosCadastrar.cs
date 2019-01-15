@@ -208,7 +208,18 @@ namespace SchoolAdmin.View
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            new frmFuncionariosPesquisar(controller).ShowDialog();
+            using(var formPesquisar = new frmFuncionariosPesquisar(controller))
+            {
+                formPesquisar.ShowDialog();
+                if(formPesquisar.confirmacao == DialogResult.OK)
+                {
+                    MessageBox.Show(""+formPesquisar.id_selecionado);
+                }
+                else
+                {
+                    MessageBox.Show("Nenhum funcionário foi selecionado!");
+                }
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

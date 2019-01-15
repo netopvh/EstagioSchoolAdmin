@@ -15,6 +15,9 @@ namespace SchoolAdmin.View
     {
         FuncionarioCtr controller;
 
+        public int id_selecionado;
+        public DialogResult confirmacao;
+
         public frmFuncionariosPesquisar(FuncionarioCtr ctr)
         {
             InitializeComponent();
@@ -51,7 +54,7 @@ namespace SchoolAdmin.View
                                 funcionarioSelecionado);
             string titulo = "Confirmar seleção";
 
-            var confirmacao = MessageBox.Show(
+            confirmacao = MessageBox.Show(
                 mensagem, 
                 titulo,
                 MessageBoxButtons.OKCancel,
@@ -61,7 +64,7 @@ namespace SchoolAdmin.View
 
             if (confirmacao == DialogResult.OK)
             {
-                var idSelecionado = dgvFuncionarios.Rows[e.RowIndex].Cells[0].Value.ToString();
+                id_selecionado = int.Parse(dgvFuncionarios.Rows[e.RowIndex].Cells[0].Value.ToString());
                 this.Close();
             }
         }
