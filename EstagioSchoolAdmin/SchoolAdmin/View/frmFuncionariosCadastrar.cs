@@ -256,7 +256,8 @@ namespace SchoolAdmin.View
                     MessageBox.Show(
                         "Gravação realizada com sucesso. Todos os dados foram salvos.",
                         "Gravação realizada",
-                        MessageBoxButtons.OK
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
                     );
 
                     InicializarControles();
@@ -298,7 +299,15 @@ namespace SchoolAdmin.View
 
             if(confirmacao == DialogResult.OK)
             {
-                controller.Excluir(instancia);
+                if(controller.Excluir(instancia))
+                {
+                    MessageBox.Show(
+                        "Exclusão realizada com sucesso. Todos os dados foram apagados.",
+                        "Exclusão realizada",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
             }
         }
 
