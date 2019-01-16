@@ -251,7 +251,16 @@ namespace SchoolAdmin.View
                     instancia.Desligamento = dtpDemissao.Value;
                 }
 
-                controller.Gravar(instancia);
+                if (controller.Gravar(instancia))
+                {
+                    MessageBox.Show(
+                        "Gravação realizada com sucesso. Todos os dados foram salvos.",
+                        "Gravação realizada",
+                        MessageBoxButtons.OK
+                    );
+
+                    InicializarControles();
+                }
             }
         }
 
