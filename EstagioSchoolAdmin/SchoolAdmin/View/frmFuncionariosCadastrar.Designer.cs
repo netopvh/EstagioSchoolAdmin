@@ -46,6 +46,7 @@
             this.lblCargo = new System.Windows.Forms.Label();
             this.cbbCargo = new System.Windows.Forms.ComboBox();
             this.gpbContato = new System.Windows.Forms.GroupBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblTelefone2 = new System.Windows.Forms.Label();
             this.txtTelefone2 = new System.Windows.Forms.MaskedTextBox();
@@ -66,7 +67,6 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblObservacoes = new System.Windows.Forms.Label();
             this.txtObservacoes = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.gpbButtons.SuspendLayout();
             this.gpbFormulario.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -81,7 +81,7 @@
             this.gpbButtons.Controls.Add(this.btnAlterar);
             this.gpbButtons.Controls.Add(this.btnSair);
             this.gpbButtons.Controls.Add(this.btnGravar);
-            this.gpbButtons.Location = new System.Drawing.Point(12, 493);
+            this.gpbButtons.Location = new System.Drawing.Point(12, 441);
             this.gpbButtons.Name = "gpbButtons";
             this.gpbButtons.Size = new System.Drawing.Size(760, 56);
             this.gpbButtons.TabIndex = 0;
@@ -146,7 +146,7 @@
             this.gpbFormulario.Controls.Add(this.txtObservacoes);
             this.gpbFormulario.Location = new System.Drawing.Point(12, 12);
             this.gpbFormulario.Name = "gpbFormulario";
-            this.gpbFormulario.Size = new System.Drawing.Size(760, 475);
+            this.gpbFormulario.Size = new System.Drawing.Size(760, 426);
             this.gpbFormulario.TabIndex = 1;
             this.gpbFormulario.TabStop = false;
             // 
@@ -264,6 +264,15 @@
             this.gpbContato.TabIndex = 5;
             this.gpbContato.TabStop = false;
             this.gpbContato.Text = "Contato";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEmail.Location = new System.Drawing.Point(409, 34);
+            this.txtEmail.MaxLength = 64;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(313, 20);
+            this.txtEmail.TabIndex = 19;
             // 
             // lblEmail
             // 
@@ -425,6 +434,7 @@
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(9, 34);
+            this.txtNome.MaxLength = 64;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(300, 20);
             this.txtNome.TabIndex = 1;
@@ -440,27 +450,18 @@
             // 
             // txtObservacoes
             // 
-            this.txtObservacoes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtObservacoes.Location = new System.Drawing.Point(16, 334);
-            this.txtObservacoes.MaxLength = 256;
+            this.txtObservacoes.MaxLength = 512;
             this.txtObservacoes.Multiline = true;
             this.txtObservacoes.Name = "txtObservacoes";
-            this.txtObservacoes.Size = new System.Drawing.Size(724, 126);
+            this.txtObservacoes.Size = new System.Drawing.Size(724, 75);
             this.txtObservacoes.TabIndex = 13;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtEmail.Location = new System.Drawing.Point(409, 34);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(313, 20);
-            this.txtEmail.TabIndex = 19;
             // 
             // frmFuncionariosCadastrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 506);
             this.Controls.Add(this.gpbFormulario);
             this.Controls.Add(this.gpbButtons);
             this.Name = "frmFuncionariosCadastrar";
