@@ -28,13 +28,14 @@ namespace SchoolAdmin.DAL
         public DbSet<CargoFuncionario> CargosMap { get; set; }
         public DbSet<Pessoa> PessoaMap { get; set; }
         public DbSet<Funcionario> FuncionariosMap { get; set; }
+        public DbSet<Telefone> TelefonesMap { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PessoaMap());
             modelBuilder.Configurations.Add(new FuncionarioMap());
-
             modelBuilder.Configurations.Add(new CargoFuncionarioMap());
+            modelBuilder.Configurations.Add(new TelefoneMap());
         }
 
     }

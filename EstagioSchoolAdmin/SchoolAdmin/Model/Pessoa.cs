@@ -40,6 +40,7 @@ namespace SchoolAdmin.Model
         }
 
         public bool Ativo { get; set; }
+        public virtual ICollection<Telefone> Telefones { get; set; }
 
         public Pessoa()
         {
