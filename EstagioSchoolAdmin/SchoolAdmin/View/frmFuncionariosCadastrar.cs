@@ -221,6 +221,7 @@ namespace SchoolAdmin.View
 
             txtSalario.Focus();
             txtNome.Focus();
+            btnExcluir.Enabled = true;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -278,7 +279,18 @@ namespace SchoolAdmin.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            var confirmacao = MessageBox.Show(
+                "Atenção, todos os dados do funcionários serão apagados. " +
+                "Deseja prosseguir com a exclusão?",
+                "Confirmar exclusão",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
 
+            if(confirmacao == DialogResult.OK)
+            {
+                controller.Excluir(instancia);
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)

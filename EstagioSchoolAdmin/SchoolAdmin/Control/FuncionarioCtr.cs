@@ -45,9 +45,9 @@ namespace SchoolAdmin.Control
             return new Funcionario().ConsultarPeloId(id);
         }
 
-        public void Excluir(int fun_id)
+        public void Excluir(Funcionario fun)
         {
-
+            fun.Excluir(fun.Id);
         }
 
         public List<CargoFuncionario> GetListaCargos()
