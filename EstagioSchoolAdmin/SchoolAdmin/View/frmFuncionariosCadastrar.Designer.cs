@@ -47,7 +47,6 @@
             this.cbbCargo = new System.Windows.Forms.ComboBox();
             this.gpbContato = new System.Windows.Forms.GroupBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefone2 = new System.Windows.Forms.Label();
             this.txtTelefone2 = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefone1 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblObservacoes = new System.Windows.Forms.Label();
             this.txtObservacoes = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.gpbButtons.SuspendLayout();
             this.gpbFormulario.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -252,8 +252,8 @@
             // 
             // gpbContato
             // 
-            this.gpbContato.Controls.Add(this.lblEmail);
             this.gpbContato.Controls.Add(this.txtEmail);
+            this.gpbContato.Controls.Add(this.lblEmail);
             this.gpbContato.Controls.Add(this.lblTelefone2);
             this.gpbContato.Controls.Add(this.txtTelefone2);
             this.gpbContato.Controls.Add(this.lblTelefone1);
@@ -273,13 +273,6 @@
             this.lblEmail.Size = new System.Drawing.Size(38, 13);
             this.lblEmail.TabIndex = 18;
             this.lblEmail.Text = "Email :";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(407, 35);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(315, 20);
-            this.txtEmail.TabIndex = 8;
             // 
             // lblTelefone2
             // 
@@ -430,6 +423,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(9, 34);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(300, 20);
@@ -446,12 +440,21 @@
             // 
             // txtObservacoes
             // 
+            this.txtObservacoes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtObservacoes.Location = new System.Drawing.Point(16, 334);
             this.txtObservacoes.MaxLength = 256;
             this.txtObservacoes.Multiline = true;
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.Size = new System.Drawing.Size(724, 126);
             this.txtObservacoes.TabIndex = 13;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEmail.Location = new System.Drawing.Point(409, 34);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(313, 20);
+            this.txtEmail.TabIndex = 19;
             // 
             // frmFuncionariosCadastrar
             // 
@@ -499,7 +502,6 @@
         private System.Windows.Forms.Button btnEndereco;
         private System.Windows.Forms.GroupBox gpbContato;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.MaskedTextBox txtEmail;
         private System.Windows.Forms.Label lblTelefone2;
         private System.Windows.Forms.MaskedTextBox txtTelefone2;
         private System.Windows.Forms.Label lblTelefone1;
@@ -517,5 +519,6 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.CheckBox chkDemissao;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }
