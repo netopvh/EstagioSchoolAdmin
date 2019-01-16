@@ -212,6 +212,12 @@ namespace SchoolAdmin.View
                 dtpDemissao.Value = instancia.Desligamento;
                 dtpDemissao.Enabled = true;
             }
+            else
+            {
+                chkDemissao.Checked = false;
+                dtpDemissao.ResetText();
+                dtpDemissao.Enabled = false;
+            }
 
             txtSalario.Focus();
             txtNome.Focus();

@@ -41,6 +41,9 @@ namespace SchoolAdmin.Model
 
         public bool Ativo { get; set; }
 
-        public Pessoa() { }
+        public Pessoa()
+        {
+            this.Id = 0;
+        }
     }
 }
