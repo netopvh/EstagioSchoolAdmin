@@ -223,6 +223,13 @@ namespace SchoolAdmin.View
                 dtpDemissao.Enabled = false;
             }
 
+            var telefones = controller.GetTelefones(instancia);
+            telefoneObrigatorio = telefones.First();
+            telefoneOpcional = telefones.Last();
+
+            txtTelefone1.Text = telefoneObrigatorio.Numero;
+            txtTelefone2.Text = telefoneOpcional.Numero;
+
             txtSalario.Focus();
             txtNome.Focus();
             btnExcluir.Enabled = true;

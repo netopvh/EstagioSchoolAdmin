@@ -60,5 +60,17 @@ namespace SchoolAdmin.Model
             }
             return !(ret == 0);
         }
+
+        public List<Telefone> RecuperarTelefones(Funcionario fun)
+        {
+            var ret = new List<Telefone>();
+
+            using (var db = new ContextoDB())
+            {
+                ret = db.TelefonesMap.Where(t => t.PessoaId == fun.Id).ToList();
+            }
+
+            return ret;
+        }
     }
 }

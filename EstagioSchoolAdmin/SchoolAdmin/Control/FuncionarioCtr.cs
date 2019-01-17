@@ -65,5 +65,9 @@ namespace SchoolAdmin.Control
             return new CargoFuncionario().RecuperarLista();
         }
 
+        public List<Telefone> GetTelefones(Funcionario fun)
+        {
+            return new Telefone().RecuperarTelefones(fun);
+        }
     }
 }
