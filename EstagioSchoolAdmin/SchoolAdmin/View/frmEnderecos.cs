@@ -1,4 +1,5 @@
-﻿using SchoolAdmin.Util.Validators;
+﻿using SchoolAdmin.Control;
+using SchoolAdmin.Util.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,14 @@ namespace SchoolAdmin.View
 {
     public partial class frmEnderecos : Form
     {
-        public frmEnderecos()
+        EnderecosCtr controller;
+
+        public frmEnderecos(EnderecosCtr ctr)
         {
             InitializeComponent();
             InicializarControles();
+
+            controller = ctr;
         }
 
         private void InicializarControles()
@@ -32,6 +37,13 @@ namespace SchoolAdmin.View
             txtCep.Mask = "00000 - 000";
         }
 
+        private void CarregarCombobox()
+        {
+            cbbEstados.ValueMember = "Id";
+            cbbEstados.DisplayMember = "Estado";
+            cbbEstados.DataSource = controller.GetListaEstados();
+        }
+
         private bool ValidarDados()
         {
             bool erro = false;
@@ -39,6 +51,7 @@ namespace SchoolAdmin.View
             string titErro = "";
 
             StringValidator STRvalidator = new StringValidator();
+            CEPValidator CEPvalidator = new CEPValidator();
 
             if (!STRvalidator.Validar(txtRua.Text, 128))
             {
@@ -75,7 +88,7 @@ namespace SchoolAdmin.View
                 msgErro = "Selecione o estado para prosseguir com o cadastro.";
                 cbbEstados.Focus();
             }
-            else if (!STRvalidator.Validar(txtCep.Text, 9))
+            else if (!CEPvalidator.Validar(txtCep.Text, ""))
             {
                 erro = true;
                 titErro = "Erro, o cep não foi informado corretamente!";
