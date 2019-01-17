@@ -15,6 +15,20 @@ namespace SchoolAdmin.View
         public frmEnderecos()
         {
             InitializeComponent();
+            InicializarControles();
+        }
+
+        private void InicializarControles()
+        {
+            txtRua.Clear();
+            txtNumero.Value = 0;
+            txtComplemento.Clear();
+            txtBairro.Clear();
+            txtCidade.Clear();
+            cbbEstados.SelectedIndex = -1;
+            txtCep.Clear();
+
+            txtCep.Mask = "00000 - 000";
         }
     }
 }
