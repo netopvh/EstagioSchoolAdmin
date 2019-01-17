@@ -251,17 +251,15 @@ namespace SchoolAdmin.View
                 instancia.Cargo = (CargoFuncionario)cbbCargo.SelectedItem;
 
                 telefoneObrigatorio.Numero = getTelefoneValue(txtTelefone1.Text);
-                if (getTelefoneValue(txtTelefone2.Text).Length > 0)
-                {
-                    telefoneOpcional.Numero = getTelefoneValue(txtTelefone2.Text);
-                }
+                telefoneOpcional.Numero = getTelefoneValue(txtTelefone2.Text);
 
                 if (instancia.Id != 0 && chkDemissao.Checked)
                 {
                     instancia.Desligamento = dtpDemissao.Value;
                 }
+                
 
-                if (controller.Gravar(instancia))
+                if (controller.Gravar(instancia, telefoneObrigatorio, telefoneOpcional))
                 {
                     MessageBox.Show(
                         "Gravação realizada com sucesso. Todos os dados foram salvos.",

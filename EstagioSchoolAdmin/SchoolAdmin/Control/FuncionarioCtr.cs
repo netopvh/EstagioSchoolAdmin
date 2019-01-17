@@ -15,9 +15,19 @@ namespace SchoolAdmin.Control
             return new Funcionario();
         }
 
-        public bool Gravar(Funcionario fun)
+        public bool Gravar(Funcionario fun, Telefone telefone1, Telefone telefone2)
         {
-            return fun.Salvar();
+            if (fun.Salvar())
+            {
+                telefone1.Pessoa = fun;
+                telefone2.Pessoa = fun;
+                telefone1.Salvar();
+                telefone2.Salvar();
+
+                return true;
+            }
+
+            return false;
         }
 
         public DataTable Pesquisar(string fun_nome)
