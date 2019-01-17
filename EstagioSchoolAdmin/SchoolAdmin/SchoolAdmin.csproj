@@ -82,6 +82,7 @@
     <Compile Include="Model\Telefone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Validators\CEPValidator.cs" />
     <Compile Include="Util\Validators\CPFValidator.cs" />
     <Compile Include="Util\Validators\DinheiroValidator.cs" />
     <Compile Include="Util\Validators\RGValidator.cs" />
