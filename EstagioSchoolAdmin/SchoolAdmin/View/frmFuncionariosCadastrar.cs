@@ -17,7 +17,9 @@ namespace SchoolAdmin.View
     public partial class frmFuncionariosCadastrar : Form
     {
         FuncionarioCtr controller;
-        Funcionario instancia; 
+        Funcionario instancia;
+        Telefone telefoneObrigatorio;
+        Telefone telefoneOpcional;
         string salario;
 
         public frmFuncionariosCadastrar(FuncionarioCtr ctr)
@@ -73,6 +75,8 @@ namespace SchoolAdmin.View
             btnExcluir.Enabled = false;
 
             instancia = controller.getInstance();
+            telefoneObrigatorio = new Telefone();
+            telefoneOpcional = new Telefone();
         }
 
         private bool ValidarDados()
@@ -246,6 +250,12 @@ namespace SchoolAdmin.View
 
                 instancia.Cargo = (CargoFuncionario)cbbCargo.SelectedItem;
 
+                telefoneObrigatorio.Numero = getTelefoneValue(txtTelefone1.Text);
+                if (getTelefoneValue(txtTelefone2.Text).Length > 0)
+                {
+                    telefoneOpcional.Numero = getTelefoneValue(txtTelefone2.Text);
+                }
+
                 if (instancia.Id != 0 && chkDemissao.Checked)
                 {
                     instancia.Desligamento = dtpDemissao.Value;
@@ -398,6 +408,11 @@ namespace SchoolAdmin.View
             {
                 dtpDemissao.Enabled = false;
             }
+        }
+
+        public string getTelefoneValue(string telefone)
+        {
+            return telefone.Replace("-", "").Replace(" ", "").Replace("(", "").Replace(")", "").Trim();
         }
     }
 }
