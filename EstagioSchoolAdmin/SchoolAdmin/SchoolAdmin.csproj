@@ -87,6 +87,12 @@
     <Compile Include="Util\Validators\RGValidator.cs" />
     <Compile Include="Util\Validators\StringValidator.cs" />
     <Compile Include="Util\Validators\TelefoneValidator.cs" />
+    <Compile Include="View\frmEnderecos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmEnderecos.Designer.cs">
+      <DependentUpon>frmEnderecos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmFuncionariosCadastrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\frmEnderecos.resx">
+      <DependentUpon>frmEnderecos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmFuncionariosCadastrar.resx">
       <DependentUpon>frmFuncionariosCadastrar.cs</DependentUpon>
     </EmbeddedResource>
