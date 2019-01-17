@@ -19,9 +19,10 @@ namespace SchoolAdmin.View
         public frmEnderecos(EnderecosCtr ctr)
         {
             InitializeComponent();
-            InicializarControles();
-
             controller = ctr;
+
+            CarregarCombobox();
+            InicializarControles();
         }
 
         private void InicializarControles()
@@ -40,7 +41,7 @@ namespace SchoolAdmin.View
         private void CarregarCombobox()
         {
             cbbEstados.ValueMember = "Id";
-            cbbEstados.DisplayMember = "Estado";
+            cbbEstados.DisplayMember = "Nome";
             cbbEstados.DataSource = controller.GetListaEstados();
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolAdmin.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,18 @@ namespace SchoolAdmin.Model
         public Estado()
         {
             Id = 0;
+        }
+
+        public List<Estado> RecuperarLista()
+        {
+            var ret = new List<Estado>();
+
+            using (var db = new ContextoDB())
+            {
+                ret = db.EstadoMap.OrderBy(x => x.Id).ToList();
+            }
+
+            return ret;
         }
     }
 }

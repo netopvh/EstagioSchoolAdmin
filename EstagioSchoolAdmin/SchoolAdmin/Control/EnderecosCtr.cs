@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolAdmin.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace SchoolAdmin.Control
     {
         public List<Estado> GetListaEstados()
         {
-            throw new NotImplementedException();
+            return new Estado().RecuperarLista();
         }
     }
 }
