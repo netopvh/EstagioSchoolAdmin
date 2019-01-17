@@ -353,6 +353,7 @@
             this.btnEndereco.TabIndex = 14;
             this.btnEndereco.Text = "CADASTRAR ENDEREÇO";
             this.btnEndereco.UseVisualStyleBackColor = true;
+            this.btnEndereco.Click += new System.EventHandler(this.btnEndereco_Click);
             // 
             // lblCPF
             // 

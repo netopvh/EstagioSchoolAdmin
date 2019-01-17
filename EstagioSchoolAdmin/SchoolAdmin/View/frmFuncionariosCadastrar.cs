@@ -233,6 +233,7 @@ namespace SchoolAdmin.View
             txtSalario.Focus();
             txtNome.Focus();
             btnExcluir.Enabled = true;
+            btnEndereco.Enabled = true;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -420,6 +421,11 @@ namespace SchoolAdmin.View
         public string getTelefoneValue(string telefone)
         {
             return telefone.Replace("-", "").Replace(" ", "").Replace("(", "").Replace(")", "").Trim();
+        }
+
+        private void btnEndereco_Click(object sender, EventArgs e)
+        {
+            new frmEnderecos().ShowDialog();
         }
     }
 }

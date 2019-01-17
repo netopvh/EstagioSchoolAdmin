@@ -221,6 +221,7 @@
             this.Controls.Add(this.gpbButtons);
             this.Controls.Add(this.gpbEnderecoMain);
             this.Name = "frmEnderecos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Endereço";
             this.gpbEnderecoMain.ResumeLayout(false);
             this.gpbEnderecoMain.PerformLayout();
