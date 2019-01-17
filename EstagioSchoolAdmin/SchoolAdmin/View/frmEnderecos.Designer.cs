@@ -29,25 +29,26 @@
         private void InitializeComponent()
         {
             this.lblRua = new System.Windows.Forms.Label();
-            this.txtNumero = new System.Windows.Forms.TextBox();
             this.lblNumero = new System.Windows.Forms.Label();
             this.txtRua = new System.Windows.Forms.TextBox();
             this.lblComplemento = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtComplemento = new System.Windows.Forms.TextBox();
             this.lblBairro = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBairro = new System.Windows.Forms.TextBox();
             this.lblCidade = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.gpbEnderecoMain = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbbEstados = new System.Windows.Forms.ComboBox();
             this.gpbButtons = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
+            this.txtNumero = new System.Windows.Forms.NumericUpDown();
             this.gpbEnderecoMain.SuspendLayout();
             this.gpbButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRua
@@ -58,13 +59,6 @@
             this.lblRua.Size = new System.Drawing.Size(37, 13);
             this.lblRua.TabIndex = 3;
             this.lblRua.Text = "Rua *:";
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(451, 29);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(57, 20);
-            this.txtNumero.TabIndex = 1;
             // 
             // lblNumero
             // 
@@ -91,12 +85,12 @@
             this.lblComplemento.TabIndex = 5;
             this.lblComplemento.Text = "Complemento :";
             // 
-            // textBox1
+            // txtComplemento
             // 
-            this.textBox1.Location = new System.Drawing.Point(17, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(395, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtComplemento.Location = new System.Drawing.Point(17, 72);
+            this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.Size = new System.Drawing.Size(395, 20);
+            this.txtComplemento.TabIndex = 4;
             // 
             // lblBairro
             // 
@@ -107,12 +101,12 @@
             this.lblBairro.TabIndex = 7;
             this.lblBairro.Text = "Bairro *:";
             // 
-            // textBox2
+            // txtBairro
             // 
-            this.textBox2.Location = new System.Drawing.Point(451, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(172, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtBairro.Location = new System.Drawing.Point(451, 72);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(172, 20);
+            this.txtBairro.TabIndex = 6;
             // 
             // lblCidade
             // 
@@ -139,42 +133,27 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "CEP *:";
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(453, 115);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 12;
-            // 
             // gpbEnderecoMain
             // 
+            this.gpbEnderecoMain.Controls.Add(this.txtCep);
+            this.gpbEnderecoMain.Controls.Add(this.txtNumero);
             this.gpbEnderecoMain.Controls.Add(this.label1);
-            this.gpbEnderecoMain.Controls.Add(this.comboBox1);
-            this.gpbEnderecoMain.Controls.Add(this.textBox5);
+            this.gpbEnderecoMain.Controls.Add(this.cbbEstados);
             this.gpbEnderecoMain.Controls.Add(this.label3);
             this.gpbEnderecoMain.Controls.Add(this.txtCidade);
             this.gpbEnderecoMain.Controls.Add(this.lblCidade);
-            this.gpbEnderecoMain.Controls.Add(this.textBox2);
+            this.gpbEnderecoMain.Controls.Add(this.txtBairro);
             this.gpbEnderecoMain.Controls.Add(this.lblBairro);
-            this.gpbEnderecoMain.Controls.Add(this.textBox1);
+            this.gpbEnderecoMain.Controls.Add(this.txtComplemento);
             this.gpbEnderecoMain.Controls.Add(this.lblComplemento);
             this.gpbEnderecoMain.Controls.Add(this.txtRua);
             this.gpbEnderecoMain.Controls.Add(this.lblNumero);
-            this.gpbEnderecoMain.Controls.Add(this.txtNumero);
             this.gpbEnderecoMain.Controls.Add(this.lblRua);
             this.gpbEnderecoMain.Location = new System.Drawing.Point(7, 8);
             this.gpbEnderecoMain.Name = "gpbEnderecoMain";
             this.gpbEnderecoMain.Size = new System.Drawing.Size(640, 175);
             this.gpbEnderecoMain.TabIndex = 4;
             this.gpbEnderecoMain.TabStop = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(260, 115);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 21);
-            this.comboBox1.TabIndex = 5;
             // 
             // label1
             // 
@@ -185,33 +164,56 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Estado *:";
             // 
+            // cbbEstados
+            // 
+            this.cbbEstados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbEstados.FormattingEnabled = true;
+            this.cbbEstados.Location = new System.Drawing.Point(260, 115);
+            this.cbbEstados.Name = "cbbEstados";
+            this.cbbEstados.Size = new System.Drawing.Size(152, 21);
+            this.cbbEstados.TabIndex = 5;
+            // 
             // gpbButtons
             // 
-            this.gpbButtons.Controls.Add(this.button2);
-            this.gpbButtons.Controls.Add(this.button1);
+            this.gpbButtons.Controls.Add(this.btnSair);
+            this.gpbButtons.Controls.Add(this.btnGravar);
             this.gpbButtons.Location = new System.Drawing.Point(7, 189);
             this.gpbButtons.Name = "gpbButtons";
             this.gpbButtons.Size = new System.Drawing.Size(640, 55);
             this.gpbButtons.TabIndex = 15;
             this.gpbButtons.TabStop = false;
             // 
-            // button1
+            // btnSair
             // 
-            this.button1.Location = new System.Drawing.Point(13, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "GRAVAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSair.Location = new System.Drawing.Point(548, 19);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 23);
+            this.btnSair.TabIndex = 17;
+            this.btnSair.Text = "SAIR";
+            this.btnSair.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnGravar
             // 
-            this.button2.Location = new System.Drawing.Point(548, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "SAIR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGravar.Location = new System.Drawing.Point(13, 19);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.TabIndex = 16;
+            this.btnGravar.Text = "GRAVAR";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            // 
+            // txtCep
+            // 
+            this.txtCep.Location = new System.Drawing.Point(451, 116);
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(100, 20);
+            this.txtCep.TabIndex = 18;
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(451, 29);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(71, 20);
+            this.txtNumero.TabIndex = 19;
             // 
             // frmEnderecos
             // 
@@ -226,6 +228,7 @@
             this.gpbEnderecoMain.ResumeLayout(false);
             this.gpbEnderecoMain.PerformLayout();
             this.gpbButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,22 +236,22 @@
         #endregion
 
         private System.Windows.Forms.Label lblRua;
-        private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.TextBox txtRua;
         private System.Windows.Forms.Label lblComplemento;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtComplemento;
         private System.Windows.Forms.Label lblBairro;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.Label lblCidade;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.GroupBox gpbEnderecoMain;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbEstados;
         private System.Windows.Forms.GroupBox gpbButtons;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.NumericUpDown txtNumero;
+        private System.Windows.Forms.MaskedTextBox txtCep;
     }
 }
