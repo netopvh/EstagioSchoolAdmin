@@ -72,5 +72,21 @@ namespace SchoolAdmin.Model
 
             return ret;
         }
+
+        public bool Excluir(int id)
+        {
+            var ret = false;
+
+            if (id != 0)
+            {
+                using (var db = new ContextoDB())
+                {
+                    db.TelefonesMap.RemoveRange(db.TelefonesMap.Where(t => t.PessoaId == id));
+                    db.SaveChanges();
+                    ret = true;
+                }
+            }
+            return ret;
+        }
     }
 }

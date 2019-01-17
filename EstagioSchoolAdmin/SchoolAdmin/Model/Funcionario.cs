@@ -98,6 +98,8 @@ namespace SchoolAdmin.Model
 
             if (obj != null)
             {
+                new Telefone().Excluir(id);
+
                 using (var db = new ContextoDB())
                 {
                     db.PessoaMap.Attach(obj);

@@ -322,6 +322,8 @@ namespace SchoolAdmin.View
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
+
+                    InicializarControles();
                 }
             }
         }
