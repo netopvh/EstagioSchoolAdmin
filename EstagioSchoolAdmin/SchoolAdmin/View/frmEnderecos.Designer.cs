@@ -39,16 +39,16 @@
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gpbEnderecoMain = new System.Windows.Forms.GroupBox();
+            this.txtCep = new System.Windows.Forms.MaskedTextBox();
+            this.txtNumero = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.cbbEstados = new System.Windows.Forms.ComboBox();
             this.gpbButtons = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.txtCep = new System.Windows.Forms.MaskedTextBox();
-            this.txtNumero = new System.Windows.Forms.NumericUpDown();
             this.gpbEnderecoMain.SuspendLayout();
-            this.gpbButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).BeginInit();
+            this.gpbButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRua
@@ -72,6 +72,7 @@
             // txtRua
             // 
             this.txtRua.Location = new System.Drawing.Point(17, 29);
+            this.txtRua.MaxLength = 128;
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(395, 20);
             this.txtRua.TabIndex = 2;
@@ -155,6 +156,20 @@
             this.gpbEnderecoMain.TabIndex = 4;
             this.gpbEnderecoMain.TabStop = false;
             // 
+            // txtCep
+            // 
+            this.txtCep.Location = new System.Drawing.Point(451, 116);
+            this.txtCep.Name = "txtCep";
+            this.txtCep.Size = new System.Drawing.Size(100, 20);
+            this.txtCep.TabIndex = 18;
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(451, 29);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(71, 20);
+            this.txtNumero.TabIndex = 19;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -191,6 +206,7 @@
             this.btnSair.TabIndex = 17;
             this.btnSair.Text = "SAIR";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnGravar
             // 
@@ -200,20 +216,7 @@
             this.btnGravar.TabIndex = 16;
             this.btnGravar.Text = "GRAVAR";
             this.btnGravar.UseVisualStyleBackColor = true;
-            // 
-            // txtCep
-            // 
-            this.txtCep.Location = new System.Drawing.Point(451, 116);
-            this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(100, 20);
-            this.txtCep.TabIndex = 18;
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(451, 29);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(71, 20);
-            this.txtNumero.TabIndex = 19;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // frmEnderecos
             // 
@@ -227,8 +230,8 @@
             this.Text = "Endereço";
             this.gpbEnderecoMain.ResumeLayout(false);
             this.gpbEnderecoMain.PerformLayout();
-            this.gpbButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).EndInit();
+            this.gpbButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
