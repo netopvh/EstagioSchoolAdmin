@@ -1,4 +1,5 @@
 ﻿using SchoolAdmin.Control;
+using SchoolAdmin.Model;
 using SchoolAdmin.Util.Validators;
 using System;
 using System.Collections.Generic;
@@ -89,12 +90,17 @@ namespace SchoolAdmin.View
                 msgErro = "Selecione o estado para prosseguir com o cadastro.";
                 cbbEstados.Focus();
             }
-            else if (!CEPvalidator.Validar(txtCep.Text, ""))
+            else 
             {
-                erro = true;
-                titErro = "Erro, o cep não foi informado corretamente!";
-                msgErro = "Informe o cep corretamente para prosseguir com o cadastro.";
-                txtRua.Focus();
+                Estado selecionado = (Estado) cbbEstados.SelectedItem;
+                if (!CEPvalidator.Validar(txtCep.Text, selecionado.Sigla))
+                {
+                    erro = true;
+                    titErro = "Erro, o cep não foi informado corretamente!";
+                    msgErro = "Informe o cep corretamente para prosseguir com o cadastro.";
+                    txtCep.Focus();
+                }
+                
             }
 
             if (erro)
