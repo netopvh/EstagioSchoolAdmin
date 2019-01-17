@@ -24,14 +24,6 @@ namespace SchoolAdmin.DAL.Mapping
             Property(x => x.Numero)
                 .HasColumnName("tel_numero")
                 .HasMaxLength(16);
-
-            Property(x => x.PessoaId)
-               .HasColumnName("pes_pk")
-               .IsRequired();
-
-            HasRequired(x => x.Pessoa)
-                .WithMany(x => x.Telefones)
-                .HasForeignKey(c => c.PessoaId);
         }
     }
 }

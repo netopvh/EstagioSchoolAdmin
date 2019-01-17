@@ -74,6 +74,7 @@
     <Compile Include="Control\FuncionarioCtr.cs" />
     <Compile Include="DAL\ContextoDB.cs" />
     <Compile Include="DAL\Mapping\CargoFuncionarioMap.cs" />
+    <Compile Include="DAL\Mapping\EnderecoMap.cs" />
     <Compile Include="DAL\Mapping\EstadosMap.cs" />
     <Compile Include="DAL\Mapping\FuncionarioMap.cs" />
     <Compile Include="DAL\Mapping\PessoaMap.cs" />

@@ -13,9 +13,12 @@ namespace SchoolAdmin.Model
         public string Nome { get; set; }
         public string Sigla { get; set; }
 
+        public virtual ICollection<Endereco> Enderecos { get; set; }
+
         public Estado()
         {
             Id = 0;
+            Enderecos = new HashSet<Endereco>();
         }
 
         public List<Estado> RecuperarLista()
