@@ -71,11 +71,12 @@
             // 
             // txtRua
             // 
+            this.txtRua.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRua.Location = new System.Drawing.Point(17, 29);
             this.txtRua.MaxLength = 128;
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(395, 20);
-            this.txtRua.TabIndex = 2;
+            this.txtRua.TabIndex = 1;
             // 
             // lblComplemento
             // 
@@ -88,10 +89,11 @@
             // 
             // txtComplemento
             // 
+            this.txtComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtComplemento.Location = new System.Drawing.Point(17, 72);
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(395, 20);
-            this.txtComplemento.TabIndex = 4;
+            this.txtComplemento.TabIndex = 3;
             // 
             // lblBairro
             // 
@@ -104,10 +106,11 @@
             // 
             // txtBairro
             // 
+            this.txtBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBairro.Location = new System.Drawing.Point(451, 72);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(172, 20);
-            this.txtBairro.TabIndex = 6;
+            this.txtBairro.TabIndex = 4;
             // 
             // lblCidade
             // 
@@ -120,10 +123,11 @@
             // 
             // txtCidade
             // 
+            this.txtCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCidade.Location = new System.Drawing.Point(17, 115);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(223, 20);
-            this.txtCidade.TabIndex = 8;
+            this.txtCidade.TabIndex = 5;
             // 
             // label3
             // 
@@ -161,14 +165,19 @@
             this.txtCep.Location = new System.Drawing.Point(451, 116);
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(100, 20);
-            this.txtCep.TabIndex = 18;
+            this.txtCep.TabIndex = 7;
             // 
             // txtNumero
             // 
             this.txtNumero.Location = new System.Drawing.Point(451, 29);
+            this.txtNumero.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(71, 20);
-            this.txtNumero.TabIndex = 19;
+            this.txtNumero.TabIndex = 2;
             // 
             // label1
             // 
@@ -186,7 +195,7 @@
             this.cbbEstados.Location = new System.Drawing.Point(260, 115);
             this.cbbEstados.Name = "cbbEstados";
             this.cbbEstados.Size = new System.Drawing.Size(152, 21);
-            this.cbbEstados.TabIndex = 5;
+            this.cbbEstados.TabIndex = 6;
             // 
             // gpbButtons
             // 
@@ -203,7 +212,7 @@
             this.btnSair.Location = new System.Drawing.Point(548, 19);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 17;
+            this.btnSair.TabIndex = 9;
             this.btnSair.Text = "SAIR";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -213,7 +222,7 @@
             this.btnGravar.Location = new System.Drawing.Point(13, 19);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 16;
+            this.btnGravar.TabIndex = 8;
             this.btnGravar.Text = "GRAVAR";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);

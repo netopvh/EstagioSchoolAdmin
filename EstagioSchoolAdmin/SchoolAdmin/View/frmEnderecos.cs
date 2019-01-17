@@ -37,6 +37,7 @@ namespace SchoolAdmin.View
             txtCep.Clear();
 
             txtCep.Mask = "00000 - 000";
+            txtRua.Focus();
         }
 
         private void CarregarCombobox()
