@@ -16,7 +16,7 @@ namespace SchoolAdmin.View
     public partial class frmEnderecos : Form
     {
         EnderecosCtr controller;
-
+        Endereco instancia;
         public frmEnderecos(EnderecosCtr ctr)
         {
             InitializeComponent();
@@ -117,7 +117,10 @@ namespace SchoolAdmin.View
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            ValidarDados();
+            if(ValidarDados())
+            {
+                
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)
