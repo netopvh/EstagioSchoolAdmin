@@ -29,6 +29,7 @@ namespace SchoolAdmin.DAL
         public DbSet<Pessoa> PessoaMap { get; set; }
         public DbSet<Funcionario> FuncionariosMap { get; set; }
         public DbSet<Telefone> TelefonesMap { get; set; }
+        public DbSet<Estado> EstadoMap { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -36,7 +37,9 @@ namespace SchoolAdmin.DAL
             modelBuilder.Configurations.Add(new FuncionarioMap());
             modelBuilder.Configurations.Add(new CargoFuncionarioMap());
             modelBuilder.Configurations.Add(new TelefoneMap());
+            modelBuilder.Configurations.Add(new EstadosMap());
         }
+
 
     }
 }
