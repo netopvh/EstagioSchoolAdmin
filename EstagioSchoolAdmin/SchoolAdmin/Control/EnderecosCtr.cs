@@ -13,5 +13,15 @@ namespace SchoolAdmin.Control
         {
             return new Estado().RecuperarLista();
         }
+
+        public Endereco GetInstance()
+        {
+            return new Endereco();
+        }
+
+        public bool Gravar(Endereco instancia)
+        {
+            return instancia.Salvar();
+        }
     }
 }

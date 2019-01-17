@@ -17,10 +17,13 @@ namespace SchoolAdmin.View
     {
         EnderecosCtr controller;
         Endereco instancia;
-        public frmEnderecos(EnderecosCtr ctr)
+        Pessoa pessoaEndereco;
+
+        public frmEnderecos(EnderecosCtr ctr, Pessoa pessoa)
         {
             InitializeComponent();
             controller = ctr;
+            pessoaEndereco = pessoa;
 
             CarregarCombobox();
             InicializarControles();
@@ -38,6 +41,7 @@ namespace SchoolAdmin.View
 
             txtCep.Mask = "00000 - 000";
             txtRua.Focus();
+            instancia = controller.GetInstance();
         }
 
         private void CarregarCombobox()
@@ -119,7 +123,15 @@ namespace SchoolAdmin.View
         {
             if(ValidarDados())
             {
-                
+                instancia.Rua = txtRua.Text.Trim();
+                instancia.Numero = int.Parse(txtNumero.Value.ToString());
+                instancia.Complemento = txtComplemento.Text.Trim();
+                instancia.Bairro = txtBairro.Text.Trim();
+                instancia.Cidade = txtCidade.Text.Trim();
+                instancia.Estado = (Estado)cbbEstados.SelectedItem;
+                instancia.Pessoa = pessoaEndereco;
+
+                controller.Gravar(instancia);
             }
         }
 

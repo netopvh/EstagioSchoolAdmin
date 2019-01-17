@@ -426,7 +426,7 @@ namespace SchoolAdmin.View
         private void btnEndereco_Click(object sender, EventArgs e)
         {
             EnderecosCtr enderecoController = new EnderecosCtr();
-            new frmEnderecos(enderecoController).ShowDialog();
+            new frmEnderecos(enderecoController, instancia).ShowDialog();
         }
     }
 }

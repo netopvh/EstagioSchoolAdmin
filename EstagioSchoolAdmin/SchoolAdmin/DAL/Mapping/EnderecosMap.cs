@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.DAL.Mapping
 {
-    class EnderecoMap : EntityTypeConfiguration<Endereco>
+    class EnderecosMap : EntityTypeConfiguration<Endereco>
     {
-        public EnderecoMap()
+        public EnderecosMap()
         {
             ToTable("estados", "public");
 
@@ -30,11 +30,11 @@ namespace SchoolAdmin.DAL.Mapping
                 .HasColumnName("end_numero")
                 .IsRequired();
 
-            Property(x => x.Rua)
+            Property(x => x.Complemento)
               .HasColumnName("end_complemento")
               .HasMaxLength(128);
 
-            Property(x => x.Rua)
+            Property(x => x.Cidade)
               .HasColumnName("end_cidade")
               .HasMaxLength(64)
               .IsRequired();

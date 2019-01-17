@@ -32,5 +32,15 @@ namespace SchoolAdmin.Model
 
             return ret;
         }
+
+        public Estado ConsultarPeloId(int id)
+        {
+            Estado ret = null;
+            using (var db = new ContextoDB())
+            {
+                ret = db.EstadoMap.Find(id);
+            }
+            return ret;
+        }
     }
 }
