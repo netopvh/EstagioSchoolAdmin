@@ -41,7 +41,28 @@ namespace SchoolAdmin.View
 
             txtCep.Mask = "00000 - 000";
             txtRua.Focus();
-            instancia = controller.GetInstance();
+
+
+            instancia = controller.GetEnderecoById(pessoaEndereco.Id);
+            if(instancia == null)
+            {
+                instancia = controller.GetInstance();
+            }
+            else
+            {
+                CarregarDados();
+            }
+        }
+
+        private void CarregarDados()
+        {
+            txtRua.Text = instancia.Rua;
+            txtNumero.Value = instancia.Numero;
+            txtComplemento.Text = instancia.Complemento;
+            txtBairro.Text = instancia.Bairro;
+            txtCidade.Text = instancia.Cidade;
+            cbbEstados.SelectedItem = instancia.Estado;
+            txtCep.Text = instancia.CEP;
         }
 
         private void CarregarCombobox()
@@ -130,8 +151,15 @@ namespace SchoolAdmin.View
                 instancia.Cidade = txtCidade.Text.Trim();
                 instancia.Estado = (Estado)cbbEstados.SelectedItem;
                 instancia.Pessoa = pessoaEndereco;
+                instancia.CEP = txtCep.Text.Trim();
 
-                controller.Gravar(instancia);
+                if(controller.Gravar(instancia))
+                {
+                    MessageBox.Show("Todos os dados foram gravados com sucesso!",
+                              "Gravação realizada",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Information);
+                }
             }
         }
 

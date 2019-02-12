@@ -13,7 +13,7 @@ namespace SchoolAdmin.DAL.Mapping
     {
         public EnderecosMap()
         {
-            ToTable("estados", "public");
+            ToTable("enderecos", "public");
 
             HasKey(x => x.Id);
             Property(x => x.Id)
@@ -50,8 +50,8 @@ namespace SchoolAdmin.DAL.Mapping
               .IsRequired();
 
             Property(x => x.EstadoId)
-               .HasColumnName("est_pk")
-               .IsRequired();
+                .HasColumnName("est_pk")
+                .IsRequired();
 
             HasRequired(x => x.Estado)
                 .WithMany(x => x.Enderecos)

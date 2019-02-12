@@ -32,7 +32,10 @@ namespace SchoolAdmin.Model
         public int CargoId { get; set; }
         public virtual CargoFuncionario Cargo { get; set; }
 
-        public Funcionario() { }
+        public Funcionario()
+        {
+            Id = 0;
+        }
 
         public List<Funcionario> RecuperarLista(string nome)
         {

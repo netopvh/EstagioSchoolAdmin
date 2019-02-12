@@ -1,4 +1,5 @@
 ﻿using SchoolAdmin.Model;
+using SchoolAdmin.Persistencia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,19 @@ namespace SchoolAdmin.Control
 
         public bool Gravar(Endereco instancia)
         {
-            return instancia.Salvar();
+            EnderecoDAO endDAO = new EnderecoDAO();
+            if(instancia.Id == 0)
+            {
+                return endDAO.Inserir(instancia);
+            }
+
+            return endDAO.Alterar(instancia);
+        }
+
+        public Endereco GetEnderecoById(int pessoa_id)
+        {
+            EnderecoDAO endDAO = new EnderecoDAO();
+            return endDAO.GetEnderecoById(pessoa_id);
         }
     }
 }

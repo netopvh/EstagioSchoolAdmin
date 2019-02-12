@@ -1,4 +1,5 @@
 ﻿using SchoolAdmin.Model;
+using SchoolAdmin.Persistencia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,17 +18,28 @@ namespace SchoolAdmin.Control
 
         public bool Gravar(Funcionario fun, Telefone telefone1, Telefone telefone2)
         {
-            if (fun.Salvar())
-            {
-                telefone1.Pessoa = fun;
-                telefone2.Pessoa = fun;
-                telefone1.Salvar();
-                telefone2.Salvar();
+            FuncionarioDAO funDAO = new FuncionarioDAO();
+            TelefoneDAO telDAO = new TelefoneDAO();
 
-                return true;
+            if (fun.Id == 0)
+            {
+                funDAO.Inserir(fun);
+                telefone1.Pessoa = fun;
+                telDAO.Inserir(telefone1);
+                telefone2.Pessoa = fun;
+                telDAO.Inserir(telefone2);
+
+            }
+            else
+            {
+                funDAO.Alterar(fun);
+                telefone1.Pessoa = fun;
+                telDAO.Alterar(telefone1);
+                telefone2.Pessoa = fun;
+                telDAO.Alterar(telefone2);
             }
 
-            return false;
+            return true;
         }
 
         public DataTable Pesquisar(string fun_nome)
@@ -37,7 +49,9 @@ namespace SchoolAdmin.Control
             resultadoBusca.Columns.Add("Nome", typeof(string));
             resultadoBusca.Columns.Add("Cargo", typeof(string));
 
-            foreach (Funcionario obj in (new Funcionario().RecuperarLista(fun_nome)))
+            FuncionarioDAO funDAO = new FuncionarioDAO();
+
+            foreach (Funcionario obj in (funDAO.Consultar(fun_nome)))
             {
                 DataRow linha = resultadoBusca.NewRow();
 
@@ -52,12 +66,22 @@ namespace SchoolAdmin.Control
 
         public Funcionario GetFuncionarioById(int id)
         {
-            return new Funcionario().ConsultarPeloId(id);
+            FuncionarioDAO funDAO = new FuncionarioDAO();
+            return funDAO.GetFuncionarioById(id);
         }
 
         public bool Excluir(Funcionario fun)
         {
-            return fun.Excluir(fun.Id);
+            EnderecoDAO endDAO = new EnderecoDAO();
+            endDAO.Excluir(fun.Id);
+
+            TelefoneDAO telDAO = new TelefoneDAO();
+            telDAO.Excluir(fun.Id);
+
+            FuncionarioDAO funDAO = new FuncionarioDAO();
+            funDAO.Excluir(fun.Id);
+
+            return true;
         }
 
         public List<CargoFuncionario> GetListaCargos()
@@ -65,9 +89,9 @@ namespace SchoolAdmin.Control
             return new CargoFuncionario().RecuperarLista();
         }
 
-        public List<Telefone> GetTelefones(Funcionario fun)
+        public List<Telefone> GetTelefones(int fun_id)
         {
-            return new Telefone().RecuperarTelefones(fun);
+            return new TelefoneDAO().Consultar(fun_id);
         }
     }
 }

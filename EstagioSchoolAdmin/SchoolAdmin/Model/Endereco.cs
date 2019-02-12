@@ -25,10 +25,7 @@ namespace SchoolAdmin.Model
         public virtual Pessoa Pessoa { get; set; }
 
 
-        public Endereco()
-        {
-            Id = 0;
-        }
+        public Endereco(){}
 
         public Endereco ConsultarPeloId(int pessoa_id)
         {

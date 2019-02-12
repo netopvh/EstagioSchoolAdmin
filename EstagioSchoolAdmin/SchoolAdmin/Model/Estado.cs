@@ -42,5 +42,17 @@ namespace SchoolAdmin.Model
             }
             return ret;
         }
+
+        public override bool Equals(object obj)
+        {
+            var item = obj as Estado;
+
+            if (item == null)
+            {
+                return false;
+            }
+
+            return this.Id == item.Id && this.Nome.Equals(item.Nome) && this.Sigla.Equals(item.Sigla);
+        }
     }
 }
