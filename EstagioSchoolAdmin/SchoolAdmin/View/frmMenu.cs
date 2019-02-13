@@ -41,5 +41,10 @@ namespace SchoolAdmin.View
         {
             new frmFuncionariosCadastrar(new FuncionarioCtr()).ShowDialog();
         }
+
+        private void btnContasPagar_Click(object sender, EventArgs e)
+        {
+            new frmLancarContasAPagar(new ContaPagarCtr()).ShowDialog();
+        }
     }
 }

@@ -31,6 +31,7 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnFuncionarios = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnContasPagar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSair
@@ -73,12 +74,23 @@
             this.pnlTop.Size = new System.Drawing.Size(800, 10);
             this.pnlTop.TabIndex = 2;
             // 
+            // btnContasPagar
+            // 
+            this.btnContasPagar.Location = new System.Drawing.Point(240, 60);
+            this.btnContasPagar.Name = "btnContasPagar";
+            this.btnContasPagar.Size = new System.Drawing.Size(138, 23);
+            this.btnContasPagar.TabIndex = 3;
+            this.btnContasPagar.Text = "Contas A Pagar";
+            this.btnContasPagar.UseVisualStyleBackColor = true;
+            this.btnContasPagar.Click += new System.EventHandler(this.btnContasPagar_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.btnContasPagar);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.btnFuncionarios);
             this.Controls.Add(this.btnSair);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnFuncionarios;
         private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.Button btnContasPagar;
     }
 }
