@@ -45,5 +45,46 @@ namespace SchoolAdmin.Persistencia
 
             return true;
         }
+
+        public List<ContaAPagar> GetListaByOrigem(int origem_id)
+        {
+            List<ContaAPagar> lista = new List<ContaAPagar>();
+            string stringSQL = "select c.conpg_pk, c.conpg_descricao, c.conpg_data, c.conpg_vencimento, " +
+                "c.conpg_valor, c.org_pk, o.org_descricao " +
+              "from contas_pagar c inner join origens_conta o on c.org_pk = o.org_pk " +
+                "where c.org_pk = @origem";
+
+            NpgsqlCommand cmdConsultar = new NpgsqlCommand(stringSQL, this.Conexao);
+            this.Conexao.Open();
+            cmdConsultar.Parameters.AddWithValue("@origem", origem_id);
+
+            NpgsqlDataReader resultado = cmdConsultar.ExecuteReader();
+
+            if (resultado.HasRows)
+            {
+                while (resultado.Read())
+                {
+                    ContaAPagar con = new ContaAPagar();
+                    con.Id = resultado.GetInt32(0);
+                    con.Descricao = resultado.GetString(1);
+                    con.DataLancamento = resultado.GetDateTime(2);
+                    con.Vencimento = resultado.GetDateTime(3);
+                    con.Valor = resultado.GetDecimal(4);
+
+                    con.Origem = new OrigemContaAPagar()
+                    {
+                        Id = resultado.GetInt32(5),
+                        Descricao = resultado.GetString(6)
+                    };
+                    
+
+                    lista.Add(con);
+                }
+            }
+            resultado.Close();
+            this.Conexao.Close();
+
+            return lista;
+        }
     }
 }

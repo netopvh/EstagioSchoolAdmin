@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.gpbForm = new System.Windows.Forms.GroupBox();
+            this.cbbFormaPagamento = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.dtpFim = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbbOrigem = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gpbButtons = new System.Windows.Forms.GroupBox();
@@ -41,14 +49,6 @@
             this.vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpFim = new System.Windows.Forms.DateTimePicker();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbbFormaPagamento = new System.Windows.Forms.ComboBox();
             this.gpbForm.SuspendLayout();
             this.gpbButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
@@ -71,6 +71,77 @@
             this.gpbForm.Size = new System.Drawing.Size(572, 188);
             this.gpbForm.TabIndex = 2;
             this.gpbForm.TabStop = false;
+            // 
+            // cbbFormaPagamento
+            // 
+            this.cbbFormaPagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFormaPagamento.FormattingEnabled = true;
+            this.cbbFormaPagamento.Location = new System.Drawing.Point(23, 153);
+            this.cbbFormaPagamento.Name = "cbbFormaPagamento";
+            this.cbbFormaPagamento.Size = new System.Drawing.Size(228, 21);
+            this.cbbFormaPagamento.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Forma de Pagamento :";
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(415, 73);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(128, 23);
+            this.btnFiltrar.TabIndex = 21;
+            this.btnFiltrar.Text = "FILTRAR";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(415, 36);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(128, 23);
+            this.btnPesquisar.TabIndex = 20;
+            this.btnPesquisar.Text = "PESQUISAR";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // dtpFim
+            // 
+            this.dtpFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFim.Location = new System.Drawing.Point(225, 76);
+            this.dtpFim.Name = "dtpFim";
+            this.dtpFim.Size = new System.Drawing.Size(111, 20);
+            this.dtpFim.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(195, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "A";
+            // 
+            // dtpInicio
+            // 
+            this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpInicio.Location = new System.Drawing.Point(65, 76);
+            this.dtpInicio.Name = "dtpInicio";
+            this.dtpInicio.Size = new System.Drawing.Size(111, 20);
+            this.dtpInicio.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Filtro :";
             // 
             // cbbOrigem
             // 
@@ -118,6 +189,7 @@
             this.btnSair.TabIndex = 19;
             this.btnSair.Text = "SAIR";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnCancelar
             // 
@@ -172,76 +244,6 @@
             this.valorPago.HeaderText = "V. PAGO";
             this.valorPago.Name = "valorPago";
             this.valorPago.Width = 80;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Filtro :";
-            // 
-            // dtpInicio
-            // 
-            this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInicio.Location = new System.Drawing.Point(65, 76);
-            this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(111, 20);
-            this.dtpInicio.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(195, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "A";
-            // 
-            // dtpFim
-            // 
-            this.dtpFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFim.Location = new System.Drawing.Point(225, 76);
-            this.dtpFim.Name = "dtpFim";
-            this.dtpFim.Size = new System.Drawing.Size(111, 20);
-            this.dtpFim.TabIndex = 9;
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Location = new System.Drawing.Point(415, 36);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(128, 23);
-            this.btnPesquisar.TabIndex = 20;
-            this.btnPesquisar.Text = "PESQUISAR";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Location = new System.Drawing.Point(415, 73);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(128, 23);
-            this.btnFiltrar.TabIndex = 21;
-            this.btnFiltrar.Text = "FILTRAR";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Forma de Pagamento :";
-            // 
-            // cbbFormaPagamento
-            // 
-            this.cbbFormaPagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbFormaPagamento.FormattingEnabled = true;
-            this.cbbFormaPagamento.Location = new System.Drawing.Point(23, 153);
-            this.cbbFormaPagamento.Name = "cbbFormaPagamento";
-            this.cbbFormaPagamento.Size = new System.Drawing.Size(228, 21);
-            this.cbbFormaPagamento.TabIndex = 23;
             // 
             // frmQuitarContasAPagar
             // 

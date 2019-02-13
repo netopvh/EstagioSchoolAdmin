@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SchoolAdmin.Persistencia
 {
-    class OrigemContaAPagarDAO
+    class FormaPagamentoDAO
     {
         private NpgsqlConnection conexao;
 
@@ -20,15 +20,15 @@ namespace SchoolAdmin.Persistencia
             }
         }
 
-        public OrigemContaAPagarDAO()
+        public FormaPagamentoDAO()
         {
             conexao = Persistencia.Conexao.getInstance().conexaoBD();
         }
 
-        public List<OrigemContaAPagar> GetLista()
+        public List<FormaPagamento> GetLista()
         {
-            List<OrigemContaAPagar> lista = new List<OrigemContaAPagar>();
-            string stringSQL = "select org_pk, org_descricao from origens_conta";
+            List<FormaPagamento> lista = null;
+            string stringSQL = "select formp_pk, formp_descricao from formas_pagamento";
 
             NpgsqlCommand cmdConsultar = new NpgsqlCommand(stringSQL, this.Conexao);
             this.Conexao.Open();
@@ -37,14 +37,14 @@ namespace SchoolAdmin.Persistencia
 
             if (resultado.HasRows)
             {
-                lista = new List<OrigemContaAPagar>();
+                lista = new List<FormaPagamento>();
                 while (resultado.Read())
                 {
-                    OrigemContaAPagar org = new OrigemContaAPagar();
-                    org.Id = resultado.GetInt32(0);
-                    org.Descricao = resultado.GetString(1);
+                    FormaPagamento form = new FormaPagamento();
+                    form.Id = resultado.GetInt32(0);
+                    form.Descricao = resultado.GetString(1);
 
-                    lista.Add(org);
+                    lista.Add(form);
                 }
             }
             resultado.Close();

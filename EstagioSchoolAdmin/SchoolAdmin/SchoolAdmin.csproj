@@ -99,6 +99,7 @@
     <Compile Include="Model\ContaAPagar.cs" />
     <Compile Include="Model\Endereco.cs" />
     <Compile Include="Model\Estado.cs" />
+    <Compile Include="Model\FormaPagamento.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\OrigemContaAPagar.cs" />
     <Compile Include="Model\Pessoa.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Persistencia\Conexao.cs" />
     <Compile Include="Persistencia\ContaAPagarDAO.cs" />
     <Compile Include="Persistencia\EnderecoDAO.cs" />
+    <Compile Include="Persistencia\FormaPagamentoDAO.cs" />
     <Compile Include="Persistencia\FuncionarioDAO.cs" />
     <Compile Include="Persistencia\OrigemContaAPagarDAO.cs" />
     <Compile Include="Persistencia\TelefoneDAO.cs" />
@@ -183,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmQuitarContasAPagar.resx">
+      <DependentUpon>frmQuitarContasAPagar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

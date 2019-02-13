@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolAdmin.Control;
+using SchoolAdmin.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,42 @@ namespace SchoolAdmin.View
 {
     public partial class frmQuitarContasAPagar : Form
     {
-        public frmQuitarContasAPagar()
+        private ContaPagarCtr controller;
+
+        public frmQuitarContasAPagar(ContaPagarCtr ctr)
         {
             InitializeComponent();
+
+            controller = ctr;
+            CarregarComboboxs();
+        }
+
+        private void CarregarComboboxs()
+        {
+            cbbOrigem.ValueMember = "Id";
+            cbbOrigem.DisplayMember = "Descricao";
+            cbbOrigem.DataSource = controller.GetListaOrigemConta();
+
+            cbbFormaPagamento.ValueMember = "Id";
+            cbbFormaPagamento.DisplayMember = "Descricao";
+            cbbFormaPagamento.DataSource = controller.GetListaFormasPagamento();
+        }
+
+        private void atualizarGridView(DataTable dt)
+        {
+            dgvContas.DataSource = dt;
+            dgvContas.Refresh();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            OrigemContaAPagar origem = (OrigemContaAPagar) cbbOrigem.SelectedItem;
+            atualizarGridView(controller.PesquisarContas(origem));
         }
     }
 }

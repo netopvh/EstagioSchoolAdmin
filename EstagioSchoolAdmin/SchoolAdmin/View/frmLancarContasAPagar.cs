@@ -52,7 +52,7 @@ namespace SchoolAdmin.View
         {
             cbbOrigem.ValueMember = "Id";
             cbbOrigem.DisplayMember = "Descricao";
-            cbbOrigem.DataSource = controller.GetListaCargos();
+            cbbOrigem.DataSource = controller.GetListaOrigemConta();
         }
 
         private void InicializarControles()
