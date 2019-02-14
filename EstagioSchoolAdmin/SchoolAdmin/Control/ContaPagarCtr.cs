@@ -99,5 +99,12 @@ namespace SchoolAdmin.Control
             ContaAPagarDAO conDAO = new ContaAPagarDAO();
             return conDAO.Inserir(conta);
         }
+
+        public bool RegistrarBaixa(List<int> listaContas, FormaPagamento formaPagamento)
+        {
+            PagamentosDAO pagDAO = new PagamentosDAO();
+            return pagDAO.RegistrarBaixa(listaContas, formaPagamento);
+        }
+
     }
 }

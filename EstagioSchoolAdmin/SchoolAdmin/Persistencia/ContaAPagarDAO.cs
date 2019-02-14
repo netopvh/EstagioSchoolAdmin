@@ -46,6 +46,35 @@ namespace SchoolAdmin.Persistencia
             return true;
         }
 
+        public ContaAPagar GetContaById(int conta_id)
+        {
+            ContaAPagar conta = null;
+            string stringSQL = "select conpg_pk, conpg_valor " +
+              "from contas_pagar " +
+                "where conpg_pk = @conta";
+
+            NpgsqlCommand cmdConsultar = new NpgsqlCommand(stringSQL, this.Conexao);
+            
+            cmdConsultar.Parameters.AddWithValue("@conta", conta_id);
+
+            NpgsqlDataReader resultado = cmdConsultar.ExecuteReader();
+
+            if (resultado.HasRows)
+            {
+                while (resultado.Read())
+                {
+                    conta = new ContaAPagar();
+                    conta.Id = resultado.GetInt32(0);
+                    conta.Valor = resultado.GetDecimal(1);
+                }
+               
+            }
+            resultado.Close();
+            
+
+            return conta;
+        }
+
         public List<ContaAPagar> GetListaByOrigem(int origem_id)
         {
             List<ContaAPagar> lista = new List<ContaAPagar>();

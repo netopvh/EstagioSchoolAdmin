@@ -110,6 +110,7 @@
     <Compile Include="Persistencia\FormaPagamentoDAO.cs" />
     <Compile Include="Persistencia\FuncionarioDAO.cs" />
     <Compile Include="Persistencia\OrigemContaAPagarDAO.cs" />
+    <Compile Include="Persistencia\PagamentosDAO.cs" />
     <Compile Include="Persistencia\TelefoneDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

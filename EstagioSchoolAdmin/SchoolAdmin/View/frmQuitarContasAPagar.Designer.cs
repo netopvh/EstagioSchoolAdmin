@@ -241,14 +241,16 @@
             this.dgvContas.Name = "dgvContas";
             this.dgvContas.Size = new System.Drawing.Size(572, 222);
             this.dgvContas.TabIndex = 4;
-            this.dgvContas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContas_CellDoubleClick);
-            this.dgvContas.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvContas_CellMouseClick);
+            this.dgvContas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContas_CellContentClick);
             // 
             // Selecionar
             // 
+            this.Selecionar.DataPropertyName = "Selecionar";
+            this.Selecionar.FalseValue = "false";
             this.Selecionar.HeaderText = "*";
             this.Selecionar.Name = "Selecionar";
             this.Selecionar.ToolTipText = "SELECIONAR CONTA";
+            this.Selecionar.TrueValue = "true";
             this.Selecionar.Width = 30;
             // 
             // Id
