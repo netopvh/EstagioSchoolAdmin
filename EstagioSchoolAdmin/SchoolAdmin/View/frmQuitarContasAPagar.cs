@@ -49,7 +49,15 @@ namespace SchoolAdmin.View
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             OrigemContaAPagar origem = (OrigemContaAPagar) cbbOrigem.SelectedItem;
-            atualizarGridView(controller.PesquisarContas(origem));
+            
+            DataTable resultado = controller.PesquisarContas(origem);
+            if(resultado.Rows.Count < 1)
+            {
+                MessageBox.Show("Não foi encontrado nenhuma como resultado",
+                    "School - Nenhum Resultado Encontrado.",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            atualizarGridView(resultado);
         }
     }
 }
