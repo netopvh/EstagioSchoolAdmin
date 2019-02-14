@@ -22,6 +22,13 @@ namespace SchoolAdmin.View
 
             controller = ctr;
             CarregarComboboxs();
+            EstadoContaNaoSelecionada();
+        }
+        
+        private void EstadoContaNaoSelecionada()
+        {
+            cbbFormaPagamento.Enabled = false;
+            btnRegistrarBaixa.Enabled = false;
         }
 
         private void CarregarComboboxs()
@@ -81,6 +88,73 @@ namespace SchoolAdmin.View
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             atualizarGridView(resultado);
+        }
+
+        private void btnRegisrarBaixa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvContas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch
+            {
+            }
+        }
+
+        private void dgvContas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == dgvContas.Columns["Selecionar"].Index)
+            {
+                try
+                {
+                    DataGridViewRow row = dgvContas.Rows[e.RowIndex];
+                    var ckbox = (DataGridViewCheckBoxCell)dgvContas.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                    bool bChecked = (null != ckbox && null != ckbox.Value && true == (bool)ckbox.Value);
+                    if (!bChecked)
+                    {
+                        row.Cells["Selecionar"].Value = true;
+
+                    }
+                    else
+                    {
+                        row.Cells["Selecionar"].Value = false;
+
+                    }
+
+
+                    if ((bool)ckbox.Value)
+                    {
+                        string conta, vencimento, valor;
+
+                        string selecionado = dgvContas.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        conta = dgvContas.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        vencimento = dgvContas.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        valor = dgvContas.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+                        int contaSelecionada = int.Parse(selecionado);
+
+                        String mensagem = String
+                                    .Format("\nCONTA: '{0}' \nVENCIMENTO: {1} \nVALOR: {2} ",
+                                    conta, vencimento, valor);
+
+                        MessageBox.Show(mensagem, "CONTA SELECIONADA", MessageBoxButtons.OK);
+                    }
+
+                    
+                }
+                catch
+                {
+
+                }
+
+
+            }
         }
     }
 }
