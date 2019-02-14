@@ -46,6 +46,7 @@
             this.dgvContas = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LANÇAMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -206,6 +207,7 @@
             this.dgvContas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.descricao,
+            this.LANÇAMENTO,
             this.vencimento,
             this.valor,
             this.valorPago});
@@ -216,6 +218,7 @@
             // 
             // Id
             // 
+            this.Id.DataPropertyName = "CÓDIGO";
             this.Id.FillWeight = 50F;
             this.Id.HeaderText = "CÓDIGO";
             this.Id.Name = "Id";
@@ -223,24 +226,35 @@
             // 
             // descricao
             // 
+            this.descricao.DataPropertyName = "DESCRIÇÃO";
             this.descricao.HeaderText = "DESCRIÇÃO";
             this.descricao.Name = "descricao";
             this.descricao.Width = 220;
             // 
+            // LANÇAMENTO
+            // 
+            this.LANÇAMENTO.DataPropertyName = "LANÇAMENTO";
+            this.LANÇAMENTO.HeaderText = "LANÇAMENTO";
+            this.LANÇAMENTO.Name = "LANÇAMENTO";
+            this.LANÇAMENTO.ReadOnly = true;
+            // 
             // vencimento
             // 
+            this.vencimento.DataPropertyName = "VENCIMENTO";
             this.vencimento.HeaderText = "VENCIMENTO";
             this.vencimento.Name = "vencimento";
             this.vencimento.Width = 80;
             // 
             // valor
             // 
+            this.valor.DataPropertyName = "VALOR";
             this.valor.HeaderText = "VALOR";
             this.valor.Name = "valor";
             this.valor.Width = 70;
             // 
             // valorPago
             // 
+            this.valorPago.DataPropertyName = "V. PAGO";
             this.valorPago.HeaderText = "V. PAGO";
             this.valorPago.Name = "valorPago";
             this.valorPago.Width = 80;
@@ -272,11 +286,6 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvContas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vencimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorPago;
         private System.Windows.Forms.DateTimePicker dtpFim;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpInicio;
@@ -285,5 +294,11 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.ComboBox cbbFormaPagamento;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LANÇAMENTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorPago;
     }
 }

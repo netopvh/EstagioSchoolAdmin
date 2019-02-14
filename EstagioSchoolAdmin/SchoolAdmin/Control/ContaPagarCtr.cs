@@ -35,9 +35,10 @@ namespace SchoolAdmin.Control
             DataTable resultadoBusca = new DataTable();
             resultadoBusca.Columns.Add("CÓDIGO", typeof(int));
             resultadoBusca.Columns.Add("DESCRIÇÃO", typeof(string));
+            resultadoBusca.Columns.Add("LANÇAMENTO", typeof(DateTime));
             resultadoBusca.Columns.Add("VENCIMENTO", typeof(DateTime));
-            resultadoBusca.Columns.Add("VALOR", typeof(Decimal));
-            resultadoBusca.Columns.Add("V. PAGO", typeof(Decimal));
+            resultadoBusca.Columns.Add("VALOR", typeof(string));
+            resultadoBusca.Columns.Add("V. PAGO", typeof(string));
 
             foreach (ContaAPagar obj in (conDAO.GetListaByOrigem(origem.Id)))
             {
@@ -45,9 +46,10 @@ namespace SchoolAdmin.Control
 
                 linha["CÓDIGO"] = obj.Id;
                 linha["DESCRIÇÃO"] = obj.Descricao;
+                linha["LANÇAMENTO"] = obj.DataLancamento;
                 linha["VENCIMENTO"] = obj.Vencimento;
-                linha["VALOR"] = obj.Valor;
-                linha["V. PAGO"] = 0;
+                linha["VALOR"] = String.Format("R$ {0:0.00}", obj.Valor);
+                linha["V. PAGO"] = "R$ 0,00";
 
                 resultadoBusca.Rows.Add(linha);
             }
