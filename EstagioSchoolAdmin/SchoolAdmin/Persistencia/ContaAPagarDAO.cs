@@ -34,7 +34,7 @@ namespace SchoolAdmin.Persistencia
             NpgsqlCommand cmdIncluir = new NpgsqlCommand(stringSQL, this.conexao);
             this.Conexao.Open();
 
-            cmdIncluir.Parameters.AddWithValue("@descricao",conta.Descricao);
+            cmdIncluir.Parameters.AddWithValue("@descricao", conta.Descricao);
             cmdIncluir.Parameters.AddWithValue("@data", conta.DataLancamento);
             cmdIncluir.Parameters.AddWithValue("@vencimento", conta.Vencimento);
             cmdIncluir.Parameters.AddWithValue("@valor", conta.Valor);
@@ -76,7 +76,7 @@ namespace SchoolAdmin.Persistencia
                         Id = resultado.GetInt32(5),
                         Descricao = resultado.GetString(6)
                     };
-                    
+
 
                     lista.Add(con);
                 }
@@ -86,5 +86,6 @@ namespace SchoolAdmin.Persistencia
 
             return lista;
         }
+
     }
 }
