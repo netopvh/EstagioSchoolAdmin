@@ -51,5 +51,10 @@ namespace SchoolAdmin.View
         {
             new frmQuitarContasAPagar(new ContaPagarCtr()).ShowDialog();
         }
+
+        private void btnAlunos_Click(object sender, EventArgs e)
+        {
+            new frmAlunosCadastrar(new AlunosCtr()).ShowDialog();
+        }
     }
 }

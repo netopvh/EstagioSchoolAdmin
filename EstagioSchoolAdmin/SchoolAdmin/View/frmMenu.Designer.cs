@@ -33,6 +33,7 @@
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnContasPagar = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnAlunos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSair
@@ -95,12 +96,23 @@
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
+            // btnAlunos
+            // 
+            this.btnAlunos.Location = new System.Drawing.Point(240, 118);
+            this.btnAlunos.Name = "btnAlunos";
+            this.btnAlunos.Size = new System.Drawing.Size(138, 23);
+            this.btnAlunos.TabIndex = 5;
+            this.btnAlunos.Text = "Alunos";
+            this.btnAlunos.UseVisualStyleBackColor = true;
+            this.btnAlunos.Click += new System.EventHandler(this.btnAlunos_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.btnAlunos);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.btnContasPagar);
             this.Controls.Add(this.pnlTop);
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Button btnContasPagar;
         private System.Windows.Forms.Button btnQuitar;
+        private System.Windows.Forms.Button btnAlunos;
     }
 }

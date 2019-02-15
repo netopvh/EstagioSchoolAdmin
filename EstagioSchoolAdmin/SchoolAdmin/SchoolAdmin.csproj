@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\AlunosCtr.cs" />
     <Compile Include="Control\ContaPagarCtr.cs" />
     <Compile Include="Control\EnderecosCtr.cs" />
     <Compile Include="Control\FuncionarioCtr.cs" />
