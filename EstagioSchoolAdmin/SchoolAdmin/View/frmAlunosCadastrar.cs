@@ -1,4 +1,5 @@
 ﻿using SchoolAdmin.Control;
+using SchoolAdmin.Model;
 using SchoolAdmin.Util.Validators;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace SchoolAdmin.View
     public partial class frmAlunosCadastrar : Form
     {
         private AlunosCtr controller;
+        private Aluno instancia;
 
         public frmAlunosCadastrar(AlunosCtr ctr)
         {
@@ -47,6 +49,7 @@ namespace SchoolAdmin.View
             dtpNascimento.Value = DateTime.Now;
             txtMunicipio.Clear();
             cbbEstados.SelectedIndex = -1;
+            instancia = controller.GetInstancia();
         }
 
         private bool ValidarDados()
@@ -113,7 +116,23 @@ namespace SchoolAdmin.View
         {
             if(ValidarDados())
             {
-                MessageBox.Show("Realizar Gravação");
+                instancia.Nome = txtNome.Text.Trim();
+                instancia.Sexo = cbbSexo.SelectedValue.ToString();
+                instancia.DataNascimento = dtpNascimento.Value;
+                instancia.Municipio = txtMunicipio.Text.Trim();
+                instancia.Estado = (Estado)cbbEstados.SelectedItem;
+
+                if(controller.Gravar(instancia))
+                {
+                    MessageBox.Show(
+                        "Gravação realizada com sucesso. Todos os dados foram salvos.",
+                        "Gravação realizada",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+                    InicializarControles();
+                }
             }
         }
 
