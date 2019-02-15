@@ -59,5 +59,13 @@ namespace SchoolAdmin.Control
             AlunoDAO aluDAO = new AlunoDAO();
             return aluDAO.GetAlunoById(id);
         }
+
+        public bool Excluir(Aluno aluno)
+        {
+            AlunoDAO aluDAO = new AlunoDAO();
+            aluDAO.Excluir(aluno.Id);
+
+            return true;
+        }
     }
 }

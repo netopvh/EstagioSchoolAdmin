@@ -50,6 +50,13 @@ namespace SchoolAdmin.View
             txtMunicipio.Clear();
             cbbEstados.SelectedIndex = -1;
             instancia = controller.GetInstancia();
+
+            btnExcluir.Enabled = false;
+        }
+
+        private void EstadoAlteracao()
+        {
+            btnExcluir.Enabled = true;
         }
 
         private bool ValidarDados()
@@ -154,6 +161,7 @@ namespace SchoolAdmin.View
                 {
                     instancia = controller.GetAlunoById(formPesquisar.id_selecionado);
                     CarregarDados();
+                    EstadoAlteracao();
                 }
                 else
                 {
@@ -169,7 +177,29 @@ namespace SchoolAdmin.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            var confirmacao = MessageBox.Show(
+                "Atenção, todos os dados do funcionários serão apagados. " +
+                "Deseja prosseguir com a exclusão?",
+                "Confirmar exclusão",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2);
 
+            if (confirmacao == DialogResult.OK)
+            {
+
+                if (controller.Excluir(instancia))
+                {
+                    MessageBox.Show(
+                        "Exclusão realizada com sucesso. Todos os dados foram apagados.",
+                        "Exclusão realizada",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+                    InicializarControles();
+                }
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)

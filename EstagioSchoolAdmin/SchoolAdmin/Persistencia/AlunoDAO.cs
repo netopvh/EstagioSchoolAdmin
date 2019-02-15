@@ -161,5 +161,24 @@ namespace SchoolAdmin.Persistencia
             this.Conexao.Close();
             return alu;
         }
-     }
+
+        public void Excluir(int pessoa_id)
+        {
+            string stringSQL = "delete from alunos where pes_pk = @codigo";
+
+            NpgsqlCommand cmdExcluir = new NpgsqlCommand(stringSQL, this.Conexao);
+            this.Conexao.Open();
+            cmdExcluir.Parameters.AddWithValue("@codigo", pessoa_id);
+            cmdExcluir.ExecuteNonQuery();
+
+
+            stringSQL = "delete from pessoas where pes_pk = @codigo";
+
+            cmdExcluir = new NpgsqlCommand(stringSQL, this.Conexao);
+            cmdExcluir.Parameters.AddWithValue("@codigo", pessoa_id);
+            cmdExcluir.ExecuteNonQuery();
+
+            this.Conexao.Close();
+        }
+    }
 }
