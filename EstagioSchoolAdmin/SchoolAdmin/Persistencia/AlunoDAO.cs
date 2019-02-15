@@ -60,8 +60,9 @@ namespace SchoolAdmin.Persistencia
         public List<Aluno> Consultar(string nome)
         {
             List<Aluno> lista = new List<Aluno>();
-            string stringSQL = "select " +
-                "pes_pk, pes_nome, pes_datanascimento from pessoas " +
+            string stringSQL = "select a.pes_pk, " +
+                "p.pes_nome, p.pes_datanascimento " +
+                "from alunos a inner join pessoas p on a.pes_pk = p.pes_pk " +
                 "where pes_nome ilike @nome order by pes_pk";
 
             NpgsqlCommand cmdConsultar = new NpgsqlCommand(stringSQL, this.Conexao);
@@ -83,7 +84,50 @@ namespace SchoolAdmin.Persistencia
                 }
             }
 
+            resultado.Close();
+            this.conexao.Close();
+
             return lista;
+        }
+
+        public Aluno GetAlunoById(int id)
+        {
+            Aluno alu = null;
+            string stringSQL = "select " +
+                "p.pes_pk, p.pes_nome, p.pes_datanascimento, p.pes_sexo, a.alu_localnascimento, " +
+                "a.est_pk, e.est_nome, e.est_sigla " +
+             "from alunos a " +
+                "inner join pessoas p on p.pes_pk = a.pes_pk " +
+                "inner join estados e on a.est_pk = e.est_pk " +
+             "where p.pes_pk = @codigo";
+
+            NpgsqlCommand cmdConsultar = new NpgsqlCommand(stringSQL, this.Conexao);
+            this.Conexao.Open();
+            cmdConsultar.Parameters.AddWithValue("@codigo", id);
+
+            NpgsqlDataReader resultado = cmdConsultar.ExecuteReader();
+
+            if (resultado.HasRows)
+            {
+                resultado.Read();
+                alu = new Aluno();
+
+                alu.Id = resultado.GetInt32(0);
+                alu.Nome = resultado.GetString(1);
+                alu.DataNascimento = resultado.GetDateTime(2);
+                alu.Sexo = resultado.GetChar(3).ToString();
+                alu.Municipio = resultado.GetString(4);
+                alu.Estado = new Estado()
+                {
+                    Id = resultado.GetInt32(5),
+                    Nome = resultado.GetString(6),
+                    Sigla = resultado.GetString(7)
+                };
+            }
+
+            resultado.Close();
+            this.Conexao.Close();
+            return alu;
         }
      }
 }

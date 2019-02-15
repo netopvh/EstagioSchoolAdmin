@@ -52,6 +52,7 @@
             this.dgvAlunos.ReadOnly = true;
             this.dgvAlunos.Size = new System.Drawing.Size(674, 289);
             this.dgvAlunos.TabIndex = 7;
+            this.dgvAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlunos_CellDoubleClick);
             // 
             // Nome
             // 

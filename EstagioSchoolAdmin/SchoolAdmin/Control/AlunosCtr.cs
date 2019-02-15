@@ -49,5 +49,11 @@ namespace SchoolAdmin.Control
 
             return resultadoBusca;
         }
+
+        public Aluno GetAlunoById(int id)
+        {
+            AlunoDAO aluDAO = new AlunoDAO();
+            return aluDAO.GetAlunoById(id);
+        }
     }
 }

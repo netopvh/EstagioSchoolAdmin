@@ -107,6 +107,15 @@ namespace SchoolAdmin.View
             return !erro;
         }
 
+        private void CarregarDados()
+        {
+            txtNome.Text = instancia.Nome;
+            dtpNascimento.Value = instancia.DataNascimento;
+            cbbSexo.SelectedIndex = instancia.Sexo.Equals("m") ? 0 : 1;
+            txtMunicipio.Text = instancia.Municipio;
+            cbbEstados.SelectedItem = instancia.Estado;
+        }
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
             InicializarControles();
@@ -141,6 +150,20 @@ namespace SchoolAdmin.View
             using (var formPesquisar = new frmAlunosPesquisar(controller))
             {
                 formPesquisar.ShowDialog();
+                if (formPesquisar.confirmacao == DialogResult.OK)
+                {
+                    instancia = controller.GetAlunoById(formPesquisar.id_selecionado);
+                    CarregarDados();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Atenção, nenhum aluno foi selecionado para alteração de dados.",
+                        "Nenhum Aluno Selecionado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
             }
         }
 

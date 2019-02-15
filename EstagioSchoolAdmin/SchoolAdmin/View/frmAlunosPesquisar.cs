@@ -30,6 +30,12 @@ namespace SchoolAdmin.View
             {
                 atualizarGridView(dt);
             }
+            else
+            {
+                MessageBox.Show("Não foi encontrado nenhum aluno como resultado",
+                    "School - Nenhum Resultado Encontrado.",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void atualizarGridView(DataTable dt)
@@ -38,5 +44,28 @@ namespace SchoolAdmin.View
             dgvAlunos.Refresh();
         }
 
+        private void dgvAlunos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string alunoSelecionado = dgvAlunos.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+            String mensagem = String
+                               .Format("O aluno '{0}' foi selecionado.Deseja confirmar a seleção? ",
+                               alunoSelecionado);
+            string titulo = "Confirmar seleção";
+
+            confirmacao = MessageBox.Show(
+                mensagem,
+                titulo,
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1
+             );
+
+            if (confirmacao == DialogResult.OK)
+            {
+                id_selecionado = int.Parse(dgvAlunos.Rows[e.RowIndex].Cells[0].Value.ToString());
+                this.Close();
+            }
+        }
     }
 }
