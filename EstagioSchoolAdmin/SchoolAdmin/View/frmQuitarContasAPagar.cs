@@ -23,6 +23,15 @@ namespace SchoolAdmin.View
             controller = ctr;
             CarregarComboboxs();
             EstadoContaNaoSelecionada();
+            EstadoInicial();
+        }
+
+        private void EstadoInicial()
+        {
+            cbbOrigem.SelectedIndex = -1;
+            cbbFormaPagamento.SelectedIndex = -1;
+            dtpInicio.Value = DateTime.Now;
+            dtpFim.Value = DateTime.Now;
         }
         
         private void EstadoContaNaoSelecionada()
@@ -61,74 +70,101 @@ namespace SchoolAdmin.View
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            OrigemContaAPagar origem = (OrigemContaAPagar) cbbOrigem.SelectedItem;
-            
-            DataTable resultado = controller.PesquisarContas(origem);
-            if(resultado.Rows.Count < 1)
+           if(cbbOrigem.SelectedIndex != -1)
             {
-                MessageBox.Show("Não foi encontrado nenhuma como resultado",
-                    "School - Nenhum Resultado Encontrado.",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                OrigemContaAPagar origem = (OrigemContaAPagar)cbbOrigem.SelectedItem;
+
+                DataTable resultado = controller.PesquisarContas(origem);
+                if (resultado.Rows.Count < 1)
+                {
+                    MessageBox.Show("Não foi encontrado nenhuma como resultado",
+                        "School - Nenhum Resultado Encontrado.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                atualizarGridView(resultado);
             }
-            atualizarGridView(resultado);
+           else
+            {
+                MessageBox.Show("Selecione uma origem para prosseguir com a pesquisa!",
+                    "Erro, Origem não selecionada!",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            OrigemContaAPagar origem = (OrigemContaAPagar)cbbOrigem.SelectedItem;
-            DateTime inicio = dtpInicio.Value;
-            DateTime fim = dtpFim.Value;
-            
-            if(fim.Date != DateTime.Today && inicio.Date > fim.Date)
+
+            if (cbbOrigem.SelectedIndex != -1)
             {
-                MessageBox.Show("O período de vencimento selecionado é inválido, o fim do período é anterior ao inicio",
-                    "School - Data selecionada inválida.",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                OrigemContaAPagar origem = (OrigemContaAPagar)cbbOrigem.SelectedItem;
+                DateTime inicio = dtpInicio.Value;
+                DateTime fim = dtpFim.Value;
+
+                if (fim.Date != DateTime.Today && inicio.Date > fim.Date)
+                {
+                    MessageBox.Show("O período de vencimento selecionado é inválido, o fim do período é anterior ao inicio",
+                        "School - Data selecionada inválida.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                DataTable resultado = controller.FiltrarContasPorDataVencimento(origem, inicio, fim);
+                if (resultado.Rows.Count < 1)
+                {
+                    MessageBox.Show("Não foi encontrada nenhuma conta como resultado.",
+                        "School - Nenhum Resultado Encontrado.",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                atualizarGridView(resultado);
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma origem para prosseguir com a pesquisa!",
+                    "Erro, Origem não selecionada!",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            DataTable resultado = controller.FiltrarContasPorDataVencimento(origem, inicio, fim);
-            if (resultado.Rows.Count < 1)
-            {
-                MessageBox.Show("Não foi encontrada nenhuma conta como resultado.",
-                    "School - Nenhum Resultado Encontrado.",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            atualizarGridView(resultado);
         }
 
         private void btnRegisrarBaixa_Click(object sender, EventArgs e)
         {
-            List<int> listaContas = new List<int>();
-            foreach (DataGridViewRow row in dgvContas.Rows)
+            if(cbbFormaPagamento.SelectedIndex > -1)
             {
-                if (Convert.ToBoolean(row.Cells["Selecionar"].Value) == true)
+                List<int> listaContas = new List<int>();
+                foreach (DataGridViewRow row in dgvContas.Rows)
                 {
-                    
-                    listaContas.Add(Convert.ToInt32(row.Cells["Id"].Value));
+                    if (Convert.ToBoolean(row.Cells["Selecionar"].Value) == true)
+                    {
+
+                        listaContas.Add(Convert.ToInt32(row.Cells["Id"].Value));
+                    }
+                }
+
+                FormaPagamento formaPagamento = (FormaPagamento)cbbFormaPagamento.SelectedItem;
+
+                string mensagem = String
+                                    .Format("\nCONTAS SELECIONADAS: '{0}' \nFORMA DE PAGAMENTO: {1} " +
+                                    "\n Deseja confirmar a Baixa das contas selecionadas?",
+                                    listaContas.Count, formaPagamento.Descricao);
+
+                var confirmacao = MessageBox.Show(
+                    mensagem,
+                    "Confirmar Baixa",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2);
+
+                if (confirmacao == DialogResult.OK)
+                {
+                    controller.RegistrarBaixa(listaContas, formaPagamento);
                 }
             }
-
-            FormaPagamento formaPagamento = (FormaPagamento)cbbFormaPagamento.SelectedItem;
-            
-            string mensagem = String
-                                .Format("\nCONTAS SELECIONADAS: '{0}' \nFORMA DE PAGAMENTO: {1} " +
-                                "\n Deseja confirmar a Baixa das contas selecionadas?", 
-                                listaContas.Count, formaPagamento.Descricao);
-
-            var confirmacao = MessageBox.Show(
-                mensagem,
-                "Confirmar Baixa",
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Warning,
-                MessageBoxDefaultButton.Button2);
-
-            if (confirmacao == DialogResult.OK)
+            else
             {
-                controller.RegistrarBaixa(listaContas, formaPagamento);
+                MessageBox.Show("Selecione uma forma de pagamento para prosseguir com a baixa!",
+                    "Erro, Forma de pagamento não selecionada!",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         private void dgvContas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
