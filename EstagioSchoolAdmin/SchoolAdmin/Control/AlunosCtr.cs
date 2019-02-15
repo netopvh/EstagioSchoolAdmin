@@ -2,6 +2,7 @@
 using SchoolAdmin.Persistencia;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,29 @@ namespace SchoolAdmin.Control
         {
             AlunoDAO aluDAO = new AlunoDAO();
             return aluDAO.Inserir(aluno);
+        }
+
+        public DataTable Pesquisar(string fun_nome)
+        {
+            DataTable resultadoBusca = new DataTable();
+            resultadoBusca.Columns.Add("Id", typeof(int));
+            resultadoBusca.Columns.Add("Nome", typeof(string));
+            resultadoBusca.Columns.Add("DataNascimento", typeof(DateTime));
+
+            AlunoDAO aluDAO = new AlunoDAO();
+
+            foreach (Aluno obj in (aluDAO.Consultar(fun_nome)))
+            {
+                DataRow linha = resultadoBusca.NewRow();
+
+                linha["Id"] = obj.Id;
+                linha["Nome"] = obj.Nome;
+                linha["DataNascimento"] = obj.DataNascimento.Date;
+
+                resultadoBusca.Rows.Add(linha);
+            }
+
+            return resultadoBusca;
         }
     }
 }

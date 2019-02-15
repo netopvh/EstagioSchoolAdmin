@@ -15,7 +15,7 @@ namespace SchoolAdmin.View
 {
     public partial class frmAlunosCadastrar : Form
     {
-        private AlunosCtr controller;
+        AlunosCtr controller;
         private Aluno instancia;
 
         public frmAlunosCadastrar(AlunosCtr ctr)
@@ -138,7 +138,10 @@ namespace SchoolAdmin.View
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-
+            using (var formPesquisar = new frmAlunosPesquisar(controller))
+            {
+                formPesquisar.ShowDialog();
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

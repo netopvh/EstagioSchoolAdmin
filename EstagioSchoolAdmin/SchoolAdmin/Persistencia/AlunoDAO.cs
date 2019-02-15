@@ -56,5 +56,34 @@ namespace SchoolAdmin.Persistencia
 
             return true;
         }
-    }
+
+        public List<Aluno> Consultar(string nome)
+        {
+            List<Aluno> lista = new List<Aluno>();
+            string stringSQL = "select " +
+                "pes_pk, pes_nome, pes_datanascimento from pessoas " +
+                "where pes_nome ilike @nome order by pes_pk";
+
+            NpgsqlCommand cmdConsultar = new NpgsqlCommand(stringSQL, this.Conexao);
+            this.Conexao.Open();
+            cmdConsultar.Parameters.AddWithValue("@nome", "%" + nome + "%");
+
+            NpgsqlDataReader resultado = cmdConsultar.ExecuteReader();
+
+            if (resultado.HasRows)
+            {
+                while (resultado.Read())
+                {
+                    Aluno alu = new Aluno();
+                    alu.Id = resultado.GetInt32(0);
+                    alu.Nome = resultado.GetString(1);
+                    alu.DataNascimento = resultado.GetDateTime(2);
+
+                    lista.Add(alu);
+                }
+            }
+
+            return lista;
+        }
+     }
 }
