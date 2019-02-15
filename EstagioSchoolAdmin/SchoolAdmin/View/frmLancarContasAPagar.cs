@@ -234,13 +234,13 @@ namespace SchoolAdmin.View
             this.gpbButtons.Controls.Add(this.btnNovo);
             this.gpbButtons.Location = new System.Drawing.Point(12, 370);
             this.gpbButtons.Name = "gpbButtons";
-            this.gpbButtons.Size = new System.Drawing.Size(437, 56);
+            this.gpbButtons.Size = new System.Drawing.Size(437, 52);
             this.gpbButtons.TabIndex = 4;
             this.gpbButtons.TabStop = false;
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(105, 19);
+            this.btnGravar.Location = new System.Drawing.Point(105, 17);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 15;
@@ -250,7 +250,7 @@ namespace SchoolAdmin.View
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(342, 19);
+            this.btnSair.Location = new System.Drawing.Point(342, 17);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 19;
@@ -260,7 +260,7 @@ namespace SchoolAdmin.View
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(12, 19);
+            this.btnNovo.Location = new System.Drawing.Point(12, 17);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 16;

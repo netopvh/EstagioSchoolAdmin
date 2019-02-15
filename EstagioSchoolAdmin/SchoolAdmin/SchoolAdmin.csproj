@@ -168,6 +168,18 @@
     <Compile Include="View\frmQuitarContasAPagar.Designer.cs">
       <DependentUpon>frmQuitarContasAPagar.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmResponsaveisCadastrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmResponsaveisCadastrar.Designer.cs">
+      <DependentUpon>frmResponsaveisCadastrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmResponsaveisPesquisar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmResponsaveisPesquisar.Designer.cs">
+      <DependentUpon>frmResponsaveisPesquisar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -201,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmQuitarContasAPagar.resx">
       <DependentUpon>frmQuitarContasAPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmResponsaveisCadastrar.resx">
+      <DependentUpon>frmResponsaveisCadastrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmResponsaveisPesquisar.resx">
+      <DependentUpon>frmResponsaveisPesquisar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
