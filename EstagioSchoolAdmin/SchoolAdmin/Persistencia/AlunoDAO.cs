@@ -57,6 +57,38 @@ namespace SchoolAdmin.Persistencia
             return true;
         }
 
+        public bool Alterar(Aluno aluno)
+        {
+            string stringSQL = "UPDATE " +
+                "pessoas SET pes_nome=@nome, pes_sexo=@sexo, pes_datanascimento=@nascimento " +
+              "WHERE pes_pk = @pessoa_id";
+
+            NpgsqlCommand cmdIncluir = new NpgsqlCommand(stringSQL, this.conexao);
+            this.Conexao.Open();
+
+            cmdIncluir.Parameters.AddWithValue("@nome", aluno.Nome);
+            cmdIncluir.Parameters.AddWithValue("@sexo", aluno.Sexo);
+            cmdIncluir.Parameters.AddWithValue("@nascimento", aluno.DataNascimento);
+
+            cmdIncluir.Parameters.AddWithValue("@pessoa_id", aluno.Id);
+            cmdIncluir.ExecuteNonQuery();
+
+            stringSQL = "UPDATE alunos " +
+                "SET alu_localnascimento=@local, est_pk=@estado " +
+             "WHERE pes_pk=@pessoa";
+
+            cmdIncluir = new NpgsqlCommand(stringSQL, this.conexao);
+
+            cmdIncluir.Parameters.AddWithValue("@local", aluno.Municipio);
+            cmdIncluir.Parameters.AddWithValue("@estado", aluno.Estado.Id);
+            cmdIncluir.Parameters.AddWithValue("@pessoa", aluno.Id);
+
+            cmdIncluir.ExecuteNonQuery();
+            this.Conexao.Close();
+
+            return true;
+        }
+
         public List<Aluno> Consultar(string nome)
         {
             List<Aluno> lista = new List<Aluno>();

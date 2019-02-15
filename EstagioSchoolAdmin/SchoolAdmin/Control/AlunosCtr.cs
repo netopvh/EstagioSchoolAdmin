@@ -24,6 +24,10 @@ namespace SchoolAdmin.Control
         public bool Gravar(Aluno aluno)
         {
             AlunoDAO aluDAO = new AlunoDAO();
+
+            if (aluno.Id > 0)
+                return aluDAO.Alterar(aluno);
+
             return aluDAO.Inserir(aluno);
         }
 
