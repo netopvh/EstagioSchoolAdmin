@@ -52,11 +52,13 @@ namespace SchoolAdmin.View
             instancia = controller.GetInstancia();
 
             btnExcluir.Enabled = false;
+            btnResponsaveis.Enabled = false;
         }
 
         private void EstadoAlteracao()
         {
             btnExcluir.Enabled = true;
+            btnResponsaveis.Enabled = true;
         }
 
         private bool ValidarDados()
@@ -205,6 +207,11 @@ namespace SchoolAdmin.View
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnResponsaveis_Click(object sender, EventArgs e)
+        {
+            new frmResponsaveisPesquisar().ShowDialog();
         }
     }
 }

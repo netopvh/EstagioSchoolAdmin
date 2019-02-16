@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.gpbForm = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtTelefoneTrabalho = new System.Windows.Forms.MaskedTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtTelefone2 = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTelefone1 = new System.Windows.Forms.MaskedTextBox();
+            this.btnEnderecoTrabalho = new System.Windows.Forms.Button();
+            this.txtProfissao = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnCadastrarEndereco = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.ckbEndereco = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,16 +57,6 @@
             this.cbbSexo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.btnCadastrarEndereco = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtProfissao = new System.Windows.Forms.TextBox();
-            this.btnEnderecoTrabalho = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTelefone1 = new System.Windows.Forms.MaskedTextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtTelefone2 = new System.Windows.Forms.MaskedTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtTelefoneTrabalho = new System.Windows.Forms.MaskedTextBox();
             this.gpbButtons = new System.Windows.Forms.GroupBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -100,6 +100,88 @@
             this.gpbForm.TabIndex = 0;
             this.gpbForm.TabStop = false;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(18, 420);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(160, 13);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Telefone do trabalho (opcional) :";
+            // 
+            // txtTelefoneTrabalho
+            // 
+            this.txtTelefoneTrabalho.Location = new System.Drawing.Point(15, 436);
+            this.txtTelefoneTrabalho.Name = "txtTelefoneTrabalho";
+            this.txtTelefoneTrabalho.Size = new System.Drawing.Size(189, 20);
+            this.txtTelefoneTrabalho.TabIndex = 28;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(234, 369);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(113, 13);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Telefone 2 (opcional) :";
+            // 
+            // txtTelefone2
+            // 
+            this.txtTelefone2.Location = new System.Drawing.Point(231, 385);
+            this.txtTelefone2.Name = "txtTelefone2";
+            this.txtTelefone2.Size = new System.Drawing.Size(189, 20);
+            this.txtTelefone2.TabIndex = 26;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 369);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Telefone :";
+            // 
+            // txtTelefone1
+            // 
+            this.txtTelefone1.Location = new System.Drawing.Point(15, 385);
+            this.txtTelefone1.Name = "txtTelefone1";
+            this.txtTelefone1.Size = new System.Drawing.Size(189, 20);
+            this.txtTelefone1.TabIndex = 24;
+            // 
+            // btnEnderecoTrabalho
+            // 
+            this.btnEnderecoTrabalho.Location = new System.Drawing.Point(324, 332);
+            this.btnEnderecoTrabalho.Name = "btnEnderecoTrabalho";
+            this.btnEnderecoTrabalho.Size = new System.Drawing.Size(222, 23);
+            this.btnEnderecoTrabalho.TabIndex = 23;
+            this.btnEnderecoTrabalho.Text = "ENDEREÇO DE TRABALHO";
+            this.btnEnderecoTrabalho.UseVisualStyleBackColor = true;
+            // 
+            // txtProfissao
+            // 
+            this.txtProfissao.Location = new System.Drawing.Point(15, 334);
+            this.txtProfissao.Name = "txtProfissao";
+            this.txtProfissao.Size = new System.Drawing.Size(189, 20);
+            this.txtProfissao.TabIndex = 22;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 316);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Profissão (opcional) :";
+            // 
+            // btnCadastrarEndereco
+            // 
+            this.btnCadastrarEndereco.Location = new System.Drawing.Point(324, 282);
+            this.btnCadastrarEndereco.Name = "btnCadastrarEndereco";
+            this.btnCadastrarEndereco.Size = new System.Drawing.Size(222, 23);
+            this.btnCadastrarEndereco.TabIndex = 19;
+            this.btnCadastrarEndereco.Text = "CADASTRAR OUTRO ENDEREÇO";
+            this.btnCadastrarEndereco.UseVisualStyleBackColor = true;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -118,6 +200,7 @@
             this.ckbEndereco.TabIndex = 17;
             this.ckbEndereco.Text = "Reside no mesmo endereço do aluno";
             this.ckbEndereco.UseVisualStyleBackColor = true;
+            this.ckbEndereco.CheckedChanged += new System.EventHandler(this.ckbEndereco_CheckedChanged);
             // 
             // label7
             // 
@@ -201,6 +284,7 @@
             this.ckbOutroParentesco.TabIndex = 7;
             this.ckbOutroParentesco.Text = "Outro Parentesco";
             this.ckbOutroParentesco.UseVisualStyleBackColor = true;
+            this.ckbOutroParentesco.CheckedChanged += new System.EventHandler(this.ckbOutroParentesco_CheckedChanged);
             // 
             // label3
             // 
@@ -254,88 +338,6 @@
             this.txtNome.Size = new System.Drawing.Size(379, 20);
             this.txtNome.TabIndex = 1;
             // 
-            // btnCadastrarEndereco
-            // 
-            this.btnCadastrarEndereco.Location = new System.Drawing.Point(324, 282);
-            this.btnCadastrarEndereco.Name = "btnCadastrarEndereco";
-            this.btnCadastrarEndereco.Size = new System.Drawing.Size(222, 23);
-            this.btnCadastrarEndereco.TabIndex = 19;
-            this.btnCadastrarEndereco.Text = "CADASTRAR OUTRO ENDEREÇO";
-            this.btnCadastrarEndereco.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 316);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Profissão (opcional) :";
-            // 
-            // txtProfissao
-            // 
-            this.txtProfissao.Location = new System.Drawing.Point(15, 334);
-            this.txtProfissao.Name = "txtProfissao";
-            this.txtProfissao.Size = new System.Drawing.Size(189, 20);
-            this.txtProfissao.TabIndex = 22;
-            // 
-            // btnEnderecoTrabalho
-            // 
-            this.btnEnderecoTrabalho.Location = new System.Drawing.Point(324, 332);
-            this.btnEnderecoTrabalho.Name = "btnEnderecoTrabalho";
-            this.btnEnderecoTrabalho.Size = new System.Drawing.Size(222, 23);
-            this.btnEnderecoTrabalho.TabIndex = 23;
-            this.btnEnderecoTrabalho.Text = "ENDEREÇO DE TRABALHO";
-            this.btnEnderecoTrabalho.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 369);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 13);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Telefone :";
-            // 
-            // txtTelefone1
-            // 
-            this.txtTelefone1.Location = new System.Drawing.Point(15, 385);
-            this.txtTelefone1.Name = "txtTelefone1";
-            this.txtTelefone1.Size = new System.Drawing.Size(189, 20);
-            this.txtTelefone1.TabIndex = 24;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(234, 369);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 13);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "Telefone 2 (opcional) :";
-            // 
-            // txtTelefone2
-            // 
-            this.txtTelefone2.Location = new System.Drawing.Point(231, 385);
-            this.txtTelefone2.Name = "txtTelefone2";
-            this.txtTelefone2.Size = new System.Drawing.Size(189, 20);
-            this.txtTelefone2.TabIndex = 26;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(18, 420);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(160, 13);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Telefone do trabalho (opcional) :";
-            // 
-            // txtTelefoneTrabalho
-            // 
-            this.txtTelefoneTrabalho.Location = new System.Drawing.Point(15, 436);
-            this.txtTelefoneTrabalho.Name = "txtTelefoneTrabalho";
-            this.txtTelefoneTrabalho.Size = new System.Drawing.Size(189, 20);
-            this.txtTelefoneTrabalho.TabIndex = 28;
-            // 
             // gpbButtons
             // 
             this.gpbButtons.Controls.Add(this.btnGravar);
@@ -354,6 +356,7 @@
             this.btnGravar.TabIndex = 15;
             this.btnGravar.Text = "GRAVAR";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnSair
             // 
@@ -363,6 +366,7 @@
             this.btnSair.TabIndex = 19;
             this.btnSair.Text = "SAIR";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // frmResponsaveisCadastrar
             // 

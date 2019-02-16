@@ -128,6 +128,7 @@
             this.btnNovo.TabIndex = 15;
             this.btnNovo.Text = "NOVO";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnExcluir
             // 
@@ -146,6 +147,7 @@
             this.btnAlterar.TabIndex = 17;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnSair
             // 
@@ -155,6 +157,7 @@
             this.btnSair.TabIndex = 19;
             this.btnSair.Text = "SAIR";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // frmResponsaveisPesquisar
             // 

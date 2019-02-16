@@ -45,12 +45,14 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
+            this.btnResponsaveis = new System.Windows.Forms.Button();
             this.gpbFormulario.SuspendLayout();
             this.gpbButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbFormulario
             // 
+            this.gpbFormulario.Controls.Add(this.btnResponsaveis);
             this.gpbFormulario.Controls.Add(this.label5);
             this.gpbFormulario.Controls.Add(this.cbbEstados);
             this.gpbFormulario.Controls.Add(this.txtMunicipio);
@@ -63,7 +65,7 @@
             this.gpbFormulario.Controls.Add(this.label1);
             this.gpbFormulario.Location = new System.Drawing.Point(12, 12);
             this.gpbFormulario.Name = "gpbFormulario";
-            this.gpbFormulario.Size = new System.Drawing.Size(640, 192);
+            this.gpbFormulario.Size = new System.Drawing.Size(640, 284);
             this.gpbFormulario.TabIndex = 0;
             this.gpbFormulario.TabStop = false;
             // 
@@ -159,7 +161,7 @@
             this.gpbButtons.Controls.Add(this.btnAlterar);
             this.gpbButtons.Controls.Add(this.btnSair);
             this.gpbButtons.Controls.Add(this.btnGravar);
-            this.gpbButtons.Location = new System.Drawing.Point(12, 222);
+            this.gpbButtons.Location = new System.Drawing.Point(12, 302);
             this.gpbButtons.Name = "gpbButtons";
             this.gpbButtons.Size = new System.Drawing.Size(640, 56);
             this.gpbButtons.TabIndex = 1;
@@ -215,11 +217,21 @@
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
+            // btnResponsaveis
+            // 
+            this.btnResponsaveis.Location = new System.Drawing.Point(477, 144);
+            this.btnResponsaveis.Name = "btnResponsaveis";
+            this.btnResponsaveis.Size = new System.Drawing.Size(138, 23);
+            this.btnResponsaveis.TabIndex = 20;
+            this.btnResponsaveis.Text = "RESPONSÁVEIS";
+            this.btnResponsaveis.UseVisualStyleBackColor = true;
+            this.btnResponsaveis.Click += new System.EventHandler(this.btnResponsaveis_Click);
+            // 
             // frmAlunosCadastrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 296);
+            this.ClientSize = new System.Drawing.Size(665, 368);
             this.Controls.Add(this.gpbButtons);
             this.Controls.Add(this.gpbFormulario);
             this.Name = "frmAlunosCadastrar";
@@ -250,5 +262,6 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.Button btnResponsaveis;
     }
 }
