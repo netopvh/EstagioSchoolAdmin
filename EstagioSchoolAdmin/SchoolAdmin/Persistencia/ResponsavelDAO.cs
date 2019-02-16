@@ -120,5 +120,39 @@ namespace SchoolAdmin.Persistencia
 
             return true;
         }
+
+        public List<Responsavel> Consultar(string resp_nome, Aluno aluno)
+        {
+            List<Responsavel> lista = new List<Responsavel>();
+            string stringSQL = "select ra.alu_pk, ra.resp_pk, p.pes_nome, r.resp_parentesco, r.resp_outroparentesco " +
+                "from responsaveis_aluno ra " +
+                "inner join pessoas p on p.pes_pk=ra.resp_pk " +
+                "inner join responsaveis r on r.pes_pk=ra.resp_pk " +
+                "where ra.alu_pk=20 and p.pes_nome ilike @nome";
+
+            NpgsqlCommand cmdConsultar = new NpgsqlCommand(stringSQL, this.Conexao);
+            this.Conexao.Open();
+            cmdConsultar.Parameters.AddWithValue("@nome", "%" + resp_nome + "%");
+
+            NpgsqlDataReader resultado = cmdConsultar.ExecuteReader();
+
+            if (resultado.HasRows)
+            {
+                while (resultado.Read())
+                {
+                    Responsavel resp = new Responsavel();
+                    resp.Id = resultado.GetInt32(1);
+                    resp.Nome = resultado.GetString(2);
+                    resp.Parentesco = resultado.GetChar(3).ToString();
+                    resp.OutroParentesco = resultado.GetString(4);
+
+                    lista.Add(resp);
+                }
+            }
+            resultado.Close();
+            this.Conexao.Close();
+
+            return lista;
+        }
     }
 }
