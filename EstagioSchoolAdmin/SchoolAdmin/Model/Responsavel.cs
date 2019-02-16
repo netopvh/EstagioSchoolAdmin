@@ -15,5 +15,10 @@ namespace SchoolAdmin.Model
         public string CPF { get; set; }
         public bool MoraMesmoEnderecoAluno { get; set; }
         public string Profissao { get; set; }
+
+        public Responsavel()
+        {
+            Id = 0;
+        }
     }
 }

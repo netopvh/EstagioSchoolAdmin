@@ -211,7 +211,10 @@ namespace SchoolAdmin.View
 
         private void btnResponsaveis_Click(object sender, EventArgs e)
         {
-            new frmResponsaveisPesquisar().ShowDialog();
+            if (instancia != null)
+            {
+                new frmResponsaveisPesquisar(instancia).ShowDialog();
+            }
         }
     }
 }

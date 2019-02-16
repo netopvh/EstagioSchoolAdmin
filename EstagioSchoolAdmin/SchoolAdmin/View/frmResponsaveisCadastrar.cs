@@ -1,4 +1,5 @@
 ﻿using SchoolAdmin.Control;
+using SchoolAdmin.Model;
 using SchoolAdmin.Util.Validators;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,17 @@ namespace SchoolAdmin.View
     public partial class frmResponsaveisCadastrar : Form
     {
         public ResponsaveisCtr controller;
+        public Responsavel instancia;
+        public Aluno instanciaAluno;
+        public Telefone telefoneObrigatorio;
+        public Telefone telefoneOpcional;
+        public Telefone telefoneTrabalho;
 
-        public frmResponsaveisCadastrar(ResponsaveisCtr ctr)
+        public frmResponsaveisCadastrar(ResponsaveisCtr ctr, Aluno alunoSelecionado)
         {
             InitializeComponent();
+
+            instanciaAluno = alunoSelecionado;
 
             controller = ctr;
             CarregarComboboxs();
@@ -85,6 +93,11 @@ namespace SchoolAdmin.View
             txtTelefone1.Mask = "(99) 00000 - 0000";
             txtTelefone2.Mask = "(99) 00000 - 0000";
             txtTelefoneTrabalho.Mask = "(99) 00000 - 0000";
+
+            instancia = controller.GetInstancia();
+            telefoneObrigatorio = new Telefone();
+            telefoneOpcional = new Telefone();
+            telefoneTrabalho = new Telefone();
         }
 
         private bool ValidarDados()
@@ -198,9 +211,54 @@ namespace SchoolAdmin.View
             return !erro;
         }
 
+        public string getTelefoneValue(string telefone)
+        {
+            return telefone.Replace("-", "").Replace(" ", "").Replace("(", "").Replace(")", "").Trim();
+        }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            ValidarDados();
+            if (ValidarDados())
+            {
+                instancia.Nome = txtNome.Text;
+                instancia.Sexo = cbbSexo.SelectedValue.ToString();
+                instancia.Rg = txtRG.Text;
+
+                if(ckbOutroParentesco.Checked)
+                {
+                    instancia.Parentesco = "";
+                    instancia.OutroParentesco = txtOutroParentesco.Text.Trim();
+                }
+                else
+                {
+                    instancia.Parentesco = cbbParentesco.SelectedValue.ToString();
+                    instancia.OutroParentesco = "";
+                }
+                instancia.EstadoCivil = cbbEstadoCivil.SelectedValue.ToString();
+                instancia.NomeConjuge = txtNomeConjuge.Text.Trim();
+                instancia.CPF = txtCPF.Text.Trim();
+                instancia.Rg = txtCPF.Text.Trim();
+                instancia.MoraMesmoEnderecoAluno = ckbEndereco.Checked;
+                instancia.Profissao = txtProfissao.Text.Trim();
+
+                telefoneObrigatorio.Numero = getTelefoneValue(txtTelefone1.Text);
+                telefoneOpcional.Numero = getTelefoneValue(txtTelefone2.Text);
+                telefoneTrabalho.Numero = getTelefoneValue(txtTelefoneTrabalho.Text);
+
+
+                if (controller.Gravar(instancia, instanciaAluno, telefoneObrigatorio, telefoneOpcional, telefoneTrabalho))
+                {
+                    MessageBox.Show(
+                        "Gravação realizada com sucesso. Todos os dados foram salvos.",
+                        "Gravação realizada",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+                    InicializarControles();
+                }
+
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)
