@@ -58,6 +58,7 @@
             this.dgvResponsaveis.ReadOnly = true;
             this.dgvResponsaveis.Size = new System.Drawing.Size(674, 289);
             this.dgvResponsaveis.TabIndex = 7;
+            this.dgvResponsaveis.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResponsaveis_CellDoubleClick);
             // 
             // Nome
             // 
@@ -139,6 +140,7 @@
             this.btnExcluir.TabIndex = 18;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 

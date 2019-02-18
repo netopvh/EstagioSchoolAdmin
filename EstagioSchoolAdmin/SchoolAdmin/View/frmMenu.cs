@@ -18,10 +18,6 @@ namespace SchoolAdmin.View
             InitializeComponent();
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -42,19 +38,37 @@ namespace SchoolAdmin.View
             new frmFuncionariosCadastrar(new FuncionarioCtr()).ShowDialog();
         }
 
-        private void btnContasPagar_Click(object sender, EventArgs e)
-        {
-            new frmLancarContasAPagar(new ContaPagarCtr()).ShowDialog();
-        }
-
-        private void btnQuitar_Click(object sender, EventArgs e)
-        {
-            new frmQuitarContasAPagar(new ContaPagarCtr()).ShowDialog();
-        }
-
         private void btnAlunos_Click(object sender, EventArgs e)
         {
             new frmAlunosCadastrar(new AlunosCtr()).ShowDialog();
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            int w = Screen.PrimaryScreen.WorkingArea.Width;
+            int h = Screen.PrimaryScreen.WorkingArea.Height;
+
+            pnl2.BackColor = System.Drawing.ColorTranslator.FromHtml("#BBBDC0");
+
+            btnFuncionarios.BackColor = System.Drawing.ColorTranslator.FromHtml("#56DEA7");
+            btnAlunos.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF7659");
+            btnFinanceiro.BackColor = System.Drawing.ColorTranslator.FromHtml("#F8CD36");
+
+            Left = Top = 0;
+            Width = w;
+            Height = h;
+            this.BackColor = System.Drawing.ColorTranslator.FromHtml("#393d4b");
+            this.btnClose.Location = new Point(w-80, 3);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnFinanceiro_Click(object sender, EventArgs e)
+        {
+            new frmMenuFinanceiro().ShowDialog();
         }
     }
 }

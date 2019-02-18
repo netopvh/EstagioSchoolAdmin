@@ -21,8 +21,9 @@ namespace SchoolAdmin.View
         public Telefone telefoneObrigatorio;
         public Telefone telefoneOpcional;
         public Telefone telefoneTrabalho;
+        public int selecionado;
 
-        public frmResponsaveisCadastrar(ResponsaveisCtr ctr, Aluno alunoSelecionado)
+        public frmResponsaveisCadastrar(ResponsaveisCtr ctr, Aluno alunoSelecionado, int id_selecionado)
         {
             InitializeComponent();
 
@@ -30,7 +31,79 @@ namespace SchoolAdmin.View
 
             controller = ctr;
             CarregarComboboxs();
+            selecionado = id_selecionado;
+
             InicializarControles();
+
+            if (selecionado > 0)
+            {
+                CarregarDados();
+            }
+           
+        }
+
+        private void CarregarDados()
+        {
+            instancia = controller.GetResponsavelById(selecionado);
+
+            txtNome.Text = instancia.Nome;
+            cbbSexo.SelectedIndex = instancia.Sexo.Equals("m") ? 0 : 1;
+
+            if (instancia.OutroParentesco.Length > 0)
+            {
+                ckbOutroParentesco.Checked = true;
+                txtOutroParentesco.Text = instancia.OutroParentesco;
+            }
+            else
+            {
+                int index;
+
+                if (instancia.Parentesco == "P")
+                {
+                    index = 0;
+                }
+                else if (instancia.Parentesco == "M")
+                {
+                    index = 1;
+                }
+                else
+                {
+                    index = 2;
+                }
+
+                cbbParentesco.SelectedIndex = index;
+            }
+
+            switch(instancia.EstadoCivil)
+            {
+                case "1":
+                    cbbEstadoCivil.SelectedIndex = 0;
+                    break;
+                case "2":
+                    cbbEstadoCivil.SelectedIndex = 1;
+                    break;
+                case "3":
+                    cbbEstadoCivil.SelectedIndex = 2;
+                    break;
+                case "4":
+                    cbbEstadoCivil.SelectedIndex = 3;
+                    break;
+                case "5":
+                    cbbEstadoCivil.SelectedIndex = 4;
+                    break;
+            }
+
+            txtNomeConjuge.Text = instancia.NomeConjuge;
+            txtCPF.Text = instancia.CPF;
+            txtRG.Text = instancia.Rg;
+
+            if(instancia.MoraMesmoEnderecoAluno)
+            {
+                ckbEndereco.Checked = true;
+            }
+
+            txtProfissao.Text = instancia.Profissao;
+            
         }
 
         private void CarregarComboboxs()

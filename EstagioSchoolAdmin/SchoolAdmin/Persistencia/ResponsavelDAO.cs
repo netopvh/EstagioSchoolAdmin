@@ -154,5 +154,46 @@ namespace SchoolAdmin.Persistencia
 
             return lista;
         }
+
+        public Responsavel GetResponsavelById(int responsavel_id)
+        {
+            Responsavel resp = null;
+            string stringSQL = "select p.pes_pk, p.pes_nome, p.pes_sexo, p.pes_rg, r.resp_cpf, " +
+                "r.resp_estadocivil, r.resp_nomeconjuge, r.resp_profissao, r.resp_parentesco, " +
+                "r.resp_outroparentesco, r.resp_enderecoaluno " +
+             "from pessoas p " +
+                "inner join responsaveis r on p.pes_pk = r.pes_pk " +
+             "where p.pes_pk=@pessoa";
+
+            NpgsqlCommand cmdConsultar = new NpgsqlCommand(stringSQL, this.Conexao);
+            this.Conexao.Open();
+            cmdConsultar.Parameters.AddWithValue("@pessoa", responsavel_id);
+
+            NpgsqlDataReader resultado = cmdConsultar.ExecuteReader();
+
+            if (resultado.HasRows)
+            {
+                resultado.Read();
+                resp = new Responsavel();
+
+                resp.Id = resultado.GetInt32(0);
+                resp.Nome = resultado.GetString(1);
+                resp.Sexo = resultado.GetChar(2).ToString();
+                resp.Rg = resultado.GetString(3);
+
+                resp.CPF = resultado.GetString(4);
+                resp.EstadoCivil = resultado.GetChar(5).ToString();
+                resp.NomeConjuge = resultado.GetString(6);
+                resp.Profissao = resultado.GetString(7);
+                resp.Parentesco = resultado.GetChar(8).ToString();
+                resp.OutroParentesco = resultado.GetString(9);
+                resp.MoraMesmoEnderecoAluno = resultado.GetBoolean(10);
+
+            }
+            resultado.Close();
+            this.Conexao.Close();
+
+            return resp;
+        }
     }
 }

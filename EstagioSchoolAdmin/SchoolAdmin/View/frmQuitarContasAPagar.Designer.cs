@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuitarContasAPagar));
             this.gpbForm = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -306,7 +307,9 @@
             this.Controls.Add(this.cbbFormaPagamento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.gpbForm);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmQuitarContasAPagar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "School Admin - Quitar Contas a Pagar";
             this.gpbForm.ResumeLayout(false);
             this.gpbForm.PerformLayout();

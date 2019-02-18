@@ -120,6 +120,11 @@
     <Compile Include="Persistencia\TelefoneDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Util\Validators\CEPValidator.cs" />
     <Compile Include="Util\Validators\CPFValidator.cs" />
     <Compile Include="Util\Validators\DinheiroValidator.cs" />
@@ -165,6 +170,12 @@
     <Compile Include="View\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmMenuFinanceiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMenuFinanceiro.Designer.cs">
+      <DependentUpon>frmMenuFinanceiro.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmQuitarContasAPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,14 +196,9 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="View\frmAlunosCadastrar.resx">
       <DependentUpon>frmAlunosCadastrar.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMenuFinanceiro.resx">
+      <DependentUpon>frmMenuFinanceiro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmQuitarContasAPagar.resx">
       <DependentUpon>frmQuitarContasAPagar.cs</DependentUpon>
@@ -240,7 +249,6 @@
   <ItemGroup>
     <None Include="Resources\funcionarios-icon.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
@@ -252,6 +260,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\close_icon.png" />
+    <None Include="Resources\tutorial.png" />
+    <None Include="Resources\reading.png" />
+    <None Include="Resources\teacher.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

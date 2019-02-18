@@ -80,5 +80,11 @@ namespace SchoolAdmin.Control
             }
             return resultadoBusca;
         }
+
+        public Responsavel GetResponsavelById(int id)
+        {
+            ResponsavelDAO resDAO = new ResponsavelDAO();
+            return resDAO.GetResponsavelById(id);
+        }
     }
 }

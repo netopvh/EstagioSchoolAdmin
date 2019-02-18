@@ -22,10 +22,6 @@ namespace SchoolAdmin.View
         {
             InitializeComponent();
             controller = ctr;
-            if( controller == null)
-            {
-                MessageBox.Show("ALERTA!");
-            }
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

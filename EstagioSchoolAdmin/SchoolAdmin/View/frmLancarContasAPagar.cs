@@ -117,6 +117,7 @@ namespace SchoolAdmin.View
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLancarContasAPagar));
             this.gpbForm = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.MaskedTextBox();
@@ -330,7 +331,9 @@ namespace SchoolAdmin.View
             this.Controls.Add(this.dgvContasAPagar);
             this.Controls.Add(this.gpbButtons);
             this.Controls.Add(this.gpbForm);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLancarContasAPagar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "School Admin - Lançar Contas a Pagar";
             this.gpbForm.ResumeLayout(false);
             this.gpbForm.PerformLayout();
