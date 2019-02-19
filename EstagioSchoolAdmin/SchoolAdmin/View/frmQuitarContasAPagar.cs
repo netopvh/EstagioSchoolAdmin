@@ -26,12 +26,19 @@ namespace SchoolAdmin.View
             EstadoInicial();
         }
 
+        private void InicializarDgv()
+        {
+            dgvContas.DataSource = null;
+            dgvContas.Refresh();
+        }
+
         private void EstadoInicial()
         {
             cbbOrigem.SelectedIndex = -1;
             cbbFormaPagamento.SelectedIndex = -1;
             dtpInicio.Value = DateTime.Now;
             dtpFim.Value = DateTime.Now;
+            InicializarDgv();
         }
         
         private void EstadoContaNaoSelecionada()
@@ -74,7 +81,8 @@ namespace SchoolAdmin.View
             {
                 OrigemContaAPagar origem = (OrigemContaAPagar)cbbOrigem.SelectedItem;
 
-                DataTable resultado = controller.PesquisarContas(origem);
+                DataTable resultado = controller.PesquisarContas(origem, ckbMostrarQuitadas.Checked);
+
                 if (resultado.Rows.Count < 1)
                 {
                     MessageBox.Show("Não foi encontrado nenhuma como resultado",
@@ -107,7 +115,7 @@ namespace SchoolAdmin.View
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                DataTable resultado = controller.FiltrarContasPorDataVencimento(origem, inicio, fim);
+                DataTable resultado = controller.FiltrarContasPorDataVencimento(origem, inicio, fim, ckbMostrarQuitadas.Checked);
                 if (resultado.Rows.Count < 1)
                 {
                     MessageBox.Show("Não foi encontrada nenhuma conta como resultado.",
@@ -166,61 +174,6 @@ namespace SchoolAdmin.View
             }
         }
 
-        private void dgvContas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex == dgvContas.Columns["Selecionar"].Index)
-            {
-                try
-                {
-                    DataGridViewCheckBoxCell checkSelecionado = (DataGridViewCheckBoxCell)dgvContas.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                    
-                    //DataGridViewRow row = dgvContas.Rows[e.RowIndex];
-                    //var ckbox = (DataGridViewCheckBoxCell)dgvContas.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
-                    //bool bChecked = (null != ckbox && null != ckbox.Value && true == (bool)ckbox.Value);
-                    //if (!bChecked)
-                    //{
-                    //    row.Cells["Selecionar"].Value = true;
-
-                    //}
-                    //else
-                    //{
-                    //    row.Cells["Selecionar"].Value = false;
-
-                    //}
-
-
-
-
-                    //string conta, vencimento, valor;
-
-                    //string selecionado = dgvContas.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    //conta = dgvContas.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    //vencimento = dgvContas.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    //valor = dgvContas.Rows[e.RowIndex].Cells[5].Value.ToString();
-
-                    //int contaSelecionada = int.Parse(selecionado);
-
-                    //String mensagem = String
-                    //            .Format("\nCONTA: '{0}' \nVENCIMENTO: {1} \nVALOR: {2} ",
-                    //            conta, vencimento, valor);
-
-                    //MessageBox.Show(mensagem, "CONTA SELECIONADA", MessageBoxButtons.OK);
-
-
-
-                }
-                catch
-                {
-
-                }
-
-
-            }
-
-
-        }
-
         private void VerificarEstadoBaixa()
         {
             EstadoContaNaoSelecionada();
@@ -236,39 +189,64 @@ namespace SchoolAdmin.View
 
         private void dgvContas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            bool checkBoxStatus = Convert.ToBoolean(dgvContas.CurrentCell.EditedFormattedValue);
+            bool checkBoxStatus = false;
+            try
+            {
+              checkBoxStatus = Convert.ToBoolean(dgvContas.CurrentCell.EditedFormattedValue);
+            }
+            catch { }
 
             if (checkBoxStatus)
             {
-                DataGridViewCheckBoxCell checkSelecionado = (DataGridViewCheckBoxCell)dgvContas.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                checkSelecionado.Value = true;
-
-                try
+                string valorPago = dgvContas.Rows[e.RowIndex].Cells[6].Value.ToString();
+                if(valorPago.Equals("R$ 0,00"))
                 {
-                    string conta, vencimento, valor;
+                    DataGridViewCheckBoxCell checkSelecionado = (DataGridViewCheckBoxCell)dgvContas.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    checkSelecionado.Value = true;
 
-                    string selecionado = dgvContas.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    conta = dgvContas.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    vencimento = dgvContas.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    valor = dgvContas.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    try
+                    {
+                        string conta, vencimento, valor;
 
-                    int contaSelecionada = int.Parse(selecionado);
+                        string selecionado = dgvContas.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        conta = dgvContas.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        vencimento = dgvContas.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        valor = dgvContas.Rows[e.RowIndex].Cells[5].Value.ToString();
 
-                    String mensagem = String
-                                .Format("\nCONTA: '{0}' \nVENCIMENTO: {1} \nVALOR: {2} ",
-                                conta, vencimento, valor);
+                        int contaSelecionada = int.Parse(selecionado);
 
-                    MessageBox.Show(mensagem, "CONTA SELECIONADA", MessageBoxButtons.OK);
+                        String mensagem = String
+                                    .Format("\nCONTA: '{0}' \nVENCIMENTO: {1} \nVALOR: {2} ",
+                                    conta, vencimento, valor);
+
+                        MessageBox.Show(mensagem, "CONTA SELECIONADA", MessageBoxButtons.OK);
+                    }
+                    catch { }
                 }
-                catch {}
+                else
+                {
+                    dgvContas.Rows[e.RowIndex].Cells[e.ColumnIndex] = new DataGridViewCheckBoxCell();
+                    dgvContas.Refresh();
+                }
+
+                
             }
             else
             {
-                DataGridViewCheckBoxCell checkSelecionado = (DataGridViewCheckBoxCell)dgvContas.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                checkSelecionado.Value = false;
+                try
+                {
+                    DataGridViewCheckBoxCell checkSelecionado = (DataGridViewCheckBoxCell)dgvContas.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    checkSelecionado.Value = false;
+                }
+                catch { }
             }
 
             VerificarEstadoBaixa();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            InicializarDgv();
         }
     }
 }

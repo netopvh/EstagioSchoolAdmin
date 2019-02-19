@@ -263,6 +263,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\close_icon.png" />
+    <None Include="Resources\student-sys-icon.png" />
+    <None Include="Resources\find.png" />
     <None Include="Resources\reload.png" />
     <None Include="Resources\diskette.png" />
     <None Include="Resources\tutorial.png" />

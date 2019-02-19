@@ -48,17 +48,14 @@ namespace SchoolAdmin.View
             int w = Screen.PrimaryScreen.WorkingArea.Width;
             int h = Screen.PrimaryScreen.WorkingArea.Height;
 
-            pnl2.BackColor = System.Drawing.ColorTranslator.FromHtml("#BBBDC0");
+            pnlTop.BackColor = System.Drawing.ColorTranslator.FromHtml("#168BDB");
 
-            btnFuncionarios.BackColor = System.Drawing.ColorTranslator.FromHtml("#56DEA7");
-            btnAlunos.BackColor = System.Drawing.ColorTranslator.FromHtml("#FF7659");
-            btnFinanceiro.BackColor = System.Drawing.ColorTranslator.FromHtml("#F8CD36");
+            btnFuncionarios.BackColor = System.Drawing.ColorTranslator.FromHtml("#168BDB");
+            btnAlunos.BackColor = System.Drawing.ColorTranslator.FromHtml("#168BDB");
+            btnFinanceiro.BackColor = System.Drawing.ColorTranslator.FromHtml("#168BDB");
 
-            Left = Top = 0;
-            Width = w;
-            Height = h;
-            this.BackColor = System.Drawing.ColorTranslator.FromHtml("#393d4b");
-            this.btnClose.Location = new Point(w-80, 3);
+            this.BackColor = System.Drawing.ColorTranslator.FromHtml("#FFFFFF");
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)

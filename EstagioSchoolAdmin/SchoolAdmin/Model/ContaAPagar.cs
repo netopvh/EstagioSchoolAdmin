@@ -13,12 +13,14 @@ namespace SchoolAdmin.Model
         public DateTime DataLancamento { get; set; }
         public DateTime Vencimento { get; set; }
         public Decimal Valor { get; set; }
+        public Decimal ValorPago { get; set; }
         public OrigemContaAPagar Origem { get; set; }
 
         public ContaAPagar()
         {
             Id = 0;
             DataLancamento = DateTime.Now;
+            ValorPago = 0;
         }
     }
 }
