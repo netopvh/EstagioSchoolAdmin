@@ -164,6 +164,7 @@ namespace SchoolAdmin.View
                 if (confirmacao == DialogResult.OK)
                 {
                     controller.RegistrarBaixa(listaContas, formaPagamento);
+                    EstadoInicial();
                 }
             }
             else

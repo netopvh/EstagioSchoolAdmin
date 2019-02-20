@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFinanceiro = new System.Windows.Forms.Button();
             this.btnAlunos = new System.Windows.Forms.Button();
-            this.pcbLogo = new System.Windows.Forms.PictureBox();
             this.btnFuncionarios = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,15 @@
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(993, 53);
             this.pnlTop.TabIndex = 2;
+            // 
+            // pcbLogo
+            // 
+            this.pcbLogo.Image = global::SchoolAdmin.Properties.Resources.student_sys_icon1;
+            this.pcbLogo.Location = new System.Drawing.Point(21, 9);
+            this.pcbLogo.Name = "pcbLogo";
+            this.pcbLogo.Size = new System.Drawing.Size(31, 33);
+            this.pcbLogo.TabIndex = 7;
+            this.pcbLogo.TabStop = false;
             // 
             // label1
             // 
@@ -95,15 +105,6 @@
             this.btnAlunos.UseVisualStyleBackColor = false;
             this.btnAlunos.Click += new System.EventHandler(this.btnAlunos_Click);
             // 
-            // pcbLogo
-            // 
-            this.pcbLogo.Image = global::SchoolAdmin.Properties.Resources.student_sys_icon1;
-            this.pcbLogo.Location = new System.Drawing.Point(21, 9);
-            this.pcbLogo.Name = "pcbLogo";
-            this.pcbLogo.Size = new System.Drawing.Size(31, 33);
-            this.pcbLogo.TabIndex = 7;
-            this.pcbLogo.TabStop = false;
-            // 
             // btnFuncionarios
             // 
             this.btnFuncionarios.BackColor = System.Drawing.Color.LightGray;
@@ -121,12 +122,23 @@
             this.btnFuncionarios.UseVisualStyleBackColor = false;
             this.btnFuncionarios.Click += new System.EventHandler(this.btnFuncionarios_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(777, 107);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(993, 600);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFinanceiro);
             this.Controls.Add(this.btnAlunos);
             this.Controls.Add(this.pnlTop);
@@ -153,5 +165,6 @@
         private System.Windows.Forms.Button btnAlunos;
         private System.Windows.Forms.Button btnFinanceiro;
         private System.Windows.Forms.PictureBox pcbLogo;
+        private System.Windows.Forms.Button button1;
     }
 }
