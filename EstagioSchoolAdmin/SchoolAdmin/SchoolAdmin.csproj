@@ -90,6 +90,7 @@
     <Compile Include="Control\EnderecosCtr.cs" />
     <Compile Include="Control\EstadoCtr.cs" />
     <Compile Include="Control\FormasPagamentoCtr.cs" />
+    <Compile Include="Control\FraturaCtr.cs" />
     <Compile Include="Control\FuncionarioCtr.cs" />
     <Compile Include="Control\MedicamentosCtr.cs" />
     <Compile Include="Control\OrigemContaAPagarCtr.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Model\Endereco.cs" />
     <Compile Include="Model\Estado.cs" />
     <Compile Include="Model\FormaPagamento.cs" />
+    <Compile Include="Model\Fratura.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\Medicamento.cs" />
     <Compile Include="Model\OrigemContaAPagar.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Persistencia\EnderecoDAO.cs" />
     <Compile Include="Persistencia\EstadoDAO.cs" />
     <Compile Include="Persistencia\FormaPagamentoDAO.cs" />
+    <Compile Include="Persistencia\FraturaDAO.cs" />
     <Compile Include="Persistencia\FuncionarioDAO.cs" />
     <Compile Include="Persistencia\MedicamentoDAO.cs" />
     <Compile Include="Persistencia\OrigemContaAPagarDAO.cs" />
@@ -188,6 +191,12 @@
     </Compile>
     <Compile Include="View\frmGerenciarFormasPagamento.Designer.cs">
       <DependentUpon>frmGerenciarFormasPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmGerenciarFraturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmGerenciarFraturas.Designer.cs">
+      <DependentUpon>frmGerenciarFraturas.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmGerenciarMedicamentos.cs">
       <SubType>Form</SubType>
@@ -277,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarFormasPagamento.resx">
       <DependentUpon>frmGerenciarFormasPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmGerenciarFraturas.resx">
+      <DependentUpon>frmGerenciarFraturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarMedicamentos.resx">
       <DependentUpon>frmGerenciarMedicamentos.cs</DependentUpon>

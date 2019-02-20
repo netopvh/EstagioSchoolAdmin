@@ -70,7 +70,7 @@ namespace SchoolAdmin.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new frmGerenciarTratamentosSaude(new TratamentoSaudeCtr()).ShowDialog();
+            new frmGerenciarFraturas(new FraturaCtr()).ShowDialog();
         }
     }
 }
