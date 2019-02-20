@@ -113,6 +113,7 @@
     <Compile Include="Persistencia\Conexao.cs" />
     <Compile Include="Persistencia\ContaAPagarDAO.cs" />
     <Compile Include="Persistencia\EnderecoDAO.cs" />
+    <Compile Include="Persistencia\EstadoDAO.cs" />
     <Compile Include="Persistencia\FormaPagamentoDAO.cs" />
     <Compile Include="Persistencia\FuncionarioDAO.cs" />
     <Compile Include="Persistencia\OrigemContaAPagarDAO.cs" />
@@ -161,6 +162,12 @@
     </Compile>
     <Compile Include="View\frmFuncionariosPesquisar.Designer.cs">
       <DependentUpon>frmFuncionariosPesquisar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmGerenciarEstados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmGerenciarEstados.Designer.cs">
+      <DependentUpon>frmGerenciarEstados.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmGerenciarOrigemContas.cs">
       <SubType>Form</SubType>
@@ -220,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmFuncionariosPesquisar.resx">
       <DependentUpon>frmFuncionariosPesquisar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmGerenciarEstados.resx">
+      <DependentUpon>frmGerenciarEstados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarOrigemContas.resx">
       <DependentUpon>frmGerenciarOrigemContas.cs</DependentUpon>
