@@ -96,6 +96,7 @@
     <Compile Include="Control\ResponsaveisCtr.cs" />
     <Compile Include="Control\StatusPagamentoCtr.cs" />
     <Compile Include="Control\TipoMatriculaCtr.cs" />
+    <Compile Include="Control\TratamentoSaudeCtr.cs" />
     <Compile Include="DAL\ContextoDB.cs" />
     <Compile Include="DAL\Mapping\CargoFuncionarioMap.cs" />
     <Compile Include="DAL\Mapping\EnderecosMap.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Model\StatusPagamento.cs" />
     <Compile Include="Model\Telefone.cs" />
     <Compile Include="Model\TipoMatricula.cs" />
+    <Compile Include="Model\TratamentoSaude.cs" />
     <Compile Include="Persistencia\AlunoDAO.cs" />
     <Compile Include="Persistencia\Conexao.cs" />
     <Compile Include="Persistencia\ContaAPagarDAO.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Persistencia\StatusPagamentoDAO.cs" />
     <Compile Include="Persistencia\TelefoneDAO.cs" />
     <Compile Include="Persistencia\TipoMatriculaDAO.cs" />
+    <Compile Include="Persistencia\TratamentoSaudeDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -210,6 +213,12 @@
     <Compile Include="View\frmGerenciarTiposMatricula.Designer.cs">
       <DependentUpon>frmGerenciarTiposMatricula.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmGerenciarTratamentosSaude.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmGerenciarTratamentosSaude.Designer.cs">
+      <DependentUpon>frmGerenciarTratamentosSaude.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmLancarContasAPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarTiposMatricula.resx">
       <DependentUpon>frmGerenciarTiposMatricula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmGerenciarTratamentosSaude.resx">
+      <DependentUpon>frmGerenciarTratamentosSaude.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmLancarContasAPagar.resx">
       <DependentUpon>frmLancarContasAPagar.cs</DependentUpon>
