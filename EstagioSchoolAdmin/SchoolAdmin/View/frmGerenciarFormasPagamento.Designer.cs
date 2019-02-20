@@ -1,6 +1,6 @@
 ﻿namespace SchoolAdmin.View
 {
-    partial class frmGerenciarTiposMatricula
+    partial class frmGerenciarFormasPagamento
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerenciarTiposMatricula));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerenciarFormasPagamento));
             this.gpbForm = new System.Windows.Forms.GroupBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,7 +36,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvTipos = new System.Windows.Forms.DataGridView();
+            this.dgvFormasPagamento = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descrição = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSair = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@
             this.btnGravar = new System.Windows.Forms.Button();
             this.gpbForm.SuspendLayout();
             this.gpbGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTipos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFormasPagamento)).BeginInit();
             this.SuspendLayout();
             // 
             // gpbForm
@@ -53,12 +53,12 @@
             this.gpbForm.Controls.Add(this.txtDescricao);
             this.gpbForm.Controls.Add(this.label1);
             this.gpbForm.Controls.Add(this.gpbGrid);
-            this.gpbForm.Location = new System.Drawing.Point(-2, 5);
+            this.gpbForm.Location = new System.Drawing.Point(-1, 7);
             this.gpbForm.Name = "gpbForm";
             this.gpbForm.Size = new System.Drawing.Size(521, 351);
-            this.gpbForm.TabIndex = 2;
+            this.gpbForm.TabIndex = 3;
             this.gpbForm.TabStop = false;
-            this.gpbForm.Text = "Gerenciar Tipos de Matrícula";
+            this.gpbForm.Text = "Gerenciar Formas de Pagamento";
             // 
             // txtDescricao
             // 
@@ -83,13 +83,13 @@
             this.gpbGrid.Controls.Add(this.btnPesquisar);
             this.gpbGrid.Controls.Add(this.txtPesquisar);
             this.gpbGrid.Controls.Add(this.label2);
-            this.gpbGrid.Controls.Add(this.dgvTipos);
+            this.gpbGrid.Controls.Add(this.dgvFormasPagamento);
             this.gpbGrid.Location = new System.Drawing.Point(12, 28);
             this.gpbGrid.Name = "gpbGrid";
             this.gpbGrid.Size = new System.Drawing.Size(492, 243);
             this.gpbGrid.TabIndex = 2;
             this.gpbGrid.TabStop = false;
-            this.gpbGrid.Text = "Pesquisar Tipo de Matrícula";
+            this.gpbGrid.Text = "Pesquisar Forma de Pagamento";
             // 
             // btnPesquisar
             // 
@@ -122,20 +122,20 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Descrição :";
             // 
-            // dgvTipos
+            // dgvFormasPagamento
             // 
-            this.dgvTipos.AllowUserToAddRows = false;
-            this.dgvTipos.AllowUserToDeleteRows = false;
-            this.dgvTipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTipos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFormasPagamento.AllowUserToAddRows = false;
+            this.dgvFormasPagamento.AllowUserToDeleteRows = false;
+            this.dgvFormasPagamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFormasPagamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Descrição});
-            this.dgvTipos.Location = new System.Drawing.Point(6, 53);
-            this.dgvTipos.Name = "dgvTipos";
-            this.dgvTipos.ReadOnly = true;
-            this.dgvTipos.Size = new System.Drawing.Size(480, 183);
-            this.dgvTipos.TabIndex = 1;
-            this.dgvTipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipos_CellDoubleClick);
+            this.dgvFormasPagamento.Location = new System.Drawing.Point(6, 53);
+            this.dgvFormasPagamento.Name = "dgvFormasPagamento";
+            this.dgvFormasPagamento.ReadOnly = true;
+            this.dgvFormasPagamento.Size = new System.Drawing.Size(480, 183);
+            this.dgvFormasPagamento.TabIndex = 1;
+            this.dgvFormasPagamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipos_CellDoubleClick);
             // 
             // Id
             // 
@@ -155,10 +155,10 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(427, 364);
+            this.btnSair.Location = new System.Drawing.Point(426, 364);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 30);
-            this.btnSair.TabIndex = 16;
+            this.btnSair.TabIndex = 20;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -167,10 +167,10 @@
             // 
             this.btnExcluir.Image = global::SchoolAdmin.Properties.Resources.close_icon;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(192, 364);
+            this.btnExcluir.Location = new System.Drawing.Point(191, 364);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(81, 30);
-            this.btnExcluir.TabIndex = 15;
+            this.btnExcluir.TabIndex = 19;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -180,10 +180,10 @@
             // 
             this.btnNovo.Image = global::SchoolAdmin.Properties.Resources.reload;
             this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(101, 364);
+            this.btnNovo.Location = new System.Drawing.Point(100, 364);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(74, 30);
-            this.btnNovo.TabIndex = 14;
+            this.btnNovo.TabIndex = 18;
             this.btnNovo.Text = "Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -193,20 +193,20 @@
             // 
             this.btnGravar.Image = global::SchoolAdmin.Properties.Resources.diskette;
             this.btnGravar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGravar.Location = new System.Drawing.Point(10, 364);
+            this.btnGravar.Location = new System.Drawing.Point(9, 364);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 30);
-            this.btnGravar.TabIndex = 13;
+            this.btnGravar.TabIndex = 17;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
-            // frmGerenciarTiposMatricula
+            // frmGerenciarFormasPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 401);
+            this.ClientSize = new System.Drawing.Size(509, 399);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnNovo);
@@ -214,13 +214,13 @@
             this.Controls.Add(this.gpbForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmGerenciarTiposMatricula";
-            this.Text = "School Admin - Gerenciar Tipos de Matrícula";
+            this.Name = "frmGerenciarFormasPagamento";
+            this.Text = "School Admin - Gerenciar Formas de Pagamento";
             this.gpbForm.ResumeLayout(false);
             this.gpbForm.PerformLayout();
             this.gpbGrid.ResumeLayout(false);
             this.gpbGrid.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTipos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFormasPagamento)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,12 +234,12 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtPesquisar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvTipos;
+        private System.Windows.Forms.DataGridView dgvFormasPagamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descrição;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnGravar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descrição;
     }
 }

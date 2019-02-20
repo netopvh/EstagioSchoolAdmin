@@ -89,6 +89,7 @@
     <Compile Include="Control\ContaPagarCtr.cs" />
     <Compile Include="Control\EnderecosCtr.cs" />
     <Compile Include="Control\EstadoCtr.cs" />
+    <Compile Include="Control\FormasPagamentoCtr.cs" />
     <Compile Include="Control\FuncionarioCtr.cs" />
     <Compile Include="Control\OrigemContaAPagarCtr.cs" />
     <Compile Include="Control\ResponsaveisCtr.cs" />
@@ -173,6 +174,12 @@
     <Compile Include="View\frmGerenciarEstados.Designer.cs">
       <DependentUpon>frmGerenciarEstados.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmGerenciarFormasPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmGerenciarFormasPagamento.Designer.cs">
+      <DependentUpon>frmGerenciarFormasPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmGerenciarOrigemContas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarEstados.resx">
       <DependentUpon>frmGerenciarEstados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmGerenciarFormasPagamento.resx">
+      <DependentUpon>frmGerenciarFormasPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarOrigemContas.resx">
       <DependentUpon>frmGerenciarOrigemContas.cs</DependentUpon>
