@@ -122,7 +122,7 @@ namespace SchoolAdmin.Persistencia
 
         public bool Excluir(int estado_id)
         {
-            string stringSQL = "delete from estados where org_pk=@codigo";
+            string stringSQL = "delete from estados where est_pk=@codigo";
 
             NpgsqlCommand cmdIncluir = new NpgsqlCommand(stringSQL, this.conexao);
             this.Conexao.Open();

@@ -39,13 +39,13 @@
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvEstados = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpbForm.SuspendLayout();
             this.gpbGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstados)).BeginInit();
@@ -69,6 +69,7 @@
             // 
             this.txtSigla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSigla.Location = new System.Drawing.Point(82, 318);
+            this.txtSigla.MaxLength = 2;
             this.txtSigla.Name = "txtSigla";
             this.txtSigla.Size = new System.Drawing.Size(58, 20);
             this.txtSigla.TabIndex = 6;
@@ -86,6 +87,7 @@
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Location = new System.Drawing.Point(82, 289);
+            this.txtNome.MaxLength = 64;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(337, 20);
             this.txtNome.TabIndex = 4;
@@ -123,11 +125,13 @@
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisar
             // 
             this.txtPesquisar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPesquisar.Location = new System.Drawing.Point(82, 22);
+            this.txtPesquisar.MaxLength = 64;
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(270, 20);
             this.txtPesquisar.TabIndex = 6;
@@ -155,51 +159,7 @@
             this.dgvEstados.ReadOnly = true;
             this.dgvEstados.Size = new System.Drawing.Size(480, 183);
             this.dgvEstados.TabIndex = 1;
-            // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(427, 378);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 30);
-            this.btnSair.TabIndex = 12;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Image = global::SchoolAdmin.Properties.Resources.close_icon;
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(192, 378);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(81, 30);
-            this.btnExcluir.TabIndex = 11;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Image = global::SchoolAdmin.Properties.Resources.reload;
-            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovo.Location = new System.Drawing.Point(101, 378);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(74, 30);
-            this.btnNovo.TabIndex = 10;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNovo.UseVisualStyleBackColor = true;
-            // 
-            // btnGravar
-            // 
-            this.btnGravar.Image = global::SchoolAdmin.Properties.Resources.diskette;
-            this.btnGravar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGravar.Location = new System.Drawing.Point(10, 378);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 30);
-            this.btnGravar.TabIndex = 9;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGravar.UseVisualStyleBackColor = true;
+            this.dgvEstados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEstados_CellDoubleClick);
             // 
             // Id
             // 
@@ -224,6 +184,55 @@
             this.Sigla.Name = "Sigla";
             this.Sigla.ReadOnly = true;
             this.Sigla.Width = 85;
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(427, 378);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 30);
+            this.btnSair.TabIndex = 12;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Image = global::SchoolAdmin.Properties.Resources.close_icon;
+            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExcluir.Location = new System.Drawing.Point(192, 378);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(81, 30);
+            this.btnExcluir.TabIndex = 11;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Image = global::SchoolAdmin.Properties.Resources.reload;
+            this.btnNovo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovo.Location = new System.Drawing.Point(101, 378);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(74, 30);
+            this.btnNovo.TabIndex = 10;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.Image = global::SchoolAdmin.Properties.Resources.diskette;
+            this.btnGravar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGravar.Location = new System.Drawing.Point(10, 378);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 30);
+            this.btnGravar.TabIndex = 9;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // frmGerenciarEstados
             // 

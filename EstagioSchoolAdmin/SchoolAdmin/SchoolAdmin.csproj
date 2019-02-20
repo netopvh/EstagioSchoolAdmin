@@ -88,6 +88,7 @@
     <Compile Include="Control\AlunosCtr.cs" />
     <Compile Include="Control\ContaPagarCtr.cs" />
     <Compile Include="Control\EnderecosCtr.cs" />
+    <Compile Include="Control\EstadoCtr.cs" />
     <Compile Include="Control\FuncionarioCtr.cs" />
     <Compile Include="Control\OrigemContaAPagarCtr.cs" />
     <Compile Include="Control\ResponsaveisCtr.cs" />
