@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\AlunosCtr.cs" />
+    <Compile Include="Control\CirurgiasCtr.cs" />
     <Compile Include="Control\ContaPagarCtr.cs" />
     <Compile Include="Control\EnderecosCtr.cs" />
     <Compile Include="Control\EstadoCtr.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="DAL\Mapping\TelefoneMap.cs" />
     <Compile Include="Model\Aluno.cs" />
     <Compile Include="Model\CargoFuncionario.cs" />
+    <Compile Include="Model\Cirurgia.cs" />
     <Compile Include="Model\ContaAPagar.cs" />
     <Compile Include="Model\Endereco.cs" />
     <Compile Include="Model\Estado.cs" />
@@ -122,6 +124,7 @@
     <Compile Include="Model\TipoMatricula.cs" />
     <Compile Include="Model\TratamentoSaude.cs" />
     <Compile Include="Persistencia\AlunoDAO.cs" />
+    <Compile Include="Persistencia\CirurgiaDAO.cs" />
     <Compile Include="Persistencia\Conexao.cs" />
     <Compile Include="Persistencia\ContaAPagarDAO.cs" />
     <Compile Include="Persistencia\EnderecoDAO.cs" />
@@ -179,6 +182,12 @@
     </Compile>
     <Compile Include="View\frmFuncionariosPesquisar.Designer.cs">
       <DependentUpon>frmFuncionariosPesquisar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmGerenciarCirurgias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmGerenciarCirurgias.Designer.cs">
+      <DependentUpon>frmGerenciarCirurgias.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmGerenciarEstados.cs">
       <SubType>Form</SubType>
@@ -280,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmFuncionariosPesquisar.resx">
       <DependentUpon>frmFuncionariosPesquisar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmGerenciarCirurgias.resx">
+      <DependentUpon>frmGerenciarCirurgias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarEstados.resx">
       <DependentUpon>frmGerenciarEstados.cs</DependentUpon>
