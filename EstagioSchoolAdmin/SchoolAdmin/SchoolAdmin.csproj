@@ -90,6 +90,7 @@
     <Compile Include="Control\ContaPagarCtr.cs" />
     <Compile Include="Control\DeficienciasCtr.cs" />
     <Compile Include="Control\EnderecosCtr.cs" />
+    <Compile Include="Control\EsporteCtr.cs" />
     <Compile Include="Control\EstadoCtr.cs" />
     <Compile Include="Control\FormasPagamentoCtr.cs" />
     <Compile Include="Control\FraturaCtr.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Model\ContaAPagar.cs" />
     <Compile Include="Model\Deficiencia.cs" />
     <Compile Include="Model\Endereco.cs" />
+    <Compile Include="Model\Esporte.cs" />
     <Compile Include="Model\Estado.cs" />
     <Compile Include="Model\FormaPagamento.cs" />
     <Compile Include="Model\Fratura.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="Persistencia\ContaAPagarDAO.cs" />
     <Compile Include="Persistencia\DeficienciaDAO.cs" />
     <Compile Include="Persistencia\EnderecoDAO.cs" />
+    <Compile Include="Persistencia\EsporteDAO.cs" />
     <Compile Include="Persistencia\EstadoDAO.cs" />
     <Compile Include="Persistencia\FormaPagamentoDAO.cs" />
     <Compile Include="Persistencia\FraturaDAO.cs" />
@@ -200,6 +203,12 @@
     </Compile>
     <Compile Include="View\frmGerenciarDefiencias.Designer.cs">
       <DependentUpon>frmGerenciarDefiencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmGerenciarEsportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmGerenciarEsportes.Designer.cs">
+      <DependentUpon>frmGerenciarEsportes.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmGerenciarEstados.cs">
       <SubType>Form</SubType>
@@ -313,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarDefiencias.resx">
       <DependentUpon>frmGerenciarDefiencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmGerenciarEsportes.resx">
+      <DependentUpon>frmGerenciarEsportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmGerenciarEstados.resx">
       <DependentUpon>frmGerenciarEstados.cs</DependentUpon>
