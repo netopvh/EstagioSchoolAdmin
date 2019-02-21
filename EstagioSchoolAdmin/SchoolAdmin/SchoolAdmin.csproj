@@ -94,6 +94,7 @@
     <Compile Include="Control\FraturaCtr.cs" />
     <Compile Include="Control\FuncionarioCtr.cs" />
     <Compile Include="Control\MedicamentosCtr.cs" />
+    <Compile Include="Control\NecessidadesCtr.cs" />
     <Compile Include="Control\OrigemContaAPagarCtr.cs" />
     <Compile Include="Control\ResponsaveisCtr.cs" />
     <Compile Include="Control\StatusPagamentoCtr.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Model\Fratura.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Model\Medicamento.cs" />
+    <Compile Include="Model\NecessidadeEspecial.cs" />
     <Compile Include="Model\OrigemContaAPagar.cs" />
     <Compile Include="Model\Pessoa.cs" />
     <Compile Include="Model\Responsavel.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="Persistencia\FraturaDAO.cs" />
     <Compile Include="Persistencia\FuncionarioDAO.cs" />
     <Compile Include="Persistencia\MedicamentoDAO.cs" />
+    <Compile Include="Persistencia\NecessidadeEspecialDAO.cs" />
     <Compile Include="Persistencia\OrigemContaAPagarDAO.cs" />
     <Compile Include="Persistencia\PagamentosDAO.cs" />
     <Compile Include="Persistencia\ResponsavelDAO.cs" />
@@ -252,6 +255,12 @@
     <Compile Include="View\frmMenuFinanceiro.Designer.cs">
       <DependentUpon>frmMenuFinanceiro.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmGerenciarNecessidadesEspeciais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmGerenciarNecessidadesEspeciais.Designer.cs">
+      <DependentUpon>frmGerenciarNecessidadesEspeciais.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmQuitarContasAPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmMenuFinanceiro.resx">
       <DependentUpon>frmMenuFinanceiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmGerenciarNecessidadesEspeciais.resx">
+      <DependentUpon>frmGerenciarNecessidadesEspeciais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmQuitarContasAPagar.resx">
       <DependentUpon>frmQuitarContasAPagar.cs</DependentUpon>
